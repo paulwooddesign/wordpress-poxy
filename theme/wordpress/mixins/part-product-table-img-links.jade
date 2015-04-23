@@ -1,0 +1,196 @@
+- $i = 1;
+
+- if (have_posts()):
+- while (have_posts()):
+  - the_post();
+
+  :php
+    $image_url = get_poxy_thumb();
+    if ($image_url) {
+      $image = 'background-image: url('. $image_url. ')';
+    } else {
+      $image_ph = get_bloginfo('template_url') . '/images/logo-blue.svg';
+      $image = 'background-image: url('.$image_ph.')';
+    }
+
+
+  - $title = get_the_title();
+  - $description = poxy_meta('_poxy_product_description');
+  - $size = poxy_meta('_poxy_product_size');
+  - $size = poxy_meta('_poxy_product_size');
+  - $height_in = poxy_meta('_poxy_product_height_in');
+  - $height_cm = poxy_meta('_poxy_product_height_cm');
+  - $diameter_in = poxy_meta('_poxy_product_diameter_in');
+  - $diameter_cm = poxy_meta('_poxy_product_diameter_cm');
+  - $depth_in = poxy_meta('_poxy_product_depth_in');
+  - $depth_cm = poxy_meta('_poxy_product_depth_cm');
+  - $length_in = poxy_meta('_poxy_product_length_in');
+  - $length_cm = poxy_meta('_poxy_product_length_cm');
+  - $width_in = poxy_meta('_poxy_product_width_in');
+  - $width_cm = poxy_meta('_poxy_product_width_cm');
+  - $weight = poxy_meta('_poxy_product_weight');
+  - $pole_length_in = poxy_meta('_poxy_product_pole_length_in');
+  - $pole_length_cm = poxy_meta('_poxy_product_pole_length_cm');
+  - $fits = poxy_meta('_poxy_product_fits');
+  - $voltage = poxy_meta('_poxy_product_voltage');
+  - $max_wattage = poxy_meta('_poxy_product_max_wattage');
+  - $lights_mounts = poxy_meta('_poxy_product_lights_mounts');
+  - $rating = poxy_meta('_poxy_product_rating');
+  - $max_wattage = poxy_meta('_poxy_product_max_wattage');
+
+  - if($i == 1) :
+      section
+        .sw
+          .cw
+            .pox.mb0
+              .wrap
+                .poxya112a_118.poxyb112b_118.poxyc112c_118
+                  .delta Image
+                .poxya112a_118.poxyb112b_118.poxyc112c_118
+                  .delta Model
+                  .zeta SKU
+                .poxya12a_118.poxyb38b_118.poxyc38c_118
+                  .delta Description
+                  .zeta About the product
+                .qoxy
+                  .wrap
+                    - if ($size) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Size
+                    - endif;
+                    - if ($width_in) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Width
+                        .zeta in/cm
+                    - endif;
+                    - if ($height_in) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Height
+                        .zeta in/cm
+                    - endif;
+                    - if ($diameter_in) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Diameter
+                        .zeta (in/cm)
+                    - endif;
+                    - if ($depth_in) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Depth
+                        .zeta in/cm
+                    - endif;
+                    - if ($weight) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Weight
+                        .zeta lbs
+                    - endif;
+                    - if ($lights_mounts) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Light Mounts
+                    - endif;
+                    - if ($voltage) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Voltage
+                        .zeta
+                    - endif;
+                    - if ($rating) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Rating
+                        .zeta (wattage)
+                    - endif;
+                    - if ($max_wattage) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Wattage
+                        .zeta (MAX)
+                    - endif;
+                    - if ($pole_length_in) :
+                      .poxya112a_118.poxyb112b_118.poxyc112c_118
+                        .delta Pole Length
+                        .zeta (in/cm)
+                    - endif;
+  - endif;
+  - $i = 2;
+
+  section.clear.txa-2.txb-1
+    .sw
+      .cw
+        .pox.mb0
+          - poxy_edit();
+          .wrap
+            .poxya112a_112.poxyb112b_112.poxyc112c_112.bg-contain.m4(style!='<?php echo $image; ?>')
+              a(href!="<?php echo $image_url; ?>")
+                img(src!="<?php echo $image_url; ?>")
+
+            .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+              a(href!='/product/<?php echo $title; ?>')
+                p
+                  - echo $title;
+
+            .mb4.poxya38a_118.poxyb38b_118.poxyc38c_118
+              p
+                - if ($description) :
+                  - echo $description;
+                - else :
+                  - the_excerpt();
+                - endif;
+
+            .qoxy
+              .wrap
+                - if ($size) :
+                    .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $size;
+                - endif;
+                - if ($width_in) :
+                    .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $width_in . ' / ' . $width_cm;
+                - endif;
+                - if ($height_in) :
+                    .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $height_in . ' / ' . $height_cm;
+                - endif;
+                - if ($diameter_in) :
+                  .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $diameter_in . ' / ' . $diameter_cm;
+                - endif;
+                - if ($depth_in) :
+                    .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $depth_in . ' / ' . $depth_cm;
+                - endif;
+                - if ($weight) :
+                    .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                        p
+                          - echo $weight;
+                - endif;
+                - if ($lights_mounts) :
+                  .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                        p
+                          - echo $lights_mounts;
+                - endif;
+                - if ($voltage) :
+                  .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $voltage;
+                - endif;
+                - if ($rating) :
+                      .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                        p
+                          - echo $rating;
+                - endif;
+                - if ($max_wattage) :
+                      .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                        p
+                          - echo $max_wattage;
+                - endif;
+                - if ($pole_length_in) :
+                  .mb4.poxya112a_118.poxyb112b_118.poxyc112c_118
+                      p
+                        - echo $pole_length_in . ' / ' . $pole_length_cm;
+                - endif;
+
+- endwhile;
+- wp_reset_query();
+- endif;

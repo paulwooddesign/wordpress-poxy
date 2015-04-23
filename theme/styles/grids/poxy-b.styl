@@ -1,0 +1,56 @@
+// @import '../poxy/_mixins'
+@import '../../bower_components/poxy/stylus/_mixins'
+
+
+/////////////////////////////////
+// Zone
+/////////////////////////////////
+$zone_upper = B
+$zone_lower = b
+
+/////////////////////////////////
+// GRID SETTINGS
+/////////////////////////////////
+$font-size = 16
+$em = $font-size / 1rem
+$column = 48
+
+// Gutter X/Y
+$gx = 24
+$gy = 36
+$gs = 6
+
+// ZONE SIZE
+$zone-max = 18
+$zone-min = 12
+
+// Margin Ratios
+$gx_rem = (($gx) / $em)rem
+$gy_rem = (($gy) / $em)rem
+
+/////////////////////////////////
+// GRID Ratio Settings (Denominator)
+// Zone Numerators array ( 1/ $ratio)
+/////////////////////////////////
+$ratio-range = 1 2 3 4 5 6 8 10 11 12 16 18 24
+$numerators = ($zone_upper 1) ($zone_upper 2) ($zone_upper 3) ($zone_upper 5)
+
+
+// OUTPUT GRID
+poxy-copy-width($zone-min, $zone-max, $gx, $gy, $gs)
+poxy-zone-width($zone_upper, $zone_lower, $zone-min, $zone-max, $numerators, $gx, $gs)
+poxy-zone-height($zone_upper, $zone_lower, $zone-min, $zone-max, $numerators, $gx, $gs)
+zone-core-max($zone_lower, $zone-min, $zone-max, $gx_rem, $gy_rem, 1)
+
+//
+// // DEV
+// figure
+// 	background #333
+.waterfall > figure:nth-child(4n+1)
+	transition-delay 0.0s
+.waterfall > figure:nth-child(4n+2)
+	transition-delay 0.2s
+.waterfall > figure:nth-child(4n+3)
+	transition-delay 0.4s
+.waterfall > figure:nth-child(4n+4)
+	transition-delay 0.6s

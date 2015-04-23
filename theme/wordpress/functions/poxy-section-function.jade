@@ -1,0 +1,264 @@
+:php
+  function poxy_section($section_num) {
+    global $post;
+    $section_number = $section_num;
+    $id = $post->ID;
+    $layout = get_post_meta($id, '_poxy_project_section_'.$section_number.'_layout', true);
+    $layout = $layout ? $layout : '1';
+
+    $title = get_post_meta($id, '_poxy_project_section_'.$section_number.'_title', true);
+    $title = $title ? $title : 'Section '.$section_num.' Title';
+
+    $description = get_post_meta($id, '_poxy_project_section_'.$section_number.'_description', true);
+    $description = $description ? $description : 'Section '.$section_num.' Description';
+
+    for($i=1; $i <= 5; $i++) {
+      //- ${'image_url_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0] ? wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0] : '';
+      ${'image_url_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'large')[0] ? wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'large')[0] : '';
+      ${'image_large_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'large')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'large')[0].");" : '';
+      ${'image_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0].");" : '';
+      ${'bgs_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) : 'cover';
+      ${'bgp_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) : 'ct';
+    }
+
+    for($i=1; $i <= 5; $i++) {
+      ${'image_url' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0] ? wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'poxy_1000x1500')[0] : '';
+    }
+
+- switch ($layout) : case "1" :
+
+- break;
+
+
+
+
+- case "responsive" :
+//- - poxy_section_header($title);
+section.shadow-r45-inset--dark2
+  .sw
+    .cw
+      //- .poxy.fill.tx-c
+      //-   h3.title
+      //-     - echo $title;
+      //-   p.description
+      //-     - echo $description;
+      .poxya14a_14.poxyb14b_14.poxyc14c_14
+        p Fully Responsive
+      - poxy_flat_thumb('a13a_25 b13b_25 c13c_25 d11d_11 e11e_11', '1', '#',  $image_1);
+      - poxy_flat_thumb('a14a_13 b14b_13 c14c_13 d35d_11 e35e_11', '2', '#',  $image_2);
+      - poxy_flat_thumb('a16a_14 b16b_14 c16c_14 d25d_11 e25e_11', '3', '#',  $image_3);
+
+//- - poxy_section_description();
+
+- break;
+
+
+
+
+- case "grid-12x35" :
+//- - poxy_section_header($title);
+
+-if($image_1) :
+  section
+    .sw
+      .cw.thumbs
+        .poxya14a_14poxyb14b_14poxc14c_14
+          //- p Image 1
+        - poxy_flat_thumb('a34a_11b34b_11c34c_11d11d_11e11e_11', 'title', '#',  $image_1);
+- endif;
+-if($image_2) :
+  section
+    .sw
+      .cw.thumbs
+        .poxya14a_14poxyb14b_14poxc14c_14
+          //- p Image 2
+        - poxy_flat_thumb('a34a_11b34b_11c34c_11d11d_11e11e_11', 'title', '#',  $image_2);
+- endif;
+-if($image_3) :
+  section
+    .sw
+      .cw.thumbs
+        .poxya14a_14poxyb14b_14poxc14c_14
+          //- p Image 3
+        - poxy_flat_thumb('a34a_11b34b_11c34c_11d11d_11e11e_11', 'title', '#',  $image_3);
+- endif;
+-if($image_4) :
+  section
+    .sw
+      .cw.thumbs
+        .poxya14a_14poxyb14b_14poxc14c_14
+          //- p Image 4
+        - poxy_flat_thumb('a34a_11b34b_11c34c_11d11d_11e11e_11', 'title', '#',  $image_4);
+- endif;
+
+- break;
+
+
+- case "section-auto-height" :
+//- - poxy_section_header($title);
+
+-if($image_1) :
+  section
+    .sw
+      .cw
+        .poxya14a_14poxyb14b_14poxc11
+          //- p Image 1
+        - poxy_img('a34b34c11d11e11', 'title', $image_url_1,  $image_large_1);
+- endif;
+-if($image_2) :
+  section
+    .sw
+      .cw
+        .poxya14a_14poxyb14b_14poxc11
+          //- p Image 2
+        - poxy_img('a34b34c11d11e11', 'title', $image_url_2,  $image_large_2);
+- endif;
+-if($image_3) :
+  section
+    .sw
+      .cw
+        .poxya14a_14poxyb14b_14poxc11
+          //- p Image 3
+        - poxy_img('a34b34c11d11e11', 'title', $image_url_3,  $image_large_3);
+- endif;
+-if($image_4) :
+  section
+    .sw
+      .cw
+        .poxya14a_14poxyb14b_14poxc11
+          //- p Image 4
+        - poxy_img('a34b34c11d11e11', 'title', $image_url_4,  $image_large_4);
+- endif;
+
+- break;
+
+//- - case "grid-12x35" :
+//- - poxy_section_header($title);
+//- section
+//-   .sw
+//-     .cw.thumbs
+//-       -if($image_1) :
+//-         .poxya14a_14poxyb14b_14poxc11
+//-           p Image 1
+//-         - poxy_flat_thumb('a34a_11b34b_11c11c_11d14d_14e12e_12', 'title', '#',  $image_1);
+//-       - endif;
+//-       -if($image_2) :
+//-         .poxya14a_14poxyb14b_14poxc11
+//-           p Image 2
+//-         - poxy_flat_thumb('a34a_11b34b_11c11c_11d14d_14e12e_12', 'title', '#',  $image_2);
+//-       - endif;
+//-       -if($image_3) :
+//-         .poxya14a_14poxyb14b_14poxc11
+//-           p Image 3
+//-         - poxy_flat_thumb('a34a_11b34b_11c11c_11d14d_14e12e_12', 'title', '#',  $image_3);
+//-       - endif;
+//-       -if($image_4) :
+//-         .poxya14a_14poxyb14b_14poxc11
+//-           p Image 4
+//-         - poxy_flat_thumb('a34a_11b34b_11c11c_11d14d_14e12e_12', 'title', '#',  $image_4);
+//-       - endif;
+//-
+//- - break;
+
+- case 'section-3-1' :
+- poxy_section_header($title);
+
+section
+  .sw
+    .cw.thumbs
+      .poxa12.poxb12.poxc34.poxd11.poxe11
+        .wrap
+          -if($image_1) :
+            - poxy_flat_thumb('a14a_12 b14b_12 c12c_35 d12d_11 e12e_11', '1', '#',  $image_1);
+          - endif;
+          -if($image_2) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '2', '#',  $image_2);
+          - endif;
+          -if($image_3) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '3', '#',  $image_3);
+          - endif;
+      .poxa12.poxb12.poxc34.poxd11.poxe11
+        .wrap
+          -if($image_1) :
+            - poxy_flat_thumb('a14a_12 b14b_12 c12c_35 d12d_11 e12e_11', '1', '#',  $image_1);
+          - endif;
+          -if($image_2) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '2', '#',  $image_2);
+          - endif;
+          -if($image_3) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '3', '#',  $image_3);
+          - endif;
+
+- poxy_section_description();
+- break;
+
+- case 'section-3-3' :
+- poxy_section_header($title);
+section
+  .sw
+    .cw.thumbs
+      .poxa34.poxb34.poxc34.poxd11.poxe11
+        .wrap
+          -if($image_1) :
+            - poxy_flat_thumb('a12a_35 b12b_35 c12c_35 d12d_11 e12e_11', '1', '#',  $image_1);
+          - endif;
+          -if($image_2) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '2', '#',  $image_2);
+          - endif;
+          -if($image_3) :
+            - poxy_flat_thumb('a14a_14 b14b_14 c14c_14 d12d_12 e12e_12', '3', '#',  $image_3);
+          - endif;
+      .poxa14.poxb14.poxc14.poxd11.poxe11
+        - poxy_section_info($title, $description);
+
+- poxy_section_description();
+- break;
+
+
+- case 'section-3-2' :
+- poxy_section_header($title);
+section
+  .sw
+    .cw.thumbs
+      .poxa34.poxb34
+        .wrap
+          -if($image_1) :
+            - poxy_flat_thumb('a14a_13 b14b_12 c14c_14 d14d_14e12e_12', 'title', '#',  $image_1);
+          - endif;
+          -if($image_2) :
+            - poxy_flat_thumb('a14a_13 b14b_12 c14c_14 d14d_14e12e_12', 'title', '#',  $image_2);
+          - endif;
+          -if($image_3) :
+            - poxy_flat_thumb('a14a_13 b14b_12 c14c_14 d14d_14e12e_12', 'title', '#',  $image_3);
+          - endif;
+      .poxa14.poxb14
+        - poxy_section_info($title, $description);
+- poxy_section_description();
+- break;
+
+
+
+
+- case "section-4-1" :
+- poxy_section_header($title);
+section
+  .sw
+    .cw.thumbs
+      -if($image_1) :
+        - poxy_flat_thumb('a14a_12b14b_12c14c_12d12d_11e12e_11', 'title', '#',  $image_1);
+      - endif;
+      -if($image_2) :
+        - poxy_flat_thumb('a14a_12b14b_12c14c_12d12d_11e12e_11', 'title', '#',  $image_2);
+      - endif;
+      -if($image_3) :
+        - poxy_flat_thumb('a14a_12b14b_12c14c_12d12d_11e12e_11', 'title', '#',  $image_3);
+      - endif;
+      -if($image_4) :
+        - poxy_flat_thumb('a14a_12b14b_12c14c_12d12d_11e12e_11', 'title', '#',  $image_4);
+      - endif;
+- poxy_section_description();
+- break;
+
+- endswitch;
+:php
+  }

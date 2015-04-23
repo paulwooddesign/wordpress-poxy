@@ -1,0 +1,41 @@
+#iscroll.project-scroller.qaxy(style="overflow-y:hide; height:100vh; border-left:2px solid rgba(0,0,0,.15);").vScroller--highlight.op--4
+  div
+    div(class='__a14a_13b14b_13c25c_12d14d_14e12e_12 gray-scale')
+      ul#ajax-cat-loader.thumbs
+        //- :php
+        //-   $args = array(
+        //-     'posts_per_page' => 10,
+        //-     //- 'meta_key' => '_poxy_client_featured',
+        //-     'project_cat' => 'web',
+        //-     'post_type' => array('project')
+        //-   );
+        //-
+        //-   $sections = new WP_Query( $args );
+        //- - while ($sections->have_posts()) : $sections->the_post();
+        //-
+        //-     - $link = get_the_permalink();
+        //-     - $title = get_the_title();
+        //-     - $slug = poxy_slug();
+        //-     - $image_url = get_poxy_featured('poxy_thumb_700x900');
+        //-     //- - $image_url = get_poxy_thumb();
+        //-     - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+        //-
+        //-     - $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+        //-     - $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+        //-     - $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+        //-     - $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.9)';
+        //-
+        //-     li(id!="client-<?php echo $slug; ?>").thumb.rel.z1_45.br2.bs0.m0
+        //-       div
+        //-         a(href!="<?php echo $link; ?>", rel="bookmark")
+        //-           //- span.oxy.gold-filter.br2.fill-95
+        //-           span.oxy.inside-bevel.br2
+        //-           span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95.z10
+        //-           span.highlight-border.oxy.br2.fill-95
+        //-           span(style!='<?php echo $image; ?>').thumb.oxy.ofh.br2.bg-cover.bgp-ct.z10
+        //-           .shadow.oxy.shadow.ofh.br2.z10
+        //-
+        //- - endwhile;
+        //- - wp_reset_query();
+
+    //- .paxy.shadow-right.z10(style="height:100vh; width:1px")

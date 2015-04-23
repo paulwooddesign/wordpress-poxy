@@ -1,0 +1,34 @@
+:php
+  /**
+   * Chimera template for displaying the blog page
+   *
+   * @package WordPress
+   * @subpackage Chimera
+   * @since Chimera 1.0
+   */
+
+
+- if (have_posts()):
+  - get_template_part( 'part-header' );
+  - get_template_part('part-blog-categories');
+
+- while (have_posts()):
+  - the_post();
+  - $pt = get_post_type( get_the_ID() );
+  - if ($pt == 'post'):
+    - get_template_part('part-blog-section');
+  - elseif ($pt == 'event'):
+    - get_template_part('part-featured-pages');
+    - get_template_part('part-section');
+  - elseif ($pt == 'page'):
+
+  - elseif ($pt == 'vip'):
+  - get_template_part('part-featured-pages');
+  - get_template_part('part-section');
+  - elseif ($pt == 'taxonomy'):
+    - get_template_part('part-section');
+  - elseif ($pt == 'product'):
+
+  - endif;
+- endwhile;
+- endif;

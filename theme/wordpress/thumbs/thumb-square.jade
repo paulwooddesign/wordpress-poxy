@@ -1,0 +1,39 @@
+:php
+  $image_url = get_poxy_thumb();
+  $image = $image_url ? 'background-image: url('. $image_url. ')' : false;
+  $sub_title = get_post_meta($post->ID, "_poxy_vip_sub_head", true);
+  $title = get_the_title();
+  $id = get_the_ID();
+  $link = '#';
+  $background_color = 'background-color: rgba(150,150,150, .9)';
+
+//- - $term_id = $cat->term_id;
+//- - $tax_meta = get_option( "taxonomy_term_$term_id" );
+//- - if(isset($tax_meta['cat_color_red']) && isset($tax_meta['cat_color_green']) && isset($tax_meta['cat_color_blue'])) :
+//-   - $red = $tax_meta['cat_color_red'];
+//-   - $green = $tax_meta['cat_color_green'];
+//-   - $blue = $tax_meta['cat_color_blue'];
+//-   - $background_color = 'background-color: rgba('.$red.','.$green.','.$blue.', .6)';
+//-   //- - $background_color = 'background-color: rgba(150,150,150, .5)';
+//- - else :
+//-   - $background_color = 'background-color: rgba(150,150,150, .9)';
+//- - endif;
+
+
+figure.a14a_14b14b_14c14c_14d14d_14e12e_12.br2
+  img(src!='<?php echo $image_url; ?>').op0
+  //- span.oxy.gold-filter.br2.fill-95
+  span.oxy.inside-bevel.br2
+  span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+  span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+
+
+  span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $image; ?>')
+    //- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+
+
+
+  .shadow.oxy.shadow.ofh.br2
+  //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+  .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+    - echo $title;

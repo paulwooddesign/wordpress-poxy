@@ -1,0 +1,14 @@
+:php
+  global $post;
+  $id = get_the_ID();
+  $description = get_post_meta($id, "_poxy_description", true);
+.poxy.a13a_25.b14.poxc11.poxd11.poxe11.rel
+.poxy.a13a_25.b34.poxc11.poxd11.poxe11.rel
+  //- ._oxya13._oxyb13
+  //- .sub-title.mb1 Sub Title
+  h2.fsb__8.mb4.title.txt-0
+    - the_title();
+  - if($description) :
+    p.description.b14
+      - echo $description
+  - endif;

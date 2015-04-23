@@ -1,0 +1,66 @@
+section
+  .sw
+    .cw
+      - if (have_posts()):
+      - while (have_posts()):
+        - the_post();
+        :php
+          //- $image_url = get_poxy_thumb();
+          $image_url = get_poxy_thumb_650();
+          if ($image_url) {
+            $image = 'background-image: url('. $image_url. ')';
+          } else {
+            $image_ph = get_bloginfo('template_url') . '/images/logo-blue.svg';
+            $image = 'background-image: url('.$image_ph.')';
+          }
+
+
+        - $title = get_the_title();
+        - $slug = poxy_slug();
+        - $description = poxy_meta('_poxy_product_description');
+        - $contact_name = poxy_meta('dealer_contact_name');
+        - $contact_title = poxy_meta('dealer_contact_title');
+        - $street1 = poxy_meta('dealer_street1');
+        - $street2 = poxy_meta('dealer_street2');
+        - $city = poxy_meta('dealer_city');
+        - $state = poxy_meta('dealer_state');
+        - $zip = poxy_meta('dealer_zip');
+        - $country = poxy_meta('dealer_country');
+        - $website = poxy_meta('dealer_website');
+        - $phone = poxy_meta('dealer_phone');
+        - $fax = poxy_meta('dealer_fax');
+        - $rental = poxy_meta('dealer_rental');
+        - $latitude = poxy_meta('dealer_latitude');
+        - $longitude = poxy_meta('dealer_longitude');
+
+
+        - if ($description) :
+          - $description = $description;
+        - else :
+          - $description = get_the_excerpt();
+        - endif;
+
+        figure.rel.poxya14a_14.poxyb14b_14.poxyc11c_14.poxyd11d_38.poxye11e_58
+          a(href!='<?php bloginfo("url"); ?>/dealer/<?php echo $slug; ?>', rel="bookmark")
+            //- figure.rel.image.poxya14a_14.poxyb14b_14.poxyc12c_14.poxyd12d_38.poxye38e_58(style!='<?php //echo $image; ?>')
+            .rel.poxya14a_14.poxyb14b_14.poxyc12c_14.poxyd12d_38.poxye58e_58
+              .m1-a.m1-b.m1-c.m1-d.m1-e
+
+                h3.txa-6.mt2-a.txb-4.mt2-b.txc-4.mt2-c.txd-4.mt2-d.txe-3.mt2-e
+                  - echo $title;
+                p
+                  - echo "Phone: " . $phone;
+                p
+                  - echo $street1;
+                p
+                  - echo $street2;
+                p
+                  - echo $zip . " " . $city;
+                p
+                  - echo $website;
+
+
+
+      - endwhile;
+      - wp_reset_query();
+      - endif;

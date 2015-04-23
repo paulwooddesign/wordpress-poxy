@@ -1,0 +1,80 @@
+:php
+  /**
+   * Chimera template for displaying the blog page
+   *
+   * @package WordPress
+   * @subpackage Chimera
+   * @since Chimera 1.0
+   */
+
+- get_template_part( 'part-header' );
+
+
+
+
+- if (have_posts()):
+- while (have_posts()):
+  - the_post();
+  section.article2
+    .sw
+        .cw
+          .poxa12.poxb12.poxc11.poxd11.poxe11
+            - the_content();
+            .js-Pjax
+              script(type='text/javascript').
+                var disqus_shortname = 'chimeralighting';
+                (function () {
+                  var s = document.createElement('script'); s.async = true;
+                  s.type = 'text/javascript';
+                  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                  }());
+
+              #disqus_thread.mt1
+              script(type='text/javascript').
+                  var disqus_shortname = 'chimeralighting';
+
+                  /* * * DON'T EDIT BELOW THIS LINE * * */
+                  (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+
+              noscript
+                | Please enable JavaScript to view the
+                a(href='http://disqus.com/?ref_noscript') comments powered by Disqus.
+
+              //- a.dsq-brlink(href='http://disqus.com')
+              //-   | comments powered by
+              //-   span.logo-disqus Disqus
+
+          .rel.qoxya14a_14.qoxyb14b_14.poxc11c_14.poxd11d_14.poxe11e_14
+            .wrap
+              .poxap11.poxbp11.poxc12.poxd12.poxe11.hide
+                h3.txa-4.txb-4.txc-4.txd-4.txe-1.mb1
+                  | Recent Posts
+
+                  - $args = array( 'posts_per_page' => 4, 'post_type' => array('post' ) );
+                  - $sections = new WP_Query( $args );
+                  .wrap
+                    - while ($sections->have_posts()) : $sections->the_post();
+                      - get_template_part('thumb-visionary');
+                    - endwhile;
+                    - wp_reset_query();
+
+
+
+
+
+
+
+              .rel.poxyap11a_p11.poxybp11b_undefined.poxyc12c_undefined.poxyd12d_undefined.poxye11e_undefined
+                h3.txa-4.mb2-a.txb-4.txc-4.txd-4.txe-1 Twitter Feed
+                a.mt2.twitter-timeline(href='https://twitter.com/ChimeraLighting', data-widget-id='466400885237501952') Tweets by @ChimeraLighting
+                script.
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+
+- endwhile;
+- endif;

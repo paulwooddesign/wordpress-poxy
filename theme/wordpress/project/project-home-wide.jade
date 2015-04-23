@@ -1,0 +1,117 @@
+:php
+  $author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+  $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+  $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+  $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+  $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', .84)';
+  $background_color_100 = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  $accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  //- $accent_color = 'color: rgba(0,0,0, 1)';
+
+
+
+
+section.ofh.rel.bgp-ct.bgs-100.z8
+  .paxy.fill.bg-black
+  //- .paxy.fill.shadow-r45-inset--dark(style!='<?php echo $background_color; ?>')
+  .paxy.fill.shadow-r45-inset--dark.bg___svg
+  .sw
+    - if($author_id) :
+      .cw
+        :php
+          $args = array(
+            'ignore_sticky_posts' => 1,
+            'posts_per_page' => 1,
+            'author__in' => $author_id,
+            'post_type' => array('project')
+          );
+          $member_posts = new WP_Query( $args );
+
+        - if ($member_posts->have_posts()) :
+          - while ($member_posts->have_posts()) : $member_posts->the_post();
+            - global $post;
+            - $image_url = get_poxy_banner();
+            - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+
+            figure.shadow-r45-dark-small.rel.mb0.qoxya11a_12.qoxyb11b_35.poxyc11c_35.poxyd11d_58.poxye11e_58.bgp-ct.bg-100(style!='<?php echo $image; ?>')
+
+          - endwhile;
+          - wp_reset_query();
+        - endif;
+    - endif;
+
+- get_template_part( 'project-overview' );
+
+section.ofh.rel.bgp-ct.bgs-100.hole2.txa-4.txb-2.txc-2
+  .sw
+    //- .content-box.mla__25.paxy.fill.bg-black
+    //- .content-box.mla__25.paxy.fill(style!='<?php echo $background_color; ?>')
+    .cw
+      figure.rel.a13a_12b14b_12c13c_12
+        .qaxy.mt1.bg-main2.a35a_35b35b_35c35c_35
+          .rel.qoxya13a_25qoxyb14b_25qoxyc13c_25
+            h1.b_18.mb2.bold.txa-10.txb-7.txc-6.txt-0
+              - the_title();
+
+            .mb4
+              span.mr4.bold.tx-u
+                | Location:
+              span
+                | Boulder, CO
+
+            .mb1
+              span.mr4.bold.tx-u
+                | Industry:
+              span
+                | Profesional Lighting
+
+
+            .content.mr2
+              - the_content();
+
+            button.baxy
+              a(href='#', style!='<?php echo $accent_color; ?>').poxy.tx-v.pt4.pb4
+                div
+                  p.tx-1 View Project
+
+
+    - if($author_id) :
+      .cw.rel.pla__13.plb__14.plc__13
+        div.m0
+          .content-box.mla__13.mlb__14.mlc__13.z10.paxya34a_12paxyb34b_12paxyc34c_12
+            .content-box.ml1.z10.paxya11a_35paxyb11b_35paxyc11c_35(style!='<?php echo $background_color; ?>')
+              .content-box.paxy.fill.bg-black
+              .content-box.paxy.fill.shadow-r45-inset--dark(style!='<?php echo $background_color; ?>')
+                :php
+                  $args = array(
+                    'ignore_sticky_posts' => 1,
+                    'posts_per_page' => 1,
+                    'author__in' => $author_id,
+                    'post_type' => array('project')
+                  );
+                  $member_posts = new WP_Query( $args );
+
+                - if ($member_posts->have_posts()) :
+                  - while ($member_posts->have_posts()) : $member_posts->the_post();
+                    - global $post;
+                    - $image_url = get_poxy_banner();
+                    - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+
+                    figure.op___1h.bgp-ct.bg-100.ml1.mt1.shadow-r45-dark-small.rel.mb0.poxya23a_12.poxyb34b_12.poxyc23c_12.poxyd11d_58.poxye11e_58(style!='<?php echo $image; ?>')
+                      .op___0.oxy.fill
+                        .op___70.oxy.fill.bg-black
+                        .oxy
+                          .poxy.p100
+                            button.br___100.b110b_110.mr2
+                              svg-icon.white.oxy.b116b_116(p='facebook')
+                            button.br___100.b110b_110.mr2
+                              svg-icon.white.oxy.b116b_116(p='link')
+                            button.br___100.b110b_110
+                              svg-icon.white.oxy.b116b_116(p='twitter')
+                            //- a(href='#').op___100.br___3.b14b_112.tx-c.white.tx-u(style!='<?php echo $background_color_100; ?>')
+                            //-   .oxy
+                            //-     | View Project
+                  - endwhile;
+                  - wp_reset_query();
+                - endif;
+            - endif;

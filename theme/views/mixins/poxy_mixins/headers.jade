@@ -1,0 +1,24 @@
+
+mixin header(image_url, main_title, sub_title, button_title, href, copywrite)
+	section.bg-black.white.clear.ofh
+		figcaption.copywrite.zeta.daxy.p4.z6= copywrite
+		.sw
+			+cw('12', '12', '58', '58', 'p11')
+				.paxy.fill.shadow-l.z2.hd.he
+
+				+poxy('18 12 qoxy mb0', '14 12 qoxy', '14 58 qoxy', '11 12', '11 12')
+					+image(image_url, '34 p100 qaxy', '34 p100 qaxy', '34 p100 qaxy', '54 p100 _oxy', '54 p100 _oxy')
+						.paxy.fill.shadow-r.z2.hd.he
+
+				+poxy('18 12 pox mb0', '14 12 pox', '14 58 pox', '14 58 pox', '11 34 pox')
+					.wrap
+						+poxy('12 12 paxy', '12 12 paxy', '12 58 paxy', '12 58 pox', '11 12 pox')
+							+poxy('p11 p11 _ox z6', 'p11 p11 _ox', 'p11 p11 _ox', 'p11 p11 pox', 'p11 p11 pox')
+								+poxy('12 pox', '12 pox', '12 pox', '11 pox', '11 pox')
+									+h2('11', '9', '8', '8 mt1', '7 mt1')= main_title
+								+poxy('38 pox', '38 pox', '38 pox', '38 pox', '11 pox')
+									+h3('3 mt2 accent light', '3 mt2', '3 mt2', '2 mt2', '3 mt2')= sub_title
+
+								if block
+									+poxy('14 14 pox', '14 pox', '14 pox', '11 pox', '11 pox')
+										block

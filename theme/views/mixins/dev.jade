@@ -1,0 +1,1089 @@
+
+
+mixin figure_x(x, y)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		figure(class= zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y )
+			.zeta.oxy= x
+
+
+mixin section()
+	section(class!=attributes.class)
+		.sw
+			.cw
+				block
+
+
+mixin figure_old(x, y)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		figure(class= zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y )
+			block
+
+mixin figcaption()
+	figcaption(class!=attributes.class)
+		block
+
+
+
+mixin poxy_old(x, y, classes)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		div(class= 'poxy' + ' ' + zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y + ' ' + classes)(style!=attributes.style)
+			block
+
+
+
+mixin poy(a, b, c, d, e, classes)
+
+	- if (typeof(b) == 'undefined')
+		- var b = a
+	- if (typeof(c) == 'undefined')
+		- var c = a
+	- if (typeof(d) == 'undefined')
+		- var d = a
+	- if (typeof(e) == 'undefined')
+		- var e = a
+	- if (typeof(classes) == 'undefined')
+		- var classes = ''
+
+	- var a = 'poya_' + a + ' '
+	- var b = 'poyb_' + b + ' '
+	- var c = 'poyc_' + c + ' '
+	- var d = 'poyd_' + d + ' '
+	- var e = 'poye_' + e + ' '
+
+		div(class= a + b + c + d + e + classes)(style!=attributes.style)
+			block
+
+
+mixin cw(a, b, c, d, e, classes)
+
+	- if (typeof(b) == 'undefined')
+		- var b = a
+	- if (typeof(c) == 'undefined')
+		- var c = a
+	- if (typeof(d) == 'undefined')
+		- var d = a
+	- if (typeof(e) == 'undefined')
+		- var e = a
+	- if (typeof(classes) == 'undefined')
+		- var classes = ''
+
+	- var a = 'a_' + a + ' '
+	- var b = 'b_' + b + ' '
+	- var c = 'c_' + c + ' '
+	- var d = 'd_' + d + ' '
+	- var e = 'e_' + e + ' '
+
+		div(class= 'cw rel' + a + b + c + d + e + classes)
+			block
+
+
+
+mixin poxy_test(a, b, c, d, e)
+
+	- if (typeof(b) !== 'undefined')
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + 'b' + a[1] + 'b' + '_' + a[2] + ' '
+			-else
+				- var b_zone = b[0] + 'b' + b[1] + 'b' + '_' + b[2] + ' '
+	- else
+		- var b_zone = a[0] + 'b' + a[1] + 'b' + '_' + a[2] + ' '
+
+
+	- if (typeof(c) !== 'undefined')
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + 'c' + a[1] + 'c' + '_' + a[2] + ' '
+				-else
+					- var c_zone = b[0] + 'c' + b[1] + 'c' + '_' + b[2] + ' '
+			-else
+				- var c_zone = c[0] + 'c' + c[1] + 'c' + '_' + c[2] + ' '
+	- else
+		- var c_zone = a[0] + 'c' + a[1] + 'c' + '_' + a[2] + ' '
+
+
+	- if (typeof(d) !== 'undefined')
+		- var d = d.split(' ')
+		- var d_zone = d[0] + 'd' + d[1] + 'd' + '_' + d[2] + ' '
+	- else
+		- var d_zone = a[0] + 'd' + a[1] + 'd' + '_' + a[2] + ' '
+
+	- if (typeof(e) !== 'undefined')
+		- var e = e.split(' ')
+		- var e_zone = e[0] + 'e' + e[1] + 'e' + '_' + e[2]
+	- else
+		- var e_zone = a[0] + 'e' + a[1] + 'e' + '_' + a[2]
+
+	- var a = a.split(' ')
+	- var a_zone = a[0] + 'a' + a[1] + 'a' + '_' + a[2] + ' '
+
+		div(class= 'rel ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+			.oxy
+				h3= a_zone
+				h3= b_zone
+				h3= c_zone
+				h3= d_zone
+				h3= e_zone
+
+
+
+
+
+mixin poxy(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else if (typeof(a[3]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else if (typeof(a[4]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' '
+		-else if (typeof(a[5]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' '
+		-else
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' ' + a[5] + ' '
+	- else
+		- var a_zone = 'poxy'
+
+	//-----B-------
+
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+			-else if (typeof(b[2]) == 'undefined')
+				- var b_zone = 'poxy' + zone + b[0] + zone + '_' + b[1] + ' '
+			-else
+				- var b_zone = b[2] + zone + b[0] + zone + '_' + b[1] + ' '
+	- else
+		- var zone = 'b'
+		-if (typeof(a) == 'undefined')
+			- var b_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var b_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+				-else
+					- var c_zone = b_zone
+			-else if (typeof(c[2]) == 'undefined')
+				- var c_zone = 'poxy' + zone + c[0] + zone + '_' + c[1] + ' '
+			-else
+				- var c_zone = c[2] + zone + c[0] + zone + '_' + c[1] + ' '
+	- else
+		- var zone = 'c'
+		-if (typeof(a) == 'undefined')
+			- var c_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var c_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+			-if (d[0] == 'same')
+				-if (c[0] == 'same')
+					- var d_zone = b[0] + zone + b[1] + zone + '_' + b[2] + ' '
+				-else
+					- var d_zone = c_zone
+			-else if (typeof(d[2]) == 'undefined')
+				- var d_zone = 'poxy' + zone + d[0] + zone + '_' + d[1] + ' '
+			-else
+				- var d_zone = d[2] + zone + d[0] + zone + '_' + d[1] + ' '
+	- else
+		- var zone = 'd'
+		-if (typeof(a) == 'undefined')
+			- var d_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var d_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+			-if (e[0] == 'same')
+				-if (d[0] == 'same')
+					- var e_zone = c[0] + zone + c[1] + zone + '_' + c[2] + ' '
+				-else
+					- var e_zone = e_zone
+			-else if (typeof(e[2]) == 'undefined')
+				- var e_zone = 'poxy' + zone + e[0] + zone + '_' + e[1] + ' '
+			-else
+				- var e_zone = e[2] + zone + e[0] + zone + '_' + e[1] + ' '
+	- else
+		- var zone = 'e'
+		-if (typeof(a) == 'undefined')
+			- var e_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var e_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+
+
+	div(class= 'rel ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+		block
+
+
+
+
+
+
+mixin poxy_mb0_2(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+	- else
+		- var a_zone = 'poxy'
+
+	//-----B-------
+
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+			-else if (typeof(b[2]) == 'undefined')
+				- var b_zone = 'poxy' + zone + b[0] + zone + '_' + b[1] + ' '
+			-else
+				- var b_zone = b[2] + zone + b[0] + zone + '_' + b[1] + ' '
+	- else
+		- var zone = 'b'
+		-if (typeof(a) == 'undefined')
+			- var b_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var b_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+				-else
+					- var c_zone = b_zone
+			-else if (typeof(c[2]) == 'undefined')
+				- var c_zone = 'poxy' + zone + c[0] + zone + '_' + c[1] + ' '
+			-else
+				- var c_zone = c[2] + zone + c[0] + zone + '_' + c[1] + ' '
+	- else
+		- var zone = 'c'
+		-if (typeof(a) == 'undefined')
+			- var c_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var c_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+			-if (d[0] == 'same')
+				-if (c[0] == 'same')
+					- var d_zone = b[0] + zone + b[1] + zone + '_' + b[2] + ' '
+				-else
+					- var d_zone = c_zone
+			-else if (typeof(d[2]) == 'undefined')
+				- var d_zone = 'poxy' + zone + d[0] + zone + '_' + d[1] + ' '
+			-else
+				- var d_zone = d[2] + zone + d[0] + zone + '_' + d[1] + ' '
+	- else
+		- var zone = 'd'
+		-if (typeof(a) == 'undefined')
+			- var d_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var d_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+			-if (e[0] == 'same')
+				-if (d[0] == 'same')
+					- var e_zone = c[0] + zone + c[1] + zone + '_' + c[2] + ' '
+				-else
+					- var e_zone = e_zone
+			-else if (typeof(e[2]) == 'undefined')
+				- var e_zone = 'poxy' + zone + e[0] + zone + '_' + e[1] + ' '
+			-else
+				- var e_zone = e[2] + zone + e[0] + zone + '_' + e[1] + ' '
+	- else
+		- var zone = 'e'
+		-if (typeof(a) == 'undefined')
+			- var e_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var e_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+
+
+	div(class= 'rel mb0 ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+		block
+
+
+
+
+mixin figure(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+	- else
+		- var a_zone = 'poxy'
+
+	//-----B-------
+
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+			-else if (typeof(b[2]) == 'undefined')
+				- var b_zone = 'poxy' + zone + b[0] + zone + '_' + b[1] + ' '
+			-else
+				- var b_zone = b[2] + zone + b[0] + zone + '_' + b[1] + ' '
+	- else
+		- var zone = 'b'
+		-if (typeof(a) == 'undefined')
+			- var b_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var b_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+				-else
+					- var c_zone = b_zone
+			-else if (typeof(c[2]) == 'undefined')
+				- var c_zone = 'poxy' + zone + c[0] + zone + '_' + c[1] + ' '
+			-else
+				- var c_zone = c[2] + zone + c[0] + zone + '_' + c[1] + ' '
+	- else
+		- var zone = 'c'
+		-if (typeof(a) == 'undefined')
+			- var c_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var c_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+			-if (d[0] == 'same')
+				-if (c[0] == 'same')
+					- var d_zone = b[0] + zone + b[1] + zone + '_' + b[2] + ' '
+				-else
+					- var d_zone = c_zone
+			-else if (typeof(d[2]) == 'undefined')
+				- var d_zone = 'poxy' + zone + d[0] + zone + '_' + d[1] + ' '
+			-else
+				- var d_zone = d[2] + zone + d[0] + zone + '_' + d[1] + ' '
+	- else
+		- var zone = 'd'
+		-if (typeof(a) == 'undefined')
+			- var d_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var d_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+			-if (e[0] == 'same')
+				-if (d[0] == 'same')
+					- var e_zone = c[0] + zone + c[1] + zone + '_' + c[2] + ' '
+				-else
+					- var e_zone = e_zone
+			-else if (typeof(e[2]) == 'undefined')
+				- var e_zone = 'poxy' + zone + e[0] + zone + '_' + e[1] + ' '
+			-else
+				- var e_zone = e[2] + zone + e[0] + zone + '_' + e[1] + ' '
+	- else
+		- var zone = 'e'
+		-if (typeof(a) == 'undefined')
+			- var e_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var e_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+
+
+	figure(class= 'rel ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+		block
+
+
+
+
+
+mixin image(image, a, b, c, d, e)
+
+	- if (typeof(image) !== 'undefined')
+		- var image = image.split(' ')
+		- var image_url = 'images/' + image[0]
+
+		-if (typeof(image[1]) !== 'undefined')
+			- var bg_position = 'bgp-' + image[1] + ' '
+		-else
+			- var bg_position = ''
+
+		-if (typeof(image[2]) !== 'undefined')
+			- var bg_size = 'bgs-' + image[2] + ' '
+		-else
+			- var bg_size = ''
+
+	- else
+		- var image_url = 'images/ph.png'
+
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+	- else
+		- var a_zone = 'poxy'
+
+	//-----B-------
+
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+			-else if (typeof(b[2]) == 'undefined')
+				- var b_zone = 'poxy' + zone + b[0] + zone + '_' + b[1] + ' '
+			-else
+				- var b_zone = b[2] + zone + b[0] + zone + '_' + b[1] + ' '
+	- else
+		- var zone = 'b'
+		-if (typeof(a) == 'undefined')
+			- var b_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var b_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+				-else
+					- var c_zone = b_zone
+			-else if (typeof(c[2]) == 'undefined')
+				- var c_zone = 'poxy' + zone + c[0] + zone + '_' + c[1] + ' '
+			-else
+				- var c_zone = c[2] + zone + c[0] + zone + '_' + c[1] + ' '
+	- else
+		- var zone = 'c'
+		-if (typeof(a) == 'undefined')
+			- var c_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var c_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+			-if (d[0] == 'same')
+				-if (c[0] == 'same')
+					- var d_zone = b[0] + zone + b[1] + zone + '_' + b[2] + ' '
+				-else
+					- var d_zone = c_zone
+			-else if (typeof(d[2]) == 'undefined')
+				- var d_zone = 'poxy' + zone + d[0] + zone + '_' + d[1] + ' '
+			-else
+				- var d_zone = d[2] + zone + d[0] + zone + '_' + d[1] + ' '
+	- else
+		- var zone = 'd'
+		-if (typeof(a) == 'undefined')
+			- var d_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var d_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+			-if (e[0] == 'same')
+				-if (d[0] == 'same')
+					- var e_zone = c[0] + zone + c[1] + zone + '_' + c[2] + ' '
+				-else
+					- var e_zone = e_zone
+			-else if (typeof(e[2]) == 'undefined')
+				- var e_zone = 'poxy' + zone + e[0] + zone + '_' + e[1] + ' '
+			-else
+				- var e_zone = e[2] + zone + e[0] + zone + '_' + e[1] + ' '
+	- else
+		- var zone = 'e'
+		-if (typeof(a) == 'undefined')
+			- var e_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var e_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+
+	figure(class= 'rel image ' + a_zone + b_zone + c_zone + d_zone + e_zone + bg_position + bg_size, style= 'background-image: url(' + image_url + ')' )
+		block
+
+
+
+
+mixin pox(a_size, b_size, c_size, d_size, e_size, classes)
+
+	- if (typeof(b_size) == 'undefined'){
+		- var b_size = a_size
+	-}
+	- if (typeof(c_size) == 'undefined'){
+		- var c_size = a_size
+	-}
+	- if (typeof(d_size) == 'undefined'){
+		- var d_size = a_size
+	-}
+	- if (typeof(d_size) == 'undefined'){
+		- var e_size = a_size
+	-}
+	- if (typeof(classes) == 'undefined'){
+		- var classes = ''
+	-}
+
+	- var a_zone = 'a'
+	- var b_zone = 'b'
+	- var c_zone = 'c'
+	- var d_zone = 'd'
+	- var e_zone = 'e'
+
+	- var a = 'pox' +  a_zone + a_size + ' '
+	- var b = 'pox' +  b_zone + b_size + ' '
+	- var c = 'pox' +  c_zone + c_size + ' '
+	- var d = 'pox' +  d_zone + d_size + ' '
+	- var e = 'pox' +  e_zone + e_size + ' '
+
+		div(class= a + b + c + d + e + classes)(style!=attributes.style)
+			block
+
+
+
+//-----A-------
+- if (typeof(a) !== 'undefined')
+	- var a = a.split(' ')
+	-if (typeof(a[1]) == 'undefined')
+		- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+	-else if (typeof(a[2]) == 'undefined')
+		- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+	-else
+		- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+- else
+	- var a_zone = 'poxy'
+
+
+
+mixin h1(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var zone = 'a'
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' '
+		-else
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' ' + a[2] + ' '
+	- else
+		- var a_zone = ''
+
+	//-----B-------
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+		-if (typeof(b[1]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' '
+		-else if (typeof(b[2]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' '
+		-else
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' ' + b[2] + ' '
+	- else
+		- var b_zone = ''
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+		-if (typeof(c[1]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' '
+		-else if (typeof(c[2]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' '
+		-else
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' ' + c[2] + ' '
+	- else
+		- var c_zone = ''
+
+	//-----D-------
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+		-if (typeof(d[1]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' '
+		-else if (typeof(d[2]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' '
+		-else
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' ' + d[2] + ' '
+	- else
+		- var d_zone = ''
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+		-if (typeof(e[1]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' '
+		-else if (typeof(e[2]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' '
+		-else
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' ' + e[2] + ' '
+	- else
+		- var e_zone = ''
+
+
+	h1(class= a_zone + b_zone + c_zone + d_zone + e_zone)
+		block
+
+
+
+
+mixin h2(a, b, c, d, e, title)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var zone = 'a'
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' '
+		-else
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' ' + a[2] + ' '
+	- else
+		- var a_zone = ''
+
+	//-----B-------
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+		-if (typeof(b[1]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' '
+		-else if (typeof(b[2]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' '
+		-else
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' ' + b[2] + ' '
+	- else
+		- var b_zone = ''
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+		-if (typeof(c[1]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' '
+		-else if (typeof(c[2]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' '
+		-else
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' ' + c[2] + ' '
+	- else
+		- var c_zone = ''
+
+	//-----D-------
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+		-if (typeof(d[1]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' '
+		-else if (typeof(d[2]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' '
+		-else
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' ' + d[2] + ' '
+	- else
+		- var d_zone = ''
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+		-if (typeof(e[1]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' '
+		-else if (typeof(e[2]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' '
+		-else
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' ' + e[2] + ' '
+	- else
+		- var e_zone = ''
+
+	- if (typeof(title) == 'undefined')
+		- var title = ''
+
+
+	h2(class= a_zone + b_zone + c_zone + d_zone + e_zone, title= title)
+		block
+
+
+
+mixin h3(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var zone = 'a'
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' '
+		-else if (typeof(a[3]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' ' + a[2] + ' '
+		-else
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' ' + a[2] + ' ' + a[3] + ' '
+	- else
+		- var a_zone = ''
+
+	//-----B-------
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+		-if (typeof(b[1]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' '
+		-else if (typeof(b[2]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' '
+		-else
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' ' + b[2] + ' '
+	- else
+		- var b_zone = ''
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+		-if (typeof(c[1]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' '
+		-else if (typeof(c[2]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' '
+		-else
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' ' + c[2] + ' '
+	- else
+		- var c_zone = ''
+
+	//-----D-------
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+		-if (typeof(d[1]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' '
+		-else if (typeof(d[2]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' '
+		-else
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' ' + d[2] + ' '
+	- else
+		- var d_zone = ''
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+		-if (typeof(e[1]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' '
+		-else if (typeof(e[2]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' '
+		-else
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' ' + e[2] + ' '
+	- else
+		- var e_zone = ''
+
+
+	h3(class= a_zone + b_zone + c_zone + d_zone + e_zone)
+		block
+
+
+
+
+mixin p(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var zone = 'a'
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' '
+		-else
+			- var a_zone = 'tx' + zone + '-' + a[0] + ' ' + a[1] + '-' + zone + ' ' + a[2] + ' '
+	- else
+		- var a_zone = ''
+
+	//-----B-------
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+		-if (typeof(b[1]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' '
+		-else if (typeof(b[2]) == 'undefined')
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' '
+		-else
+			- var b_zone = 'tx' + zone + '-' + b[0] + ' ' + b[1] + '-' + zone + ' ' + b[2] + ' '
+	- else
+		- var b_zone = ''
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+		-if (typeof(c[1]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' '
+		-else if (typeof(c[2]) == 'undefined')
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' '
+		-else
+			- var c_zone = 'tx' + zone + '-' + c[0] + ' ' + c[1] + '-' + zone + ' ' + c[2] + ' '
+	- else
+		- var c_zone = ''
+
+	//-----D-------
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+		-if (typeof(d[1]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' '
+		-else if (typeof(d[2]) == 'undefined')
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' '
+		-else
+			- var d_zone = 'tx' + zone + '-' + d[0] + ' ' + d[1] + '-' + zone + ' ' + d[2] + ' '
+	- else
+		- var d_zone = ''
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+		-if (typeof(e[1]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' '
+		-else if (typeof(e[2]) == 'undefined')
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' '
+		-else
+			- var e_zone = 'tx' + zone + '-' + e[0] + ' ' + e[1] + '-' + zone + ' ' + e[2] + ' '
+	- else
+		- var e_zone = ''
+
+
+	p(class= a_zone + b_zone + c_zone + d_zone + e_zone)
+		block
+
+
+
+mixin text(a_size, b_size, c_size, d_size, e_size, classes)
+
+	- if (typeof(b_size) == 'undefined')
+		- var b_size = a_size
+
+	- if (typeof(c_size) == 'undefined')
+		- var c_size = a_size
+
+	- if (typeof(d_size) == 'undefined')
+		- var d_size = a_size
+
+	- if (typeof(e_size) == 'undefined')
+		- var e_size = a_size
+
+	- if (typeof(classes) == 'undefined')
+		- var classes = ''
+
+	- var a_zone = 'a'
+	- var b_zone = 'b'
+	- var c_zone = 'c'
+	- var d_zone = 'd'
+	- var e_zone = 'e'
+
+	- var a = 'tx' +  a_zone + '-' + a_size + ' '
+	- var b = 'tx' +  b_zone + '-' + b_size + ' '
+	- var c = 'tx' +  c_zone + '-' + c_size + ' '
+	- var d = 'tx' +  d_zone + '-' + d_size + ' '
+	- var e = 'tx' +  e_zone + '-' + e_size + ' '
+
+	div(class= a + b + c + d + e + ' ' + classes)
+		block
+
+
+
+
+
+
+//- mixin pox(x, classes)
+//-
+//- 	- var zonea = 'a'
+//- 	- var zoneb = 'b'
+//- 	- var zonec = 'c'
+//- 	- var zoned = 'd'
+//- 	- var zonee = 'e'
+//-
+//- 		.pox(class= zonea + x + ' ' + zoneb + x + ' ' + zonec + x + ' ' + zoned + x + ' ' + zonee + x + ' ' + classes)(style!=attributes.style)
+//- 			block
+
+mixin paxy(x, y, classes)
+	- var paxy = 'paxy'
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		div(class= paxy + zonea + x + zonea + '_' + y + ' ' + paxy + zoneb + x + zoneb + '_' + y + ' ' + paxy + zonec + x + zonec + '_' + y + ' ' + paxy + zoned + x + zoned + '_' + y + ' ' + paxy + zonee + x + zonee + '_' + y + ' ' + classes )
+			block
+
+mixin poxy_rel(x, y)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		.poxy.rel(class= zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y )
+			block
+
+mixin poxy_mb0(x, y)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		.poxy.mb0(class= zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y )
+			block
+
+
+mixin poxy_ofh(x, y)
+
+	- var zonea = 'a'
+	- var zoneb = 'b'
+	- var zonec = 'c'
+	- var zoned = 'd'
+	- var zonee = 'e'
+
+		.poxy.ofh(class= zonea + x + zonea + '_' + y + ' ' + zoneb + x + zoneb + '_' + y + ' ' + zonec + x + zonec + '_' + y + ' ' + zoned + x + zoned + '_' + y + ' ' + zonee + x + zonee + '_' + y )
+			block
+
+
+mixin poxy_loop(x, y, i)
+	- var size = x + ' ' + y
+	- var n = 0
+
+	section.clear
+		div.sw
+			div.cw
+				while n < i
+					+figure(size)
+						.hide= n++
+						.zeta.oxy= x

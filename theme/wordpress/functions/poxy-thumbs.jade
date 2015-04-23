@@ -1,0 +1,112 @@
+:php
+  function poxy_3d_thumb($class, $title, $href, $image) {
+
+figure(class!='<?php echo $class; ?> br2 rel')
+  figcaption.ba-xy
+    .m4
+      - echo $title;
+  a.gray-scale2(href!="<?php echo $href; ?>")
+    //- span.oxy.gold-filter.br2.fill-95
+    span.oxy.inside-bevel.br2
+    //- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+    //- span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+
+    span.thumb.oxy.ofh.br2.bg-cover.bgp-ct(style!='<?php echo $image; ?>')
+      //- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+
+    .shadow.oxy.shadow.ofh.br2
+    //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+    //- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+    //-   - echo $title;
+:php
+  }
+
+
+
+
+
+
+
+:php
+  function poxy_img($class, $title, $href, $image) {
+
+figure(class!='<?php echo $class; ?> rel bgs-contain bgp-ct', style!='<?php echo $image; ?>')
+  img(style='opacity: 0', src!='<?php echo $href; ?>')
+  //- a.gray-scale2(href!="<?php echo $href; ?>")
+:php
+  }
+
+
+
+
+
+
+
+
+:php
+  function poxy_flat_thumb($class, $title, $href, $image) {
+
+figure(class!='<?php echo $class; ?> shadow-r45-dark-small rel bgs-100 bgp-ct', style!='<?php echo $image; ?>')
+  //- figcaption.ba-xy
+  //-   .m4
+  //-     - echo $title;
+  a.gray-scale2(href!="<?php echo $href; ?>")
+:php
+  }
+
+
+:php
+  function poxy_section_info($title, $description) {
+    $description = $description ? $description : 'We are an Advertising and Production Agency that uses excellence to forge bonds with customers and propel businesses.';
+h3.title.mb2
+  - echo $title;
+p.description.txa-2.txb-2
+  - echo $description;
+:php
+  }
+
+
+
+:php
+  function poxy_section_header($title) {
+section
+  .sw
+    //- .cw
+    //-   h3.title.mt1
+    //-     - echo $title;
+      //- p.description
+      //-   - echo $description;
+section.hide
+  .sw
+    .cw
+      h3.title.mt1
+        - echo $title;
+:php
+  }
+
+
+
+:php
+  function poxy_section_description() {
+section
+  .sw
+    .cw
+      .poxa12.poxb12.poxc12.poxd12.poxe11
+        .wrap
+          .poxa14.poxb14.poxc12
+            p Fig. 1
+            p Duis ut fringilla lacus, eget aliquet lorem. Ut odio sapien, convallis in nulla in, vehicula mattis arcu. Integer ac erat non diam facilisis viverra. Nulla risus leo, auctor sit amet volutpat vitae, dictum id ipsum.
+          .poxa14.poxb14.poxc12
+            p Fig. 2
+            p Duis ut fringilla lacus, eget aliquet lorem. Ut odio sapien, convallis in nulla in, vehicula mattis arcu. Integer ac erat non diam facilisis viverra. Nulla risus leo, auctor sit amet volutpat vitae, dictum id ipsum.
+
+      .poxa12.poxb12.poxc12.poxd12.poxe11
+        .wrap
+          .poxa14.poxb14.poxc12
+            p Fig. 3
+            p Duis ut fringilla lacus, eget aliquet lorem. Ut odio sapien, convallis in nulla in, vehicula mattis arcu. Integer ac erat non diam facilisis viverra. Nulla risus leo, auctor sit amet volutpat vitae, dictum id ipsum.
+          .poxa14.poxb14.poxc12
+            p Fig. 4
+            p Duis ut fringilla lacus, eget aliquet lorem. Ut odio sapien, convallis in nulla in, vehicula mattis arcu. Integer ac erat non diam facilisis viverra. Nulla risus leo, auctor sit amet volutpat vitae, dictum id ipsum.
+:php
+  }

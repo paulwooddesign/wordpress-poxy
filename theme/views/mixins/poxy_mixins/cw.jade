@@ -1,0 +1,22 @@
+
+mixin cw(a, b, c, d, e, classes)
+
+	- if (typeof(b) == 'undefined')
+		- var b = a
+	- if (typeof(c) == 'undefined')
+		- var c = a
+	- if (typeof(d) == 'undefined')
+		- var d = a
+	- if (typeof(e) == 'undefined')
+		- var e = a
+	- if (typeof(classes) == 'undefined')
+		- var classes = ''
+
+	- var a = 'a_' + a + ' '
+	- var b = 'b_' + b + ' '
+	- var c = 'c_' + c + ' '
+	- var d = 'd_' + d + ' '
+	- var e = 'e_' + e + ' '
+
+		div(class= 'cw rel' + a + b + c + d + e + classes)
+			block

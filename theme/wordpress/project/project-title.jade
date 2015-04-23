@@ -1,0 +1,106 @@
+:php
+  $author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+  $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+  $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+  $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+  $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', .4)';
+  $button_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  $accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  $accent_color = 'color: rgba(0,0,0, 1)';
+
+- while (have_posts()):
+  :php
+    the_post();
+    $image_url = get_poxy_featured('full');
+    $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+    $title = get_the_title();
+    $href = get_the_permalink();
+
+  section.clear.ofh
+    .sw
+      .cw.a_18b_112c_16.thumbs
+        //- figure.rel.qoxy.a18a_18b112b_14c14c_14d14d_14.mb0
+        //-   div
+        //-     a(href!="<?php echo $link; ?>", rel="bookmark")
+        //-       //- span.oxy.gold-filter.br2.fill-95
+        //-       //- span.oxy.inside-bevel.br2
+        //-       //- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+        //-       //- span.highlight-border.oxy.br2.fill-95
+        //-       //- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+        //-       span(style!='<?php echo $image; ?>').z3.invert.icon._oxya112a_112._oxyb16b_16._oxyc16c_16._oxyd16d_16._oxye16e_16.oxy.ofh.bg-contain.bgp-cc
+        //-         //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+        //-         //- .gloss.oxy.z5.a13a_13.b13b_13
+        //-       .shadow.oxy.shadow.ofh.br2
+        //- figure.rel.qoxy.a18a_18b112b_14c14c_14d14d_14.mb0
+        //-   div
+        //-     a(href!="<?php echo $link; ?>", rel="bookmark")
+        //-       //- span.oxy.gold-filter.br2.fill-95
+        //-       //- span.oxy.inside-bevel.br2
+        //-       //- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+        //-       //- span.highlight-border.oxy.br2.fill-95
+        //-       //- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+        //-       span(style!='<?php echo $image; ?>').z3.invert.icon._oxya112a_112._oxyb16b_16._oxyc16c_16._oxyd16d_16._oxye16e_16.oxy.ofh.bg-contain.bgp-cc
+        //-         //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+        //-         //- .gloss.oxy.z5.a13a_13.b13b_13
+        //-       .shadow.oxy.shadow.ofh.br2
+        //- figure.rel.qoxy.a18a_18b112b_14c14c_14d14d_14.mb0
+        //-   div
+        //-     a(href!="<?php echo $link; ?>", rel="bookmark")
+        //-       //- span.oxy.gold-filter.br2.fill-95
+        //-       //- span.oxy.inside-bevel.br2
+        //-       //- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+        //-       //- span.highlight-border.oxy.br2.fill-95
+        //-       //- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+        //-       span(style!='<?php echo $image; ?>').z3.invert.icon._oxya112a_112._oxyb16b_16._oxyc16c_16._oxyd16d_16._oxye16e_16.oxy.ofh.bg-contain.bgp-cc
+        //-         //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+        //-         //- .gloss.oxy.z5.a13a_13.b13b_13
+        //-       .shadow.oxy.shadow.ofh.br2
+        //- figure.rel.qoxy.a18a_18b112b_14c14c_14d14d_14.mb0
+        //-   div
+        //-     a(href!="<?php echo $link; ?>", rel="bookmark")
+        //-       //- span.oxy.gold-filter.br2.fill-95
+        //-       //- span.oxy.inside-bevel.br2
+        //-       //- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+        //-       //- span.highlight-border.oxy.br2.fill-95
+        //-       //- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+        //-       span(style!='<?php echo $image; ?>').z3.invert.icon._oxya112a_112._oxyb16b_16._oxyc16c_16._oxyd16d_16._oxye16e_16.oxy.ofh.bg-contain.bgp-cc
+        //-         //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+        //-         //- .gloss.oxy.z5.a13a_13.b13b_13
+        //-       .shadow.oxy.shadow.ofh.br2
+        //- //- .mb0.poxya34a_16poxyb34b_16poxyc34c_16poxyd34d_16.tx-v
+        //- //-   div
+        //- //-     .tx-8.title.bold
+        //- //-       - the_title();
+
+
+
+        //- figure.mb0.rel.qoxya14qoxyb14qoxyc14qoxyd14
+        //-   a.paxya12a_16paxyb12b_16c12c_16d12d_16.tx-v(href='#', style!='<?php echo $button_color; ?>')
+        //-     div
+        //-       .white.ml1.pl1 View Project
+
+
+
+
+
+  //- section.hole.bg-main
+  //-   .sw
+  //-     .cw.rel.mt2.thumbs
+  //-       .poxy.a34b34c34d34
+  //-         - the_content();
+  //-
+  //-       figure.rel.poxy.a14a_14b14b_14c14c_14d14d_14
+  //-         div
+  //-           a(href!="<?php echo $link; ?>", rel="bookmark")
+  //-             //- span.oxy.gold-filter.br2.fill-95
+  //-             span.oxy.inside-bevel.br2
+  //-             span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+  //-             span.highlight-border.oxy.br2.fill-95
+  //-             span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+  //-             span(style!='<?php echo $image; ?>').z3.invert.icon._oxya18a_18._oxyb16b_16._oxyc16c_16._oxyd16d_16._oxye16e_16.oxy.ofh.bg-contain.bgp-cc
+  //-               //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+  //-               //- .gloss.oxy.z5.a13a_13.b13b_13
+  //-             .shadow.oxy.shadow.ofh.br2
+
+- endwhile;
+- wp_reset_query();

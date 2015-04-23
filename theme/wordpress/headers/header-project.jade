@@ -1,0 +1,121 @@
+:php
+  global $post;
+  $id = get_the_ID();
+  $post_type = get_post_type( $id );
+
+
+  $title = get_the_title();
+  $sub_title = get_post_meta($id, "_poxy_sub_head", true);
+  $description = get_post_meta($id, "_poxy_description", true);
+  $header_layout = get_post_meta($id, "_poxy_header_layout", true);
+
+  $image_url = get_poxy_banner();
+  $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+
+
+
+//- section.tx-c
+//-   .sw
+//-     .cw.pt1.pb1.a12.b12.c12.d11.e11
+//-       h1.bold
+//-         - echo $title;
+//-       - if($sub_title) :
+//-       .sub-head.txa-3.mb1.mt2.wp2
+//-         - echo $sub_title
+//-       - endif;
+//-       - if($description) :
+//-         .description.txa-3.txb-3.txc-3.txd-2.txe-2
+//-           - echo $description;
+//-       - endif;
+
+//- HEADER LAYOUT
+
+
+
+
+- switch ($header_layout) : case 'auto' :
+section.z8.bg___svg
+  .paxy.fill.bg-black
+  //- .paxy.fill.shadow-r45-inset--dark(style!='<?php echo $background_color; ?>')
+  .paxy.fill.shadow-r45-inset--dark.bg___svg
+  .sw
+    .cw.rel
+      figure.poxa11.poxb11.poxc11.poxd11.poxye11
+        img(src!='<?php echo $image_url; ?>')
+
+section.ofh.rel.bgp-ct.bgs-100.z8
+  .paxy.fill.bg-black
+  //- .paxy.fill.shadow-r45-inset--dark(style!='<?php echo $background_color; ?>')
+  .paxy.fill.shadow-r45-inset--dark.bg___svg
+  .sw
+    .cw
+      figure.shadow-r45-dark-small.rel.mb0.qoxya11a_12.qoxyb11b_35.poxyc11c_35.poxyd11d_58.poxye11e_58.bgp-ct.bg-100(style!='<?php echo $image; ?>')
+- break;
+
+- case 'video' :
+- $video_sd = get_post_meta($id, "_poxy_video_sd", true);
+- $video_hd = get_post_meta($id, "_poxy_video_hd", true);
+- $video_cover = get_post_meta($id, "_poxy_video_cover", true);
+
+section.rel.clear(style="background-color:#222;")
+  .flex-video
+    //- video#vid(preload='', loop='', muted='', src='http://fea86221400151dc0644-be0e5b18d43589566010d0fa3e89a494.r48.cf1.rackcdn.com/2011-POV-Life-Project-HD.mp4')
+    - if($video_sd):
+        video(controls src!="<?php echo $video_sd; ?>" type="video/mp4")#vid
+        //- source(src!="<?php echo $video_sd; ?>" type="video/mp4")
+    - endif;
+//- script.
+//-   var vid = document.getElementById('vid');
+//-   vid.play();
+
+section
+  .sw
+    .cw
+      .tx-6
+        - the_title();
+
+- break;
+
+- default:
+section.z8.bg___svg
+  .paxy.fill.bg-black
+  //- .paxy.fill.shadow-r45-inset--dark(style!='<?php echo $background_color; ?>')
+  .paxy.fill.shadow-r45-inset--dark.bg___svg
+  .sw
+    .cw.rel
+      figure.mb0.poxya11a_35.poxyb11b_35.poxyc11c_34.poxyd11d_58.poxye11e_58.bgp-ct.bg-100(style!='<?php echo $image; ?>')
+- endswitch;
+
+//- section
+//-   .sw
+//-     .cw.b_112.rel
+//-
+//-       - $next = get_permalink(get_adjacent_post(false,'',false));
+//-       - $prev = get_permalink(get_adjacent_post(false,'',true));
+//-       .poxa14poxb14poxc14.rel
+//-         .paxy
+//-         - if ($prev != get_permalink()) :
+//-             a(style="opacity:1;", href!="<?php echo $prev; ?>").flex-next
+//-               .a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+//-                 svg-icon(p='triangleleft')
+//-         - else :
+//-             a(style="opacity:1;", href!="<?php echo poxy_get_first_post_url($post_type); ?>" ).flex-next
+//-               .a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+//-                 svg-icon(p='triangleleft')
+//-         - endif;
+//-
+//-       .poxa12poxb12poxc12.tx-c
+//-         h2
+//-           - echo $title;
+//-
+//-       .qoxa14qoxb14qoxc14.rel
+//-         .qaxy
+//-           - if ($next != get_permalink()) :
+//-               a(style="opacity:1;", href!="<?php echo $next; ?>").flex-prev
+//-                 .a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+//-                   svg-icon(p='triangleright')
+//-           - else :
+//-               a(style="opacity:1;", href!="<?php echo poxy_get_last_post_url($post_type); ?>").flex-prev"
+//-                 .a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+//-                   svg-icon(p='triangleright')
+//-           - endif;

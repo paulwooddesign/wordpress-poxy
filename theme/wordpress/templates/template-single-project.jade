@@ -1,0 +1,373 @@
+//- .ofyt
+//-   .poxy.shadow-right-inset
+//-     - get_template_part( 'header-project' );
+//-
+//-     - poxy_section(1);
+//-     - poxy_section(2);
+//-     - poxy_section(3);
+//-     - poxy_section(4);
+
+
+
+
+
+.poxy.shadow-right-inset
+  //- - get_template_part( 'nav-project-right-fixed' );
+  - get_template_part( 'header-project' );
+  :php
+
+    global $wp_query;
+    if (!is_archive()) {
+      $page_id = $wp_query->get_queried_object();
+      $page_id = $page_id->ID;
+    }
+
+
+    $blog_page_id = of_get_option('poxy_blog_page');
+    $blog_page = get_page($blog_page_id);
+
+    if ($blog_page_id == $page_id) {
+      $image = of_get_option('poxy_blog_banner');
+      if ($image) {
+        $image = of_get_option('poxy_blog_banner');
+        $image = 'background-image: url('. $image. ')';
+      } else {
+        $image = 'background-image: url(http://placehold.it/1900x800)';
+      }
+      $title = $blog_page->post_title;
+      $copywrite_name = 'test';
+      $copywrite_url = '#';
+      $sub_title = get_post_meta($blog_page_id, "_poxy_page_description", true);
+    } else {
+      // $image = get_poxy_banner();
+      $image = get_poxy_thumb_650();
+      if ($image) {
+        $image = 'background-image: url('. $image. ')';
+      } else {
+        $image = 'background-image: url(http://placehold.it/1900x800)';
+      }
+
+      $title = get_the_title();
+      $description = get_post_meta($page_id, "_poxy_page_description", true);
+      $sub_title = get_post_meta($page_id, "_poxy_page_sub_head", true);
+
+      $copywrite_name = get_post_meta($page_id, "_poxy_page_image_copywrite_name", true);
+      $copywrite_url = get_post_meta($page_id, "_poxy_page_image_copywrite_link", true);
+
+      // Link
+      $button_url = get_post_meta($post->ID, "_poxy_slide_url", true);
+      $button_text = get_post_meta($post->ID, "_poxy_slide_button_text", true);
+
+    }
+
+  //- section
+  //-   .sw
+  //-     .cw
+  //-       - $next = get_permalink(get_adjacent_post(false,'',false));
+  //-       - $prev = get_permalink(get_adjacent_post(false,'',true));
+  //-
+  //-       - if ($prev != get_permalink()) :
+  //-         a(style="opacity:1;", href!="<?php echo $prev; ?>").prev-button.paxy.a112ap_11.b112bp_11.z9
+  //-           .oxy.a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+  //-             svg-icon(p='triangleleft')
+  //-       - else :
+  //-         a(style="opacity:1;", href!="<?php echo poxy_get_first_post_url($post_type); ?>" ).prev-button.paxy.a112ap_11.b112bp_11.z9
+  //-           .oxy.a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+  //-             svg-icon(p='triangleleft')
+  //-       - endif;
+  //-
+  //-       - if ($next != get_permalink()) :
+  //-         a(style="opacity:1;", href!="<?php echo $next; ?>").next-button.qaxy.a112ap_11.b112bp_11.z9
+  //-           .oxy.a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+  //-             svg-icon(p='triangleright')
+  //-       - else :
+  //-         a(style="opacity:1;", href!="<?php echo poxy_get_last_post_url($post_type); ?>").next-button.qaxy.a112ap_11.b112bp_11.z9
+  //-           .oxy.a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+  //-             svg-icon(p='triangleright')
+  //-       - endif;
+
+
+  - poxy_section(1);
+  - poxy_section(2);
+  - poxy_section(3);
+  - poxy_section(4);
+
+
+
+//- :php
+//-   //- Section 1
+//-   $section_number = 1;
+//-
+//-   $layout = get_post_meta($id, '_poxy_project_section_'.$section_number.'_layout', true);
+//-   $layout = $layout ? $layout : '1';
+//-
+//-   $title = get_post_meta($id, '_poxy_project_section_'.$section_number.'_title', true);
+//-   $title = $title ? $title : 'Section 1 Title';
+//-
+//-   $description = get_post_meta($id, '_poxy_project_section_'.$section_number.'_description', true);
+//-   $description = $description ? $description : 'Section 1 Description';
+//-
+//-   //- Section 1
+//-   //- Figure 1
+//-   $fig_number = 1;
+//-   for($i=1; $i <= 5; $i++) {
+//-     ${'f1_image_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0].");" : '';
+//-     ${'f1_bgs_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) : 'cover';
+//-     ${'f1_bgp_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) : 'ct';
+//-   }
+//-
+//- - switch ($layout) : case "1" :
+//- section.white-shadow
+//-   .sw
+//-     .cw
+//-       //- figure(class!='rel image poxya34a_38 poxyb34b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya34a_38 poxyb34b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_1; ?>')
+//-       .rel.poxya14a_14.poxyb14b_14.poxyc12c_12.11dpoxd_11.11epoxe_11
+//-         h3.txa-6.txb-4.txc-4.txd-5.txe-3
+//-           - echo $title;
+//-
+//-         .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-           .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-
+//-         - echo $description;
+//- - break;
+//- - case "2" :
+//- section.white-shadow
+//-   .sw
+//-     .cw
+//-       //- figure(class!='rel image poxya34a_38 poxyb34b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya34a_14 poxyb34b_14 poxyc12c_14 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_1; ?>')
+//-       .rel.poxya14a_14.poxyb14b_14.poxyc12c_12.11dpoxd_11.11epoxe_11
+//-         h3.txa-6.txb-4.txc-4.txd-5.txe-3
+//-           - echo $title;
+//-
+//-         .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-           .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-         - echo $description;
+//- - break;
+//- - case "3" :
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .txa-6.txb-6
+//-         - echo $title;
+//-
+//- section.white-shadow
+//-   .sw
+//-     .cw
+//-       //- figure(class!='rel image poxya12a_38 poxyb12b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       //- figure(class!='rel image poxya12a_38 poxyb12b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_2; ?>')
+//-       figure(class!='rel image poxya12a_38 poxyb12b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya12a_38 poxyb12b_12 poxyc12c_12 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_2; ?>')
+//-
+//- - break;
+//- - case "4" :
+//-
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .txa-6.txb-6
+//-         - echo $title;
+//-
+//- section
+//-   .sw
+//-     .cw
+//-       figure(class!='rel image poxya12a_12 poxyb12b_12 poxyc12c_114 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_2; ?>')
+//-       figure(class!='rel image poxya18a_12 poxyb18b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_3; ?>')
+//-
+//- - break;
+//- - case "5" :
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .txa-6.txb-6
+//-         - echo $title;
+//- section
+//-   .sw
+//-     .cw
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_2; ?> bgs-<?php echo $f1_bgs_2; ?>', style!='<?php echo $f1_image_2; ?>')
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_3; ?>')
+//-       .rel.poxya14a_14.poxyb14b_14.poxyc14c_14.11dpoxd_11.11epoxe_11
+//-         h3.txa-6.txb-4.txc-4.txd-5.txe-3
+//-           - echo $title;
+//-
+//-         .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-           .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-
+//-         - echo $description;
+//-
+//- - break;
+//- - case "6" :
+//- section.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_2; ?> bgs-<?php echo $f1_bgs_2; ?>', style!='<?php echo $f1_image_2; ?>')
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_3; ?>')
+//-       figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_4; ?>')
+//-       //- .rel.poxya14a_14.poxyb14b_14.poxyc14c_14.11dpoxd_11.11epoxe_11
+//-       //-   h3.txa-6.txb-4.txc-4.txd-5.txe-3
+//-       //-     - echo $title;
+//-       //-
+//-       //-   .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-       //-     .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-       //-
+//-       //-   - echo $description;
+//- - break;
+//- - case "7" :
+//- section.white-shadow.bg-main
+//-   .sw
+//-     .cw.tx-c
+//-       .rel.poxa11.poxb11.poxc11.poxd11.poxe11
+//-         h2.txa-6.txb-6.txc-6.txd-6.txe-6(title='')
+//-           span.mr2
+//-           - echo $title;
+//-         .txa-3.mt2
+//-           - echo $description;
+//-       figure(class!='rel image poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+//-       figure(class!='rel image poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_2; ?> bgs-<?php echo $f1_bgs_2; ?>', style!='<?php echo $f1_image_2; ?>')
+//-       figure(class!='rel image poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_3; ?>')
+//-       figure(class!='rel image poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_4; ?>')
+//-       //- .rel.poxya14a_14.poxyb14b_14.poxyc14c_14.11dpoxd_11.11epoxe_11
+//-       //-   h3.txa-6.txb-4.txc-4.txd-5.txe-3
+//-       //-     - echo $title;
+//-       //-
+//-       //-   .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-       //-     .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-       //-
+//-       //-   - echo $description;
+//-
+//-
+//- - endswitch;
+
+
+
+
+
+
+//- :php
+//-   //- Section 1
+//-   $section_number = 2;
+//-
+//-   $layout = get_post_meta($id, '_poxy_project_section_'.$section_number.'_layout', true);
+//-   $layout = $layout ? $layout : '1';
+//-
+//-   $title = get_post_meta($id, '_poxy_project_section_'.$section_number.'_title', true);
+//-   $title = $title ? $title : 'Section 1 Title';
+//-
+//-   $description = get_post_meta($id, '_poxy_project_section_'.$section_number.'_description', true);
+//-   $description = $description ? $description : 'Section 1 Description';
+//-
+//-   //- Section 1
+//-   //- Figure 1
+//-   $fig_number = 1;
+//-   for($i=1; $i <= 5; $i++) {
+//-     ${'f1_image_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0].");" : '';
+//-     ${'f1_bgs_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) : 'cover';
+//-     ${'f1_bgp_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) : 'ct';
+//-   }
+//-
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .txa-6.txb-6
+//-         - echo $title;
+//-
+//- section
+//-   .sw
+//-     .cw
+//-       .poxya34.poxyb34
+//-         .wrap
+//-           figure(class!='rel image poxya12a_12 poxyb12b_12 poxyc12c_114 poxyd11d_12 poxye11e_12 bgp-ct bgs-100', style!='<?php echo $f1_image_1; ?>')
+//-           figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-cc bgs-cover', style!='<?php echo $f1_image_2; ?>')
+//-           figure(class!='rel image poxya14a_14 poxyb14b_14 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-cc bgs-cover', style!='<?php echo $f1_image_3; ?>')
+//-
+//-       .poxya14.poxyb14
+//-         h4.txa-4.txb-4
+//-           - echo $title;
+//-
+//-         .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+//-           .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1
+//-
+//-         - echo $description;
+//-
+//-
+//-
+//-
+//-
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .title.txa-8.txb-8.tx-gold What I Did
+//-
+//- section
+//-   .sw
+//-     .cw
+//-       //- Container
+//-       ul.progress
+//-         //- Item
+//-         li(data-name='Design', data-percent='50%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='610')
+//-         //- Item
+//-         li(data-name='Development', data-percent='100%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='364')
+//-         //- Item
+//-         li(data-name='Development', data-percent='100%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='629')
+//-
+//-       //- Defining Angle Gradient Colors
+//-       svg(width='0', height='0')
+//-         defs
+//-           lineargradient#cl1(gradientunits='objectBoundingBox', x1='0', y1='0', x2='1', y2='1')
+//-             stop(stop-color='#618099')
+//-             stop(offset='100%', stop-color='#8e6677')
+//-           lineargradient#cl2(gradientunits='objectBoundingBox', x1='0', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#8e6677')
+//-             stop(offset='100%', stop-color='#9b5e67')
+//-           lineargradient#cl3(gradientunits='objectBoundingBox', x1='1', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#9b5e67')
+//-             stop(offset='100%', stop-color='#9c787a')
+//-           lineargradient#cl4(gradientunits='objectBoundingBox', x1='1', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#9c787a')
+//-             stop(offset='100%', stop-color='#817a94')
+//-           lineargradient#cl5(gradientunits='objectBoundingBox', x1='0', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#817a94')
+//-             stop(offset='100%', stop-color='#498a98')
+//-           lineargradient#cl6(gradientunits='objectBoundingBox', x1='0', y1='1', x2='1', y2='0')
+//-             stop(stop-color='#498a98')
+//-             stop(offset='100%', stop-color='#618099')
+
+
+
+
+
+//- - get_template_part( 'part-content');

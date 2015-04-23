@@ -1,0 +1,1 @@
+<?php while (have_posts()) : the_post(); ?><?php $content = get_the_content(); ?><?php if($content != '') : ?><section><?php poxy_edit(); ?><div class="sw"><div class="cw"><?php the_content(); ?></div></div></section><?php endif; ?><?php endwhile; ?><?php wp_reset_query(); ?>

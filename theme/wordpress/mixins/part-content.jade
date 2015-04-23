@@ -1,0 +1,14 @@
+- while (have_posts()) : the_post();
+  - $content = get_the_content();
+  - if($content != '') :
+
+    section
+      - poxy_edit();
+      .sw
+        .cw
+          - the_content();
+
+  -endif;
+
+- endwhile;
+- wp_reset_query();

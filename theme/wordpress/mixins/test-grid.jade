@@ -1,0 +1,115 @@
+- $args = array( 'orderby' => 'name', 'posts_per_page' => 8, 'post_type' => array('project') );
+- $sections = new WP_Query( $args );
+
+section#grid3d.grid3d.vertical.static
+  .sw.grid-wrap.static
+    .cw.static.thumbs.grid
+      :php
+        while ($sections->have_posts()) : $sections->the_post();
+          get_template_part('thumb-square');
+        endwhile;
+        wp_reset_query();
+
+  .content
+    - while ($sections->have_posts()) : $sections->the_post();
+        div
+          //- - get_template_part( 'header-project' );
+          .dummy-img
+            p.dummy-text
+              | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+            p.dummy-text
+              | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+
+    - endwhile;
+    -wp_reset_query();
+    span.loading
+    span.icon.close-content
+      .a124a_124.b124b_124.c118c_118.d112d_112.e18e_18
+        svg-icon(p='close')
+
+
+
+
+
+//- section#grid3d.grid3d.vertical.static
+//-   .sw.grid-wrap.static
+//-     .cw.static
+//-       .grid.wrap.m0
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img01')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img05')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img08')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img02')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img04')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img03')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img09')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img06')
+//-         figure.poxya14a_14.poxyb14b_14
+//-           img(src='http://placehold.it/400x400', alt='img07')
+//-
+//-   //- /grid-wrap
+//-   .content
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-     div
+//-       .dummy-img
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-       p.dummy-text
+//-         | The only people for me are the mad ones, the ones who are mad to live, mad to talk, mad to be saved, desirous of everything at the same time, the ones who never yawn or say a commonplace thing, but burn, burn, burn like fabulous yellow roman candles exploding like spiders across the stars.
+//-
+//-     span.loading
+//-     span.icon.close-content

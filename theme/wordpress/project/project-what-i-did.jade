@@ -1,0 +1,46 @@
+:php
+  $author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+  $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+  $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+  $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+  $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', .4)';
+  $accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  $accent_color = 'color: rgba(0,0,0, 1)';
+
+- if($author_id) :
+  :php
+    $args = array(
+      'ignore_sticky_posts' => 1,
+      'posts_per_page' => 1,
+      'author__in' => $author_id,
+      'post_type' => array('project')
+    );
+    $member_posts = new WP_Query( $args );
+
+  - if ($member_posts->have_posts()) :
+    - while ($member_posts->have_posts()) : $member_posts->the_post();
+      - global $post;
+      //- - $image_url = get_poxy_banner();
+      //- - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+      - $image = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0].");" : '';
+      section.shadow-right-inset.bg-main
+        .sw
+          .cw.rel
+            .poxya14poxyb14poxyc11poxyd11
+              h2(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 What I Did
+
+            .poxya14poxyb34poxyc13poxyd13.tx-2
+              .poxybp50
+                .title.mb2
+                  h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Design
+
+              .poxybp50
+                .title.mb2
+                  h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Development
+
+
+
+    - endwhile;
+    - wp_reset_query();
+  - endif;
+- endif;

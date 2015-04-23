@@ -1,0 +1,83 @@
+poxy_dev = true
+poxy_skin_3d = false
+/////////////////////////////////
+// DESIGN SETTINGS
+/////////////////////////////////
+body_color = #ccc
+body_color_light = #ccc
+header_bg = #111
+accent = #dda100
+black = #141415
+body_bg = #222
+/////////////////////////////////
+// GRID Ratio Settings (Denominator)
+// Zone Numerators array ( 1/ $ratio)
+/////////////////////////////////
+
+// Development - Include all Ratios
+$ratio-range = (1..32)
+
+$numerators-A = (A 1) (A 2) (A 3) (A 4) (A 5)
+$numerators-B = (B 1) (B 2) (B 3)
+$numerators-C = (C 1) (C 2) (C 3)
+$numerators-D = (D 1) (D 2) (D 3)
+$numerators-E = (E 1) (E 2) (E 3)
+
+/////////////////////////////////
+// GRID SETTINGS
+/////////////////////////////////
+
+$gx-A = 27
+$gy-A = 27
+$gs-A = 2
+
+$gx-B = 24
+$gy-B = 28
+$gs-B = 1
+
+$gx-C = 24
+$gy-C = 24
+$gs-C = 1
+
+$gx-D = 24
+$gy-D = 24
+$gs-D = 1
+
+$gx-E = 24
+$gy-E = 24
+$gs-E = .5
+
+/////////////////////////////////
+// ZONE/BREAKPOINT SETTINGS
+/////////////////////////////////
+
+$max-copy-width = 20
+$zone-a-min = 16
+
+$zone-b-max = 16
+$zone-b-min = 12
+
+$zone-c-max = 12
+$zone-c-min = 9
+
+$zone-d-max = 9
+$zone-d-min = 6
+
+$zone-e-max = 6
+$zone-e-min = 4
+
+
+@import '../../bower_components/poxy/stylus/poxy'
+
+
+
+.thumbs
+	figure
+		position relative
+
+
+
+section
+	&:before,
+	&:after
+		display none

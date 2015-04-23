@@ -1,0 +1,41 @@
+- get_template_part( 'part-header' );
+
+- $taxonomy = 'link_cat';
+- $queried_term = get_query_var($taxonomy);
+- $terms = get_the_terms($post->ID, $taxonomy);
+- $terms = get_terms($taxonomy, 'slug='.$queried_term.'&order=ASC&orderby=name'  );
+
+- foreach ($terms as $term) :
+  - global $post;
+  - $args = array( 'post_type' => 'link',  'posts_per_page' => 99, 'link_cat' => $term->name );
+  - $loop = new WP_Query( $args );
+
+  section
+    .sw
+      .cw.tx-c
+        div
+          h3.txa-6.txb-6.txc-6.mb1
+            - echo $term->name;
+
+          - while ( $loop->have_posts() ) : $loop->the_post();
+
+            - $link_url = get_post_meta(get_the_ID(), "_poxy_link_url", true);
+
+            - if ($link_url) :
+                p.rel.txa-4.txb-4.txc-4.txd-4.txe-4.txc-4.mt2
+                  - poxy_edit();
+                  a(href!='<?php echo $link_url; ?>', target="_blank")
+                    - the_title();
+            - else :
+                p.rel.txa-4.txb-4.txc-4.txd-4.txe-4.txc-4.mt2
+                  - poxy_edit();
+                  - the_title();
+
+            - endif;
+            p.rel.txa-1.txb-1.txc-1.txd-1.txe-1.mt0
+              - echo get_the_content();
+
+          - endwhile;
+          - wp_reset_query();
+          
+- endforeach;

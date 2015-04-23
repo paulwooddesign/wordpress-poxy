@@ -1,0 +1,19 @@
+//- Generate a placeholder image from placehold.it
+//- ----------------------------------
+//- Parameters:
+//- 	width: image width in pixels
+//- 	height: image height in pixels
+//- 	text (optional): text inside image
+//- ----------------------------------	
+//- Usage:
+//- +image(200, 120, 'Example')
+//- ----------------------------------
+mixin image(width, height, text)
+	- text = text || "F.P.O."
+	img(src="http://placehold.it/#{width}x#{height}&text=#{text}", alt="")
+
+//- mixin ph(width, height, text)
+//-   - width = width || "350"
+//-   - height = height || "350"
+//-   - text = text || "F.P.O."
+//- 	(style="background-image:url(http://placehold.it/#{width}x#{height}&text=#{text})")

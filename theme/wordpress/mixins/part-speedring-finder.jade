@@ -1,0 +1,38 @@
+//- section
+//-   .sw
+//-     .cw
+//-       h2 Speed Ring Finder
+
+section.rel.bg10
+  span#loader.paxy.fill.z10(style='display:none;')
+    .loading.rel.fill.poxy.bgs-contain
+      ._oxya116a_116._oxyb116b_116._oxyc18c_18._oxyd18d_18._oxye18e_18.bgs-contain(style!='background-image: url(<?php bloginfo("url"); ?>/images/loading.gif)')
+  .sw
+    .cw
+      .rel.poxya14a_116.poxyb14b_116.poxc14c_110.poxd11.poxe11
+        h2 Speed Ring Finder
+
+      figure.rel.poxya14a_116.poxyb14b_116.poxyc14c_110.qoxyd13d_18.poxye11e_18
+        select#opt_make.fill(onchange='loadBrands(this);', name='opt_make')
+          option(value='-1') Fixture Type
+          :php
+            $result=SRF_getAllMakes();
+            if(isset($result) && count($result) > 0) {
+              foreach($result as $rows) {
+                // if($meta_box_make == $rows->makeId) {
+                // 	echo '<option selected=selected value='. $rows->makeId . '>' . $rows->MakeName . '</option>';
+                // } else {
+                  echo '<option value='. $rows->makeId . '>' . $rows->MakeName . '</option>';
+                // }
+              }
+            }
+
+      figure.rel.poxya14a_116.poxyb14b_116.poxyc14c_110.qoxyd13d_18.poxye11e_18
+        select#opt_model.fill(disabled='disabled', onchange='loadFixtures(this);', name='opt_model')
+          option(value='-1') Fixture Brand
+
+      figure.rel.poxya14a_116.poxyb14b_116.poxyc14c_110.qoxyd13d_18.poxye11e_18
+        select#year.fill(disabled='disabled', onchange='loadSpeedRings();', name='year')
+          option(value='-1') Select Fixture
+
+#speed-ring-finder-holder

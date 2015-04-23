@@ -1,0 +1,278 @@
+:php
+  function poxy_get_tax_header() {
+  global $wp_query;
+  $term_id = $wp_query->queried_object->term_id;
+  $tax_meta = get_option( "taxonomy_term_$term_id" );
+
+
+  $title = $wp_query->queried_object->name;
+  $description = $wp_query->queried_object->description;
+  $sub_title = $wp_query->queried_object->name;
+  $button_url = false;
+
+  $image = poxy_tax_image($term_id);
+  $image = 'background-image: url('. $image. ')';
+
+  $featured_image_position = 'cc';
+  if ($tax_meta['featured_image_position']) {
+    $featured_image_position = $tax_meta['featured_image_position'];
+  }
+
+  $bgs = $tax_meta['featured_image_bgs'];
+
+  //- $featured_image_position = 'cc';
+  //- if (isset($tax_meta['featured_image_position']) {
+  //-   $featured_image_position = $tax_meta['featured_image_position'];
+  //- }
+
+
+  //- $featured_image_position = 'cc';
+  //- if (  isset( $tax_meta['featured_image_position'] )
+  //-   $featured_image_position = $tax_meta['featured_image_position'];
+
+
+h1.mb2.bold.txa-12.txb-11.txc-10.txd-9.txe-9.tx-gold
+  - echo $title;
+- if($description) :
+  .tx-2.description
+    - echo $description
+- endif;
+
+
+
+
+//- section(ng-class!='{ fadeOut : waypointHeader.text.on, fadeIn : waypointHeader.text.off }').b_14.tx-c
+//-   .sw(zum-waypoint!='waypointHeader', up='text.on', down='text.off', offset="100%")
+//-     .cw.a12.b12.c12.d11.e11
+//-       h1.mb0.bold.txa-11.txb-11.txc-10.txd-9.txe-9.tx-gold
+//-         - echo $title;
+//-       //- - if($sub_title) :
+//-       //- .sub-head.txa-3.mb1.mt2.wp2
+//-       //-   - echo $sub_title
+//-       //- - endif;
+//-       - if($description) :
+//-         .description
+//-           - echo $description
+//-       - endif;
+
+
+
+
+//- section.bg-black.white.clear.ofh
+//-   - if ($copywrite_name) :
+//-       figcaption.copywrite.zeta.daxy.p4.z6
+//-         - if ($copywrite_url) :
+//-           a(href!="<?php echo $copywrite_url; ?>")
+//-             - echo $copywrite_name;
+//-         - else :
+//-           - echo $copywrite_name;
+//-         - endif;
+//-   - endif;
+//-   .sw
+//-     .cw.rel.a_12.b_12.c_58.d_58.e_p11
+//-       .paxy.fill.shadow-l.z2.hd.he
+//-       .rel.mb0.qoxya18a_12.qoxyb14b_12.qoxyc14c_58.poxyd11d_12.poxye11e_12
+//-         figure(class!="rel image qaxya34a_p100qaxyb34b_p100qaxyc11c_p100_oxyd54d_p100_oxye54e_p100 bgs-<?php echo $bgs; ?> bgp-<?php echo $bgp; ?>" style!='<?php echo $image; ?>')
+//-           .paxy.fill.shadow-r.z2.hd.he
+//-       .rel.poxa18a_12.mb0.poxb14b_12.poxc14c_58.poxd14d_58.poxe11e_34
+//-         .wrap
+//-           .rel.paxya12a_12.paxyb12b_12.paxyc12c_58.poxd12d_58.poxe11e_12
+//-             .rel._oxap11a_p11.z6._oxbp11b_p11._oxcp11c_p11.poxdp11d_p11.poxep11e_p11
+//-               .rel.poxya12a_pox.poxyb12b_pox.poxyc12c_pox.poxyd11d_pox.poxye11e_pox
+//-                 h2.txa-11.txb-9.txc-8.txd-8.mt1-d.txe-7.mt1-e(title='')
+//-                   - echo $title;
+//-
+//-               - if ($sub_title) :
+//-                   .rel.poxya38a_pox.poxyb38b_pox.poxyc38c_pox.poxyd38d_pox.poxye11e_pox
+//-                     .txa-6.mt2-a.accent.txb-3.mt2-b.txc-3.mt2-c.txd-2.mt2-d.txe-3.mt2-e
+//-                       - echo $sub_title;
+//-               - endif;
+//-
+//-               - if ($description) :
+//-                 .rel.poxa14a_14.poxyb14b_pox.poxyc14c_pox.poxyd11d_pox.poxye11e_pox
+//-                   p
+//-                     - echo $description;
+//-               - endif;
+//-
+//-               - if($button_url) :
+//-                   .rel.poxap11a_14.poxbp11b_14.poxcp11c_14.poxdp11d_14.poxep11e_14
+//-                     a(href!='<?php echo $button_url; ?>')
+//-                     button.btn.btn-svg(type='button')
+//-                       svg.btn_svg(version='1.1', viewbox='0 0 30 20', preserveaspectratio='none')
+//-                         rect.btn_svg_shape(width='30', height='40')
+//-                       span Learn More
+//-               - endif;
+:php
+  }
+:php
+  function poxy_get_children() {
+
+- if (have_posts()):
+- while (have_posts()):
+  - the_post();
+  :php
+    //- $image_url = get_poxy_thumb();
+    $image_url = get_poxy_thumb_650();
+    if ($image_url) {
+      $image = 'background-image: url('. $image_url. ')';
+    } else {
+      $image_ph = get_bloginfo('template_url') . '/images/logo-blue.svg';
+      $image = 'background-image: url('.$image_ph.')';
+    }
+
+
+  - $title = get_the_title();
+  - $slug = poxy_slug();
+  - $description = poxy_meta('_poxy_product_description');
+  - $size = poxy_meta('_poxy_product_size');
+  - $size = poxy_meta('_poxy_product_size');
+  - $height_in = poxy_meta('_poxy_product_height_in');
+  - $height_cm = poxy_meta('_poxy_product_height_cm');
+  - $diameter_in = poxy_meta('_poxy_product_diameter_in');
+  - $diameter_cm = poxy_meta('_poxy_product_diameter_cm');
+  - $depth_in = poxy_meta('_poxy_product_depth_in');
+  - $depth_cm = poxy_meta('_poxy_product_depth_cm');
+  - $length_in = poxy_meta('_poxy_product_length_in');
+  - $length_cm = poxy_meta('_poxy_product_length_cm');
+  - $width_in = poxy_meta('_poxy_product_width_in');
+  - $width_cm = poxy_meta('_poxy_product_width_cm');
+  - $weight = poxy_meta('_poxy_product_weight');
+  - $pole_length_in = poxy_meta('_poxy_product_pole_length_in');
+  - $pole_length_cm = poxy_meta('_poxy_product_pole_length_cm');
+  - $fits = poxy_meta('_poxy_product_fits');
+  - $voltage = poxy_meta('_poxy_product_voltage');
+  - $max_wattage = poxy_meta('_poxy_product_max_wattage');
+  - $lights_mounts = poxy_meta('_poxy_product_lights_mounts');
+  - $rating = poxy_meta('_poxy_product_rating');
+  - $max_wattage = poxy_meta('_poxy_product_max_wattage');
+
+
+  section.txa-2.txb-1
+    .sw
+      .cw.rel
+        .poxy11a_58.poxb11b_58.poxc12c_14.poxd12d_12.poxe12e_12.tx-c.z1_45
+          figure.poxya11a_58.poxyb11b_58.poxyc12c_14.poxyd12d_12.poxye12e_12.bgp-ct.bg-cover(style!='<?php echo $image; ?>')
+
+
+        //- .poxa14.poxb14.poxyc12c_p11.poxyd12d_p11.poxye12e_p12
+        //-   a(href!='<?php bloginfo("url"); ?>/project/<?php echo $slug; ?>')
+        //-     h3.txa-6.txb-6.mt4
+        //-       span.mr2
+        //-       - echo $title;
+        //-
+        //-   p
+        //-     - if ($description) :
+        //-       - echo $description;
+        //-     - else :
+        //-       - echo get_the_excerpt();
+        //-     - endif;
+:php
+  //- Section 1
+  global $post;
+  $section_number = 2;
+  $id = $post->ID;
+
+  $layout = get_post_meta($id, '_poxy_project_section_'.$section_number.'_layout', true);
+  $layout = $layout ? $layout : '1';
+
+  $title = get_post_meta($id, '_poxy_project_section_'.$section_number.'_title', true);
+  $title = $title ? $title : 'Section 1 Title';
+
+  $description = get_post_meta($id, '_poxy_project_section_'.$section_number.'_description', true);
+  $description = $description ? $description : 'Section 1 Description';
+
+  //- Section 1
+  //- Figure 1
+  $fig_number = 1;
+  for($i=1; $i <= 5; $i++) {
+    ${'f1_image_' . $i} = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_'.$section_number.'_'.$i.'_image', true), 'full')[0].");" : '';
+    ${'f1_bgs_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgs', true) : 'cover';
+    ${'f1_bgp_' . $i} = get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) ? get_post_meta($id, '_poxy_project_fig_'.$section_number.'_'.$i.'_bgp', true) : 'ct';
+  }
+
+section.white-shadow.bg-main
+  .sw
+    .cw.tx-c
+      .rel.poxa11.poxb11.poxc11.poxd11.poxe11
+        h2.txa-6.txb-6.txc-6.txd-6.txe-6(title='')
+          span.mr2
+          - echo $title;
+        .txa-3.mt2
+          - echo $description;
+      figure(class!='rel image z1_45 poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_1; ?> bgs-<?php echo $f1_bgs_1; ?>', style!='<?php echo $f1_image_1; ?>')
+      figure(class!='rel image z1_45 poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_2; ?> bgs-<?php echo $f1_bgs_2; ?>', style!='<?php echo $f1_image_2; ?>')
+      figure(class!='rel image z1_45 poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_3; ?>')
+      figure(class!='rel image z1_45 poxya14a_12 poxyb14b_12 poxyc14c_114 poxyd11d_12 poxye11e_12 bgp-<?php echo $f1_bgp_3; ?> bgs-<?php echo $f1_bgs_3; ?>', style!='<?php echo $f1_image_4; ?>')
+
+
+
+- endwhile;
+- wp_reset_query();
+- endif;
+:php
+  }
+
+:php
+  function poxy_get_parents($termchildren, $section, $bgp = 'cc', $bgs = 'contain' ) {
+
+- if($section == 1) :
+  - foreach ( $termchildren as $child ) :
+
+    - $title = $child->name;
+    - $description = $child->description;
+    - $slug = $child->slug;
+    - $term_id = $child->slug;
+    - $image = poxy_tax_image($term_id);
+    - $image = 'background-image: url('. $image. ')';
+
+    section
+      .sw
+        .cw
+          //- .rel.image.poxya34a_38.poxyb34b_12.poxyc12c_12.poxyd11d_12.poxye11e_12.bgp-cc.bgs-cover
+          figure(class!="rel image poxya34a_38poxyb34b_12poxyc12c_12poxyd11d_12poxye11e_12 bgp-<?php echo $bgp; ?> bgs-<?php echo $bgs; ?>", style!='<?php echo $image; ?>')
+            a(href!="<?php echo $slug; ?>", rel="bookmark").paxy.fill
+          .rel.poxya14a_14.poxyb14b_14.poxyc12c_12.11dpoxd_11.11epoxe_11
+
+            a(href!="<?php echo $slug; ?>", rel="bookmark")
+              h3.txa-6.txb-4.txc-4.txd-5.txe-3
+                - echo $title;
+            .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+              .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1.bg-black
+            p
+              - echo $description;
+            a.poxy.mt1(href!="<?php echo $slug; ?>", rel="bookmark")
+              button.p2 Read More
+
+  - endforeach;
+- else :
+  - foreach ( $termchildren as $child ) :
+
+    - $title = $child->name;
+    - $description = $child->description;
+    - $slug = $child->slug;
+    - $term_id = $child->slug;
+    - $image = poxy_tax_image($term_id);
+    - $image = 'background-image: url('. $image. ')';
+
+    section
+      .sw
+        .cw
+          figure.rel.image.poxya34a_38.poxyb34b_12.poxyc12c_12.poxyd11d_12.poxye11e_12.bgp-ct.bgs-cover(style!='<?php echo $image; ?>')
+            a(href!="<?php echo $slug; ?>", rel="bookmark").paxy.fill
+          .rel.poxya14a_14.poxyb14b_14.poxyc12c_12.11dpoxd_11.11epoxe_11
+
+            a(href!="<?php echo $slug; ?>", rel="bookmark")
+              h3.txa-6.txb-4.txc-4.txd-5.txe-3
+                - echo $title;
+            .poxyap11.poxybp11.poxycp11.poxydp11.poxyep11
+              .poxya112.poxyb112.poxyc18.poxyd16.poxye14.line.mt1.mb1.bg-black
+            p
+              - echo $description;
+            a.poxy.mt1(href!="<?php echo $slug; ?>", rel="bookmark")
+              button.p2 Read More
+
+  - endforeach;
+- endif;
+
+:php
+  }

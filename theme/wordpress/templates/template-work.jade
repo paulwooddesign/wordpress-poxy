@@ -1,0 +1,178 @@
+- get_template_part( 'mixin-header' );
+
+
+- $taxonomy = 'project_cat';
+- $queried_term = get_query_var($taxonomy);
+- $args = array( 'orderby' => 'term_order', 'hide_empty' => false, 'parent' => 0 );
+- $cats = get_terms($taxonomy, $args);
+//- section.tx-c.white-shadow.bg-main
+//- 	.sw
+//- 		.cw
+//- 			.title.txa-6.txb-6.tx-gold Archives
+section.hole.ofh
+	.sw.rel
+		#thumbs.cw.thumbs.static
+			//- .oxy
+			//- 	.rel
+			//- 		.bs-cb.pl1._oxa11a_18._oxb11b_18._oxyc11c_18
+			//- 			.rel
+			//- 				.bs-cb.pt2.pr1.pb2.pl1._oxya11a_18._oxyb11b_18._oxyc11c_18.br2.hole
+			//- 				.bs-cb.pt2.pr1.pb2.pl1._oxya11a_18._oxyb11b_18._oxyc11c_18.br2.hole-mask
+			- foreach ($cats as $cat) :
+
+				- $term_id = $cat->term_id;
+				- $tax_meta = get_option( "taxonomy_term_$term_id" );
+
+				- if(isset($tax_meta['cat_color_red']) && isset($tax_meta['cat_color_green']) && isset($tax_meta['cat_color_blue'])) :
+					- $red = $tax_meta['cat_color_red'];
+					- $green = $tax_meta['cat_color_green'];
+					- $blue = $tax_meta['cat_color_blue'];
+					- $background_color = 'background-color: rgba('.$red.','.$green.','.$blue.', .6)';
+					//- - $background_color = 'background-color: rgba(150,150,150, .5)';
+				- else :
+					- $background_color = 'background-color: rgba(150,150,150, .9)';
+				- endif;
+
+				- $link = get_term_link( $cat->slug, 'project_cat' );
+				- $id = $cat->term_id;
+				- $title = $cat->name;
+				- $description = $cat->description;
+				- $slug = $cat->slug;
+				- $term_id = $cat->slug;
+
+				- $image_url = poxy_tax_image($term_id);
+				- if ($image_url) :
+					- $image = 'background-image: url('. $image_url. ')';
+				- else :
+					- $image_ph = get_bloginfo('template_url') . '/images/placeholder-logo-white.svg';
+					- $image = 'background-image: url('.$image_ph.')';
+				- endif;
+
+				//- Hover Image
+
+				- $slide_image_url = get_bloginfo("url") . '/images/thumb-slide-test.png';
+				- $slide_image = 'background-image: url('.$slide_image_url.')';
+
+				figure.a14a_18.b14b_18c14c_18d14d_18e14e_14.br2
+					a(href!="<?php echo $link; ?>", rel="bookmark")
+						//- span.oxy.gold-filter.br2.fill-95
+						span.oxy.inside-bevel.br2
+						span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+						span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+						span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+							h2.oxy.txb-6.bold
+								- echo $title;
+							//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110._oxyc110c_110.oxy.ofh.bg-contain.bgp-cc
+						.shadow.oxy.shadow.ofh.br2
+						.title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+
+							//- span.oxy.a13a_13b13b_13.gloss
+			- endforeach;
+
+
+//- - get_template_part( 'test-grid' );
+
+
+
+- $args = array( 'orderby' => 'name', 'posts_per_page' => 12, 'post_type' => array('project') );
+- $sections = new WP_Query( $args );
+//- __a14a_14b14b_14c14c_14d14d_14e12e_12
+section(class='___a13a_12b13b_25c12c_35d12d_35e12e_35 hole ofh', style='background-color: rgba(0,0,0,0.0)')
+	.sw
+		.cw.thumbs
+			:php
+				while ($sections->have_posts()) : $sections->the_post();
+					$image_url = get_poxy_thumb();
+					$image = $image_url ? 'background-image: url('. $image_url. ')' : false;
+					$sub_title = get_post_meta($post->ID, "_poxy_vip_sub_head", true);
+					$title = get_the_title();
+					$id = get_the_ID();
+					$link = '#';
+					$background_color = 'background-color: rgba(150,150,150, .9)';
+
+			figure.br2.bs0
+				a(href!="<?php the_permalink(); ?>")
+					span.oxy.gold-filter.br2.fill-95
+					span.oxy.inside-bevel.br2
+					//- span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+					span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+
+					span.thumb.oxy.ofh.br2.bg-100.bgp-ct(style!='<?php echo $image; ?>')
+						//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+
+					.shadow.oxy.shadow.ofh.br2
+					//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+					.title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+						- echo $title;
+
+
+			- endwhile;
+			- wp_reset_query();
+//-
+//-
+//-
+//-
+//-
+//-
+//-
+//-
+//- .wrapper
+//- 		h1
+//- 				| UISwitch II
+//- 				small A pure CSS3 switch-style checkbox
+//- 			section#fields.fields.section
+//- 				h2 Styles
+//- 				.fields__item
+//- 					input.uiswitch(type='checkbox')
+//- 					|
+//- 					h6 Off (unchecked)
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch(type='checkbox', checked='')
+//- 					|
+//- 					h6 On (checked)
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch(type='checkbox', disabled='')
+//- 					|
+//- 					h6 Disabled Off
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch(type='checkbox', checked='', disabled='')
+//- 					|
+//- 					h6 Disabled On
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch.custom(type='checkbox')
+//- 					|
+//- 					h6 Custom
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch.my-switch(type='checkbox')
+//- 					|
+//- 					h6 Custom
+//-
+//- 			section#fields.fields.section
+//- 				h2 Sizes
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch.uiswitch--large(type='checkbox')
+//- 					|
+//- 					h6 Large
+//- 				|
+//- 				.fields__item
+//- 					input.uiswitch.uiswitch--medium(type='checkbox', checked='')
+//- 					h6 Medium
+//- 				.fields__item
+//- 					input.uiswitch.uiswitch--small(type='checkbox')
+//- 					h6 Small
+//- 				.fields__item
+//- 					input.uiswitch.uiswitch--tiny(type='checkbox')
+//- 					h6 Tiny
+//-
+//- 			section#usage.section
+//- 				p In just a single line!
+//- 				pre.
+//-
+//- 				p Use SCSS to customize and create your own
+//- 				pre.

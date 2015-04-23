@@ -1,0 +1,152 @@
+- get_template_part( 'mixin-header' );
+
+
+//- h3 Code
+//- - $taxonomy = 'project_code';
+//- - $queried_term = get_query_var($taxonomy);
+//- - $args = array( 'orderby' => 'term_order', 'hide_empty' => false, 'parent' => 0 );
+//- - $cats = get_terms($taxonomy, $args);
+//-   ul
+//-   - foreach ($cats as $cat) :
+//-     - $term_id = $cat->term_id;
+//-     - $tax_meta = get_option( "taxonomy_term_$term_id" );
+//-
+//-     - $link = get_term_link( $cat->slug, 'project_code' );
+//-     - $id = $cat->term_id;
+//-     - $title = $cat->name;
+//-     - $description = $cat->description;
+//-     - $slug = $cat->slug;
+//-     - $term_id = $cat->slug;
+//-
+//-     - $image_url = poxy_tax_image($term_id);
+//-     - if ($image_url) :
+//-       - $image = 'background-image: url('. $image_url. ')';
+//-     - else :
+//-       - $image_ph = get_bloginfo('template_url') . '/images/placeholder-logo-white.svg';
+//-       - $image = 'background-image: url('.$image_ph.')';
+//-     - endif;
+//-       li
+//-         a(href!="<?php echo $link; ?>", rel="bookmark")
+//-           - echo $title;
+//-
+//-   - endforeach;
+
+
+- get_template_part( 'part-content');
+
+//-
+//- section
+//-   .sw
+//-     .cw.qoxy
+//-       //- Container
+//-       ul.progress
+//-         //- Item
+//-         li(data-name='SVG Skill', data-percent='13%')
+//-           svg(viewbox='-10 -10 220 220').b18b_18
+//-             g(fill='none', stroke-width='3', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='81')
+//-         //- Item
+//-         li(data-name='HTML5 Skill', data-percent='87%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='2', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='547')
+//-         //- Item
+//-         li(data-name='jQuery Skill', data-percent='13%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='12', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='81')
+//-         //- Item
+//-         li(data-name='UI Skill', data-percent='97%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='9', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='610')
+//-         //- Item
+//-         li(data-name='PHP Skill', data-percent='58%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='364')
+//-         //- Item
+//-         li(data-name='CSS Skill', data-percent='100%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='629')
+//-       //- Defining Angle Gradient Colors
+//-       svg(width='0', height='0')
+//-         defs
+//-           lineargradient#cl1(gradientunits='objectBoundingBox', x1='0', y1='0', x2='1', y2='1')
+//-             stop(stop-color='#618099')
+//-             stop(offset='100%', stop-color='#8e6677')
+//-           lineargradient#cl2(gradientunits='objectBoundingBox', x1='0', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#8e6677')
+//-             stop(offset='100%', stop-color='#9b5e67')
+//-           lineargradient#cl3(gradientunits='objectBoundingBox', x1='1', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#9b5e67')
+//-             stop(offset='100%', stop-color='#9c787a')
+//-           lineargradient#cl4(gradientunits='objectBoundingBox', x1='1', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#9c787a')
+//-             stop(offset='100%', stop-color='#817a94')
+//-           lineargradient#cl5(gradientunits='objectBoundingBox', x1='0', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#817a94')
+//-             stop(offset='100%', stop-color='#498a98')
+//-           lineargradient#cl6(gradientunits='objectBoundingBox', x1='0', y1='1', x2='1', y2='0')
+//-             stop(stop-color='#498a98')
+//-             stop(offset='100%', stop-color='#618099')
+
+
+
+
+:php
+  $args = array(
+    'post_parent' => poxy_id(),
+    'orderby' => 'menu_order',
+    'order'   => 'ASC',
+    'post_type' => array('page')
+  );
+
+  $sections = new WP_Query( $args );
+  while ($sections->have_posts()) : $sections->the_post();
+    get_template_part('part-section');
+  endwhile;
+  wp_reset_query();

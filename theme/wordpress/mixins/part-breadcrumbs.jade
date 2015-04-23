@@ -1,0 +1,16 @@
+:php
+  /**
+   *
+   * Chimera template part for displaying the footer
+   *
+   * @package WordPress
+   * @subpackage Chimera
+   * @since Chimera 1.0
+   */
+
+section.breadcrumbs.pb1.tx-u.txa-2.txb-2
+  .sw
+    .cw
+      - if ( function_exists('yoast_breadcrumb') ) :
+          - yoast_breadcrumb();
+      - endif;

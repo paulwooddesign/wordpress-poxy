@@ -1,0 +1,1115 @@
+///////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////
+$main_background_color = #e9e3dd
+$main_background_color = #e3e3e3
+$main_background_color = rgba(240, 240, 240, 1)
+
+$main_background_image =  url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczJyBoZWlnaHQ9JzYnIHZpZXdCb3g9JzAgMCA1IDEwJz4KCTxyZWN0IHdpZHRoPScxMTAlJyB4PSctNSUnIHk9Jy01JScgaGVpZ2h0PScxMTAlJyBmaWxsPScjMWQxZjIxJy8+Cgk8bGluZSB4MT0nLTInIHkxPScxJyB4Mj0nNycgeTI9JzEwJyBzdHJva2U9JyMxODFiMWYnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9Jy0yJyB5MT0nNicgeDI9JzcnIHkyPScxNScgc3Ryb2tlPScjMTgxYjFmJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSctMicgeTE9Jy00JyB4Mj0nNycgeTI9JzUnIHN0cm9rZT0nIzE4MWIxZicgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cgk8bGluZSB4MT0nNycgeTE9JzEnIHgyPSctMicgeTI9JzEwJyBzdHJva2U9JyMyMTJhMzMnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9JzcnIHkxPSc2JyB4Mj0nLTInIHkyPScxNScgc3Ryb2tlPScjMjEyYTMzJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSc3JyB5MT0nLTQnIHgyPSctMicgeTI9JzUnIHN0cm9rZT0nIzIxMmEzMycgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cjwvc3ZnPg==')
+
+// footer_background_color = #111
+container_background_color = transparent
+header_background_color = transparent
+
+// skin_shadow_color = #cecece
+skin_shadow_color = rgba(210, 210, 210, 1)
+skin_highlight_color = #fff
+
+$shadow_color = 225,225,225
+
+// Text
+font_color = rgba(0, 0, 0, 0.65)
+// font_color = rgba(#70869d, 0.8)
+accent = rgba(0, 0, 0, 1)
+
+a_color = font_color
+a_color_hover = accent
+
+
+
+
+guide_opacity = .1
+guide_color = #fff
+
+
+.poy
+  width auto !important
+
+
+.lh___1
+  line-height 1
+.lh___2
+  line-height 1.2
+.lh___3
+  line-height 1.3
+.lh___4
+  line-height 1.4
+.lh___5
+  line-height 1.5
+.lh___6
+  line-height 1.6
+.lh___7
+  line-height 1.7
+.lh___8
+  line-height 1.8
+
+// Border Radius
+.br___1
+  border-radius 1rem
+.br___2
+  border-radius .5rem
+.br___3
+  border-radius .25rem
+.br___100
+  border-radius 100%
+
+
+// Border Size
+// .bs___1
+//   border-radius 1rem
+// .bs___2
+//   border-radius .5rem
+// .bs___3
+//   border-radius .25rem
+// .bs___4
+//   border-radius 100%
+
+.op___10
+  opacity 0.1
+.op___20
+  opacity 0.2
+.op___30
+  opacity 0.3
+.op___40
+  opacity 0.4
+.op___50
+  opacity 0.5
+.op___60
+  opacity 0.6
+.op___70
+  opacity 0.7
+.op___80
+  opacity 0.8
+.op___90
+  opacity 0.9
+.op___100
+  opacity 1
+
+.op___0
+  transition opacity 300ms ease
+  opacity 0
+
+.op___1h:hover .op___0
+  transition opacity 300ms ease
+  opacity 1
+
+
+
+
+.invert
+  filter invert(100%)
+
+.mainNav--highlight
+  border-left solid rgba(255,255,255,.65)
+.vScroller--highlight
+  border-right solid rgba(255,255,255,.65)
+
+
+
+
+.inner-bevel
+  background-image linear-gradient(-45deg, rgba(skin_shadow_color,1) 0%, rgba(skin_highlight_color,.5) 100%) !important
+
+.outer-bevel
+  background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,.5) 100%) !important
+  // background-image linear-gradient(-45deg, rgba(skin_shadow_color,1) 0%, rgba(skin_highlight_color,.5) 100%)
+/////////////////////////////////
+// Buttons
+/////////////////////////////////
+// #mainNav .button
+//   // background-color rgba(255,255,255,.65)
+//   background transparent
+//   border-top alpha(guide_color, 1) solid 1px !important
+//   border-bottom alpha(#000, .08) solid 1px !important
+//   &:hover
+//     background-color rgba(black, .03)
+//   a
+//     color font_color
+//   a:hover
+//     color accent
+
+// #logo
+//   border-top alpha(guide_color, 1) solid 1px !important
+//   border-bottom alpha(#000, .08) solid 1px !important
+
+// Buttons
+button,
+.button
+  letter-spacing .1rem
+  // text-transform uppercase
+  position relative
+  box-sizing border-box
+  box-shadow inset 0 0 1px rgba(white, .5)
+  // background-color rgba(black, .1)
+  &:hover
+    background-color rgba(black, .02)
+
+
+// Filters
+.gray-scale
+  filter: grayscale(50%)
+
+.gray-scale:hover
+  filter: grayscale(90%)
+
+/////////////////////////////////
+// Figure
+/////////////////////////////////
+// figure
+//   transition background-size 0.5s
+//   position relative
+//   box-sizing border-box
+//   // box-shadow inset 0 0 1px #000
+//   box-shadow inset 0 0 1px rgba(white, .2)
+//   background-color rgba(black, .1)
+//   // border-radius .25rem
+//
+// figure:hover
+//   background-color rgba(black, .08)
+  // box-shadow inset 0 0 1px #03a9f4, 0 0 1px #03a9f4
+  // box-shadow inset 0 0 2px accent
+
+
+// containers1d1f21
+// #15131A
+
+
+
+
+.bg-main
+  background-color $main_background_color
+
+.accent
+  color accent !important
+
+.bs-cb
+  box-sizing content-box
+
+// .title
+//   text-shadow 0 1px 0 rgba(255, 255, 255, 0.2)
+//   text-shadow 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def
+
+///////////////////////////////////////////////
+// Main Settings
+///////////////////////////////////////////////
+::selection
+  background accent
+  color black
+
+html
+  background-color $main_background_color
+
+body
+  opacity 1
+  color font_color
+  background-color $main_background_color
+
+.header
+  background header_background_color
+
+#container
+  background-color container_background_color
+
+footer
+  background-size initial
+  // background:#e9e3dd;
+
+a
+  color a_color
+  &:hover
+    color a_color_hover
+
+nav a:hover
+  color a_color_hover
+
+.tx-3d
+  color font_color
+  text-shadow 1px 1px 0 rgba(227,218,219,1),
+  3px 3px 0 rgba(227,218,219,0.9),
+  5px 5px 0 rgba(227,218,219,0.8),
+  7px 7px 0 rgba(227,218,219,0.7),
+  9px 9px 0 rgba(227,218,219,0.6),
+  11px 11px 0 rgba(227,218,219,0.5),
+  13px 13px 0 rgba(227,218,219,0.4),
+  15px 15px 0 rgba(227,218,219,0.3),
+  17px 17px 0 rgba(227,218,219,0.2),
+  19px 19px 0 rgba(227,218,219,0.1),
+  21px 21px 0 rgba(227,218,219,0.08),
+  22px 22px 0 rgba(227,218,219,0.07),
+  23px 23px 0 rgba(227,218,219,0.06),
+  25px 25px 0 rgba(227,218,219,0.04),
+  27px 27px 0 rgba(227,218,219,0.02),
+  28px 28px 0 rgba(227,218,219,0.01),
+  29px 29px 0 rgba(227,218,219,0.0)
+///////////////////////////////////////////////
+// SVG Settings
+///////////////////////////////////////////////
+nav
+  svg:hover path
+    fill rgba(accent, 1)
+
+  path
+    fill font_color
+
+  .accent
+    svg:hover path
+      fill font_color
+
+    path
+      fill rgba(accent, 1)
+
+  .white
+    svg:hover path
+      fill rgba(white, 1)
+
+    path
+      fill rgba(accent, 1)
+
+.bg___gold
+  transition transform $trans_duration
+  opacity .95
+  background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+.bg-dark
+  background-color #F5F5F5
+/////////////////////////////////
+// Project Overlay
+/////////////////////////////////
+.placeholder
+  .back
+    background black
+
+/////////////////////////////////
+// Header
+/////////////////////////////////
+#logo
+  background-image url(../images/paulwood_logo_cutout-white.svg) !important
+
+.main-logo, .logo
+  background-image url(../images/logo-dark.png) !important
+  background-image url(../images/logo-dark.svg) !important
+
+
+.preloader-gif
+  background-image url(../images/preloader-3.gif) !important
+
+.inside-bevel
+  background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,.85) 100%)
+
+
+/////////////////////////////////
+// Thumbs
+/////////////////////////////////
+$trans_duration = 250ms
+
+.thumbs
+  li,
+  figure
+    //box-shadow: inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .5), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5);
+    //box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5)
+    position relative
+    background-image linear-gradient(to bottom, #111, #333)
+    background-image linear-gradient(45deg, rgba(#111,1) 0%, rgba(#333,1) 100%)
+
+
+    // box-shadow 0 .5em 2em rgba(0,0,0,.05), inset 0 .2em .4em -.2em rgba(255,255,255,.2), 0 0 .2em rgba(0,0,0,.1)
+    // box-shadow 0 .5em 2em rgba(255,255,255,.02), inset 0 .2em .4em -.2em rgba(0,0,0,.2), 0 0 .2em rgba(0,0,0,.2)
+    // box-shadow 1px 1px 0 0 rgba(212,206,200,1), 2px 2px 0 0 rgba(212,206,200,1), 3px 3px 0 0 rgba(212,206,200,0.9), 4px 4px 0 0 rgba(212,206,200,0.9), 5px 5px 0 0 rgba(212,206,200,0.8), 6px 6px 0 0 rgba(212,206,200,0.8), 7px 7px 0 0 rgba(212,206,200,0.7), 8px 8px 0 0 rgba(212,206,200,0.7), 9px 9px 0 0 rgba(212,206,200,0.6), 11px 11px 0 0 rgba(212,206,200,0.5), 13px 13px 0 0 rgba(212,206,200,0.4), 15px 15px 0 0 rgba(212,206,200,0.3), 17px 17px 0 0 rgba(212,206,200,0.2), 19px 19px 0 0 rgba(212,206,200,0.1), 21px 21px 0 0 rgba(212,206,200,0.09), 23px 23px 0 0 rgba(212,206,200,0.07), 25px 25px 0 0 rgba(212,206,200,0.05), 23px 23px 0 0 rgba(212,206,200,0.05), 25px 25px 0 0 rgba(212,206,200,0.05), 27px 27px 0 0 rgba(212,206,200,0.05), 29px 29px 0 0 rgba(212,206,200,0.05), 31px 31px 0 0 rgba(212,206,200,0.05), 33px 33px 0 0 rgba(212,206,200,0.05), 35px 35px 0 0 rgba(212,206,200,0.05), 37px 37px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05), 41px 41px 0 0 rgba(212,206,200,0.05), 43px 43px 0 0 rgba(212,206,200,0.05), 45px 45px 0 0 rgba(212,206,200,0.05), 47px 47px 0 0 rgba(212,206,200,0.05), 49px 49px 0 0 rgba(212,206,200,0.05), 51px 51px 0 0 rgba(212,206,200,0.05), 53px 53px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05)
+
+
+    // box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    //   2px 2px 0 0 rgba($shadow_color,1),
+    //   3px 3px 0 0 rgba($shadow_color,0.9),
+    //   4px 4px 0 0 rgba($shadow_color,0.9),
+    //   5px 5px 0 0 rgba($shadow_color,0.8),
+    //   6px 6px 0 0 rgba($shadow_color,0.8),
+    //   7px 7px 0 0 rgba($shadow_color,0.7),
+    //   8px 8px 0 0 rgba($shadow_color,0.7),
+    //   9px 9px 0 0 rgba($shadow_color,0.6),
+    //   11px 11px 0 0 rgba($shadow_color,0.5),
+    //   13px 13px 0 0 rgba($shadow_color,0.4),
+    //   15px 15px 0 0 rgba($shadow_color,0.3),
+    //   17px 17px 0 0 rgba($shadow_color,0.2),
+    //   19px 19px 0 0 rgba($shadow_color,0.1),
+    //   21px 21px 0 0 rgba($shadow_color,0.09),
+    //   23px 23px 0 0 rgba($shadow_color,0.07),
+    //   25px 25px 0 0 rgba($shadow_color,0.05),
+    //   23px 23px 0 0 rgba($shadow_color,0.05),
+    //   25px 25px 0 0 rgba($shadow_color,0.05),
+    //   27px 27px 0 0 rgba($shadow_color,0.05),
+    //   29px 29px 0 0 rgba($shadow_color,0.05),
+    //   31px 31px 0 0 rgba($shadow_color,0.05),
+    //   33px 33px 0 0 rgba($shadow_color,0.05),
+    //   35px 35px 0 0 rgba($shadow_color,0.05),
+    //   37px 37px 0 0 rgba($shadow_color,0.05),
+    //   39px 39px 0 0 rgba($shadow_color,0.05),
+    //   41px 41px 0 0 rgba($shadow_color,0.05),
+    //   43px 43px 0 0 rgba($shadow_color,0.05),
+    //   45px 45px 0 0 rgba($shadow_color,0.05),
+    //   47px 47px 0 0 rgba($shadow_color,0.05),
+    //   49px 49px 0 0 rgba($shadow_color,0.05),
+    //   51px 51px 0 0 rgba($shadow_color,0.05),
+    //   53px 53px 0 0 rgba($shadow_color,0.05),
+    //   39px 39px 0 0 rgba($shadow_color,0.05)
+
+    // background linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+    background-image linear-gradient(-45deg, rgba(skin_shadow_color,1) 0%, rgba(skin_highlight_color,1) 100%)
+    background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,1) 100%)
+
+    .thumb-title
+      color #222
+      opacity 0
+
+    .thumb
+      // width 94%
+      // height 94%
+      width 95%
+      height 95%
+      transition $trans_duration ease
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      // background-color rgba(0,0,0,.7)
+      // background-position 50% 0%
+      // filter: grayscale(70%)
+
+      // background-image linear-gradient(-45deg, rgba(#000,1) 0%,  rgba(#444,1) 100%)
+      // background-image linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+      // background-image linear-gradient( to bottom, skin_highlight_color, skin_shadow_color)
+      // background $main_background_color
+      // background-color rgba($main_background_color,1)
+      background-image none
+      background-color rgba(242,242,242,1)
+      // background #fcfbfa
+      // box-shadow: inset 0 0 2em 0.1em rgba(0, 0, 0, 0.3);
+
+    .icon
+      opacity .7
+      // filter invert(100%)
+
+    .shadow
+      // width 94%
+      // height 94%
+      width 95%
+      height 95%
+      transition opacity $trans_duration ease
+      opacity 0
+      // background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 110%)
+      background-image none
+      // box-shadow: inset 0 0 0em 0.0em rgba(0, 0, 0, 0.3);
+      text-align center
+
+
+    .gold-filter
+      transition transform $trans_duration
+      // width 95%
+      // height 95%
+      width 97%
+      height 97%
+      opacity .7
+      background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+    .inside-bevel
+      width 97%
+      height 97%
+      background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,.5) 100%)
+      background-image linear-gradient(-45deg, rgba(skin_shadow_color,1) 0%, rgba(skin_highlight_color,.5) 100%)
+
+    .accent-border
+      transition $trans_duration ease
+      width 95%
+      height 95%
+      opacity 0
+
+    .highlight-border
+      opacity 0
+      background-image linear-gradient(-45deg, rgba(#fff,.0) 0%,  rgba(#fff,.3) 100%)
+
+    .title
+      opacity 0
+      transition $trans_duration ease
+      transform translateX(50%) translateY(100%)
+
+  li:hover,
+  figure:hover
+    .gloss
+      border-radius 20%
+      transition $trans_duration
+      //box-shadow inset 5em 5em 0 -16em rgba(255,255,255,0.3)
+      box-shadow inset 16em 18em 0 -13em rgba(255,255,255,0.1)
+    .thumb
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      // filter: grayscale(0%)
+      width 93%
+      height 93%
+      background-color rgba($main_background_color,1)
+      background-image none
+      // background-color rgba(242,242,242,0)
+
+    .shadow
+      transition $trans_duration ease
+      // box-shadow: inset 0 0 2em 0.1em rgba(0, 0, 0, 0.3);
+      background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,1) 100%)
+      opacity .8
+      width 97%
+      height 97%
+      width 93%
+      height 93%
+
+    .gold-filter
+      transition opacity $trans_duration
+      opacity 1
+
+    .color-filter
+      opacity .0
+      transition transform $trans_duration
+      //transform translateX(50%) translateY(-100%)
+      //background-image linear-gradient(45deg, rgba(#463c2c,.3) 0%, rgba(#fdd333,.3) 26%, rgba(#fffcaf,.5) 65%, rgba(#b67b03,.4) 55%, rgba(#341c02,.3) 80%, rgba(#160f07,.3) 100%)
+
+    .fill-94
+      width 96%
+      height 96%
+
+    .fill-95
+      transition $trans_duration ease
+      width 98%
+      height 98%
+      width 95%
+      height 95%
+
+    .accent-border,
+    .highlight-border
+      width 95%
+      height 95%
+      opacity 1
+
+    .title
+      opacity 1
+      transition $trans_duration ease
+      transform translateX(50%) translateY(0%)
+      transform translateX(50%) translateY(100%)
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////
+// Sections
+/////////////////////////////////
+
+
+section
+  border-top alpha(guide_color, 1) solid 1px !important
+  border-bottom alpha(#000, .08) solid 1px !important
+  border none !important
+  background transparent
+  // &:before,
+  &:after
+    display none
+    border-bottom alpha(guide_color, 1) solid 1px !important
+    border-top alpha(#000, .08) solid 1px !important
+    opacity .8
+    background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+    height 2px
+    width 100%
+  // &:nth-child(2n+2)
+  //   background alpha(#000, .02)
+  // &:before
+  //   border-top alpha(guide_color, guide_opacity) solid 1px
+  // &:after
+  //   border-bottom alpha(guide_color, guide_opacity) solid 1px
+
+// section
+//   &:before,
+//   &:after
+//     display none
+
+section
+  &.clear
+    &:before,
+    &:after
+      display none !important
+
+
+
+
+
+
+
+
+/////////////////////////////////
+// SVG Charts
+/////////////////////////////////
+.progress
+  svg
+    &:nth-child(2)
+      path
+        stroke rgba($main_background_color, 0.9)
+
+
+
+.white-shadow
+  box-shadow 0px 1px 0 0 rgba(212,206,200,1),
+  0px 2px 0 0 rgba(212,206,200,1),
+  0px 3px 0 0 rgba(212,206,200,0.9),
+  0px 4px 0 0 rgba(212,206,200,0.9),
+  0px 5px 0 0 rgba(212,206,200,0.8),
+  0px 6px 0 0 rgba(212,206,200,0.8),
+  0px 7px 0 0 rgba(212,206,200,0.7),
+  0px 8px 0 0 rgba(212,206,200,0.7),
+  0px 9px 0 0 rgba(212,206,200,0.6),
+  0px 11px 0 0 rgba(212,206,200,0.5),
+  0px 13px 0 0 rgba(212,206,200,0.4),
+  0px 15px 0 0 rgba(212,206,200,0.3),
+  0px 17px 0 0 rgba(212,206,200,0.2),
+  0px 19px 0 0 rgba(212,206,200,0.1),
+  0px 21px 0 0 rgba(212,206,200,0.09),
+  0px 23px 0 0 rgba(212,206,200,0.07),
+  0px 25px 0 0 rgba(212,206,200,0.05),
+  0px 23px 0 0 rgba(212,206,200,0.05),
+  0px 25px 0 0 rgba(212,206,200,0.05),
+  0px 27px 0 0 rgba(212,206,200,0.05),
+  0px 29px 0 0 rgba(212,206,200,0.05),
+  0px 31px 0 0 rgba(212,206,200,0.05),
+  0px 33px 0 0 rgba(212,206,200,0.05),
+  0px 35px 0 0 rgba(212,206,200,0.05),
+  0px 37px 0 0 rgba(212,206,200,0.05),
+  0px 39px 0 0 rgba(212,206,200,0.05),
+  0px 41px 0 0 rgba(212,206,200,0.05),
+  0px 43px 0 0 rgba(212,206,200,0.05),
+  0px 45px 0 0 rgba(212,206,200,0.05),
+  0px 47px 0 0 rgba(212,206,200,0.05),
+  0px 49px 0 0 rgba(212,206,200,0.05),
+  0px 51px 0 0 rgba(212,206,200,0.05),
+  0px 53px 0 0 rgba(212,206,200,0.05),
+  0px 39px 0 0 rgba(212,206,200,0.05)
+
+
+  box-shadow 0px 1px 0 0 rgba(255,255,255,1),
+  0px 2px 0 0 rgba(255,255,255,1),
+  0px 3px 0 0 rgba(255,255,255,0.9),
+  0px 4px 0 0 rgba(255,255,255,0.9),
+  0px 5px 0 0 rgba(255,255,255,0.8),
+  0px 6px 0 0 rgba(255,255,255,0.8),
+  0px 7px 0 0 rgba(255,255,255,0.7),
+  0px 8px 0 0 rgba(255,255,255,0.7),
+  0px 9px 0 0 rgba(255,255,255,0.6),
+  0px 11px 0 0 rgba(255,255,255,0.5),
+  0px 13px 0 0 rgba(255,255,255,0.4),
+  0px 15px 0 0 rgba(255,255,255,0.3),
+  0px 17px 0 0 rgba(255,255,255,0.2),
+  0px 19px 0 0 rgba(255,255,255,0.1),
+  0px 21px 0 0 rgba(255,255,255,0.09),
+  0px 23px 0 0 rgba(255,255,255,0.07),
+  0px 25px 0 0 rgba(255,255,255,0.05),
+  0px 23px 0 0 rgba(255,255,255,0.05),
+  0px 25px 0 0 rgba(255,255,255,0.05),
+  0px 27px 0 0 rgba(255,255,255,0.05),
+  0px 29px 0 0 rgba(255,255,255,0.05),
+  0px 31px 0 0 rgba(255,255,255,0.05),
+  0px 33px 0 0 rgba(255,255,255,0.05),
+  0px 35px 0 0 rgba(255,255,255,0.05),
+  0px 37px 0 0 rgba(255,255,255,0.05),
+  0px 39px 0 0 rgba(255,255,255,0.05),
+  0px 41px 0 0 rgba(255,255,255,0.05),
+  0px 43px 0 0 rgba(255,255,255,0.05),
+  0px 45px 0 0 rgba(255,255,255,0.05),
+  0px 47px 0 0 rgba(255,255,255,0.05),
+  0px 49px 0 0 rgba(255,255,255,0.05),
+  0px 51px 0 0 rgba(255,255,255,0.05),
+  0px 53px 0 0 rgba(255,255,255,0.05),
+  0px 39px 0 0 rgba(255,255,255,0.05)
+
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+  0px 2px 0 0 rgba($shadow_color,1),
+  0px 3px 0 0 rgba($shadow_color,0.9),
+  0px 4px 0 0 rgba($shadow_color,0.9),
+  0px 5px 0 0 rgba($shadow_color,0.8),
+  0px 6px 0 0 rgba($shadow_color,0.8),
+  0px 7px 0 0 rgba($shadow_color,0.7),
+  0px 8px 0 0 rgba($shadow_color,0.7),
+  0px 9px 0 0 rgba($shadow_color,0.6),
+  0px 11px 0 0 rgba($shadow_color,0.5),
+  0px 13px 0 0 rgba($shadow_color,0.4),
+  0px 15px 0 0 rgba($shadow_color,0.3),
+  0px 17px 0 0 rgba($shadow_color,0.2),
+  0px 19px 0 0 rgba($shadow_color,0.1),
+  0px 21px 0 0 rgba($shadow_color,0.09),
+  0px 23px 0 0 rgba($shadow_color,0.07),
+  0px 25px 0 0 rgba($shadow_color,0.05),
+  0px 23px 0 0 rgba($shadow_color,0.05),
+  0px 25px 0 0 rgba($shadow_color,0.05),
+  0px 27px 0 0 rgba($shadow_color,0.05),
+  0px 29px 0 0 rgba($shadow_color,0.05),
+  0px 31px 0 0 rgba($shadow_color,0.05),
+  0px 33px 0 0 rgba($shadow_color,0.05),
+  0px 35px 0 0 rgba($shadow_color,0.05),
+  0px 37px 0 0 rgba($shadow_color,0.05),
+  0px 39px 0 0 rgba($shadow_color,0.05),
+  0px 41px 0 0 rgba($shadow_color,0.05),
+  0px 43px 0 0 rgba($shadow_color,0.05),
+  0px 45px 0 0 rgba($shadow_color,0.05),
+  0px 47px 0 0 rgba($shadow_color,0.05),
+  0px 49px 0 0 rgba($shadow_color,0.05),
+  0px 51px 0 0 rgba($shadow_color,0.05),
+  0px 53px 0 0 rgba($shadow_color,0.05),
+  0px 39px 0 0 rgba($shadow_color,0.05)
+
+
+
+
+
+
+.bar-gold
+  border-top alpha(guide_color, .05) solid 1px !important
+  border-bottom alpha(#000, .08) solid 1px !important
+  width 100%
+  height 2px
+  background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+// .tx-gold
+//   text-shadow 0 1px 0 rgba(255, 255, 255, 0.2)
+//   background-image linear-gradient(45deg, rgba(#463c2c,.65) 0%, rgba(#fdd333,.65) 26%, rgba(#fffcaf,.65) 35%, rgba(#b67b03,.65) 55%, rgba(#341c02,.65) 80%, rgba(#160f07,.65) 100%)
+//   position relative
+//   background-size 200% 200%
+//   background-position 100% 100%
+//   animation square 10s linear infinite
+//   -webkit-background-clip text
+//   color transparent
+//
+// @keyframes square {
+//   0% { background-position: 0 0; }
+//   25% { background-position: 100% 0; }
+//   50% { background-position: 100% 100%; }
+//   75% { background-position: 0 100%; }
+//   100% { background-position: 0 0; }
+// }
+
+.hole
+  // border solid 40px $main_background_color
+  // box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+  // 2px 2px 0 0 rgba($shadow_color,1),
+  // 3px 3px 0 0 rgba($shadow_color,0.9),
+  // 4px 4px 0 0 rgba($shadow_color,0.9),
+  // 5px 5px 0 0 rgba($shadow_color,0.8),
+  // 6px 6px 0 0 rgba($shadow_color,0.8),
+  // 7px 7px 0 0 rgba($shadow_color,0.7),
+  // 8px 8px 0 0 rgba($shadow_color,0.7),
+  // 9px 9px 0 0 rgba($shadow_color,0.6),
+  // 11px 11px 0 0 rgba($shadow_color,0.5),
+  // 13px 13px 0 0 rgba($shadow_color,0.4),
+  // 15px 15px 0 0 rgba($shadow_color,0.3),
+  // 17px 17px 0 0 rgba($shadow_color,0.2),
+  // 19px 19px 0 0 rgba($shadow_color,0.1),
+  // 21px 21px 0 0 rgba($shadow_color,0.09),
+  // 23px 23px 0 0 rgba($shadow_color,0.07),
+  // 25px 25px 0 0 rgba($shadow_color,0.05),
+  // 23px 23px 0 0 rgba($shadow_color,0.05),
+  // 25px 25px 0 0 rgba($shadow_color,0.05),
+  // 27px 27px 0 0 rgba($shadow_color,0.05),
+  // 29px 29px 0 0 rgba($shadow_color,0.05),
+  // 31px 31px 0 0 rgba($shadow_color,0.05),
+  // 33px 33px 0 0 rgba($shadow_color,0.05),
+  // 35px 35px 0 0 rgba($shadow_color,0.05),
+  // 37px 37px 0 0 rgba($shadow_color,0.05),
+  // 39px 39px 0 0 rgba($shadow_color,0.05),
+  // 41px 41px 0 0 rgba($shadow_color,0.05),
+  // 43px 43px 0 0 rgba($shadow_color,0.05),
+  // 45px 45px 0 0 rgba($shadow_color,0.05),
+  // 47px 47px 0 0 rgba($shadow_color,0.05),
+  // 49px 49px 0 0 rgba($shadow_color,0.05),
+  // 51px 51px 0 0 rgba($shadow_color,0.05),
+  // 53px 53px 0 0 rgba($shadow_color,0.05),
+  // 39px 39px 0 0 rgba($shadow_color,0.05)
+
+  box-shadow inset 1px 1px 0 0 rgba($shadow_color,1),
+  inset 2px 2px 0 0 rgba($shadow_color,1),
+  inset 3px 3px 0 0 rgba($shadow_color,0.9),
+  inset 4px 4px 0 0 rgba($shadow_color,0.9),
+  inset 5px 5px 0 0 rgba($shadow_color,0.8),
+  inset 6px 6px 0 0 rgba($shadow_color,0.8),
+  inset 7px 7px 0 0 rgba($shadow_color,0.7),
+  inset 8px 8px 0 0 rgba($shadow_color,0.7),
+  inset 9px 9px 0 0 rgba($shadow_color,0.6),
+  inset 11px 11px 0 0 rgba($shadow_color,0.5),
+  inset 13px 13px 0 0 rgba($shadow_color,0.4),
+  inset 15px 15px 0 0 rgba($shadow_color,0.3),
+  inset 17px 17px 0 0 rgba($shadow_color,0.2),
+  inset 19px 19px 0 0 rgba($shadow_color,0.1),
+  inset 21px 21px 0 0 rgba($shadow_color,0.09),
+  inset 23px 23px 0 0 rgba($shadow_color,0.07),
+  inset 25px 25px 0 0 rgba($shadow_color,0.05),
+  inset 23px 23px 0 0 rgba($shadow_color,0.05),
+  inset 25px 25px 0 0 rgba($shadow_color,0.05),
+  inset 27px 27px 0 0 rgba($shadow_color,0.05),
+  inset 29px 29px 0 0 rgba($shadow_color,0.05),
+  inset 31px 31px 0 0 rgba($shadow_color,0.05),
+  inset 33px 33px 0 0 rgba($shadow_color,0.05),
+  inset 35px 35px 0 0 rgba($shadow_color,0.05),
+  inset 37px 37px 0 0 rgba($shadow_color,0.05),
+  inset 39px 39px 0 0 rgba($shadow_color,0.05),
+  inset 41px 41px 0 0 rgba($shadow_color,0.05),
+  inset 43px 43px 0 0 rgba($shadow_color,0.05),
+  inset 45px 45px 0 0 rgba($shadow_color,0.05),
+  inset 47px 47px 0 0 rgba($shadow_color,0.05),
+  inset 49px 49px 0 0 rgba($shadow_color,0.05),
+  inset 51px 51px 0 0 rgba($shadow_color,0.05),
+  inset 53px 53px 0 0 rgba($shadow_color,0.05),
+  inset 39px 39px 0 0 rgba($shadow_color,0.05)
+
+
+.hole-mask
+  border solid 40px $main_background_color
+
+.z1_45
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    3px 3px 0 0 rgba($shadow_color,0.9),
+    4px 4px 0 0 rgba($shadow_color,0.9),
+    5px 5px 0 0 rgba($shadow_color,0.8),
+    6px 6px 0 0 rgba($shadow_color,0.8),
+    7px 7px 0 0 rgba($shadow_color,0.7),
+    8px 8px 0 0 rgba($shadow_color,0.7),
+    9px 9px 0 0 rgba($shadow_color,0.6),
+    11px 11px 0 0 rgba($shadow_color,0.5),
+    13px 13px 0 0 rgba($shadow_color,0.4),
+    15px 15px 0 0 rgba($shadow_color,0.3),
+    17px 17px 0 0 rgba($shadow_color,0.2),
+    19px 19px 0 0 rgba($shadow_color,0.1),
+    21px 21px 0 0 rgba($shadow_color,0.09),
+    23px 23px 0 0 rgba($shadow_color,0.07),
+    25px 25px 0 0 rgba($shadow_color,0.05),
+    23px 23px 0 0 rgba($shadow_color,0.05),
+    25px 25px 0 0 rgba($shadow_color,0.05),
+    27px 27px 0 0 rgba($shadow_color,0.05),
+    29px 29px 0 0 rgba($shadow_color,0.05),
+    31px 31px 0 0 rgba($shadow_color,0.05),
+    33px 33px 0 0 rgba($shadow_color,0.05),
+    35px 35px 0 0 rgba($shadow_color,0.05),
+    37px 37px 0 0 rgba($shadow_color,0.05),
+    39px 39px 0 0 rgba($shadow_color,0.05),
+    41px 41px 0 0 rgba($shadow_color,0.05),
+    43px 43px 0 0 rgba($shadow_color,0.05),
+    45px 45px 0 0 rgba($shadow_color,0.05),
+    47px 47px 0 0 rgba($shadow_color,0.05),
+    49px 49px 0 0 rgba($shadow_color,0.05),
+    51px 51px 0 0 rgba($shadow_color,0.05),
+    53px 53px 0 0 rgba($shadow_color,0.05),
+    39px 39px 0 0 rgba($shadow_color,0.05)
+
+
+.shadow-right
+  box-shadow 1px 0px 0 0 rgba($shadow_color,1),
+    2px 0px 0 0 rgba($shadow_color,1),
+    3px 0px 0 0 rgba($shadow_color,0.9),
+    4px 0px 0 0 rgba($shadow_color,0.9),
+    5px 0px 0 0 rgba($shadow_color,0.8),
+    6px 0px 0 0 rgba($shadow_color,0.8),
+    7px 0px 0 0 rgba($shadow_color,0.7),
+    8px 0px 0 0 rgba($shadow_color,0.7),
+    9px 0px 0 0 rgba($shadow_color,0.6),
+    11px 0px 0 0 rgba($shadow_color,0.5),
+    13px 0px 0 0 rgba($shadow_color,0.4),
+    15px 0px 0 0 rgba($shadow_color,0.3),
+    17px 0px 0 0 rgba($shadow_color,0.2),
+    19px 0px 0 0 rgba($shadow_color,0.1),
+    21px 0px 0 0 rgba($shadow_color,0.09),
+    23px 0px 0 0 rgba($shadow_color,0.07),
+    25px 0px 0 0 rgba($shadow_color,0.05),
+    23px 0px 0 0 rgba($shadow_color,0.05),
+    25px 0px 0 0 rgba($shadow_color,0.05),
+    27px 0px 0 0 rgba($shadow_color,0.05),
+    29px 0px 0 0 rgba($shadow_color,0.05),
+    31px 0px 0 0 rgba($shadow_color,0.05),
+    33px 0px 0 0 rgba($shadow_color,0.05),
+    35px 0px 0 0 rgba($shadow_color,0.05),
+    37px 0px 0 0 rgba($shadow_color,0.05),
+    39px 0px 0 0 rgba($shadow_color,0.05),
+    41px 0px 0 0 rgba($shadow_color,0.05),
+    43px 0px 0 0 rgba($shadow_color,0.05),
+    45px 0px 0 0 rgba($shadow_color,0.05),
+    47px 0px 0 0 rgba($shadow_color,0.05),
+    49px 0px 0 0 rgba($shadow_color,0.05),
+    51px 0px 0 0 rgba($shadow_color,0.05),
+    53px 0px 0 0 rgba($shadow_color,0.05),
+    39px 0px 0 0 rgba($shadow_color,0.05)
+
+.shadow-right-inset
+  box-shadow inset 1px 0px 0 0 rgba($shadow_color,1),
+  inset 2px 0px 0 0 rgba($shadow_color,1),
+  inset 3px 0px 0 0 rgba($shadow_color,0.9),
+  inset 4px 0px 0 0 rgba($shadow_color,0.9),
+  inset 5px 0px 0 0 rgba($shadow_color,0.8),
+  inset 6px 0px 0 0 rgba($shadow_color,0.8),
+  inset 7px 0px 0 0 rgba($shadow_color,0.7),
+  inset 8px 0px 0 0 rgba($shadow_color,0.7),
+  inset 9px 0px 0 0 rgba($shadow_color,0.6),
+  inset 11px 0px 0 0 rgba($shadow_color,0.5),
+  inset 13px 0px 0 0 rgba($shadow_color,0.4),
+  inset 15px 0px 0 0 rgba($shadow_color,0.3),
+  inset 17px 0px 0 0 rgba($shadow_color,0.2),
+  inset 19px 0px 0 0 rgba($shadow_color,0.1),
+  inset 21px 0px 0 0 rgba($shadow_color,0.09),
+  inset 23px 0px 0 0 rgba($shadow_color,0.07),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 23px 0px 0 0 rgba($shadow_color,0.05),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 27px 0px 0 0 rgba($shadow_color,0.05),
+  inset 29px 0px 0 0 rgba($shadow_color,0.05),
+  inset 31px 0px 0 0 rgba($shadow_color,0.05),
+  inset 33px 0px 0 0 rgba($shadow_color,0.05),
+  inset 35px 0px 0 0 rgba($shadow_color,0.05),
+  inset 37px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05),
+  inset 41px 0px 0 0 rgba($shadow_color,0.05),
+  inset 43px 0px 0 0 rgba($shadow_color,0.05),
+  inset 45px 0px 0 0 rgba($shadow_color,0.05),
+  inset 47px 0px 0 0 rgba($shadow_color,0.05),
+  inset 49px 0px 0 0 rgba($shadow_color,0.05),
+  inset 51px 0px 0 0 rgba($shadow_color,0.05),
+  inset 53px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05)
+
+
+
+.shadow-right-inset--dark
+  $shadow_color = 0,0,0
+  box-shadow inset 1px 0px 0 0 rgba($shadow_color,1),
+  inset 2px 0px 0 0 rgba($shadow_color,1),
+  inset 3px 0px 0 0 rgba($shadow_color,0.9),
+  inset 4px 0px 0 0 rgba($shadow_color,0.9),
+  inset 5px 0px 0 0 rgba($shadow_color,0.8),
+  inset 6px 0px 0 0 rgba($shadow_color,0.8),
+  inset 7px 0px 0 0 rgba($shadow_color,0.7),
+  inset 8px 0px 0 0 rgba($shadow_color,0.7),
+  inset 9px 0px 0 0 rgba($shadow_color,0.6),
+  inset 11px 0px 0 0 rgba($shadow_color,0.5),
+  inset 13px 0px 0 0 rgba($shadow_color,0.4),
+  inset 15px 0px 0 0 rgba($shadow_color,0.3),
+  inset 17px 0px 0 0 rgba($shadow_color,0.2),
+  inset 19px 0px 0 0 rgba($shadow_color,0.1),
+  inset 21px 0px 0 0 rgba($shadow_color,0.09),
+  inset 23px 0px 0 0 rgba($shadow_color,0.07),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 23px 0px 0 0 rgba($shadow_color,0.05),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 27px 0px 0 0 rgba($shadow_color,0.05),
+  inset 29px 0px 0 0 rgba($shadow_color,0.05),
+  inset 31px 0px 0 0 rgba($shadow_color,0.05),
+  inset 33px 0px 0 0 rgba($shadow_color,0.05),
+  inset 35px 0px 0 0 rgba($shadow_color,0.05),
+  inset 37px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05),
+  inset 41px 0px 0 0 rgba($shadow_color,0.05),
+  inset 43px 0px 0 0 rgba($shadow_color,0.05),
+  inset 45px 0px 0 0 rgba($shadow_color,0.05),
+  inset 47px 0px 0 0 rgba($shadow_color,0.05),
+  inset 49px 0px 0 0 rgba($shadow_color,0.05),
+  inset 51px 0px 0 0 rgba($shadow_color,0.05),
+  inset 53px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05)
+
+
+
+
+.shadow-r45-inset--dark
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow inset 1px 1px 0 0 rgba($shadow_color,1),
+    inset 2px 2px 0 0 rgba($shadow_color,1),
+    inset 3px 3px 0 0 rgba($shadow_color,0.9),
+    inset 4px 4px 0 0 rgba($shadow_color,0.9),
+    inset 25px 25px 0 0 rgba($shadow_dark_color,0.1),
+    inset 39px 0px 0 0 rgba($shadow_dark_color,0.05)
+
+.shadow-r45-inset--dark
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow inset 1px 1px 0 0 rgba($shadow_color,1),
+    inset 2px 2px 0 0 rgba($shadow_color,1),
+    inset 3px 3px 0 0 rgba($shadow_color,0.9),
+    inset 4px 4px 0 0 rgba($shadow_color,0.9),
+    inset 25px 25px 0 0 rgba($shadow_dark_color,0.1)
+
+
+.shadow-r-inset--dark
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow inset 1px 1px 0 0 rgba($shadow_color,1),
+    inset 2px 0px 0 0 rgba($shadow_color,1),
+    inset 3px 0px 0 0 rgba($shadow_color,0.9),
+    inset 4px 0px 0 0 rgba($shadow_color,0.9),
+    inset 5px 0px 0 0 rgba($shadow_color,0.8),
+    inset 6px 0px 0 0 rgba($shadow_color,0.8),
+    inset 7px 0px 0 0 rgba($shadow_color,0.7),
+    inset 8px 0px 0 0 rgba($shadow_color,0.7),
+    inset 9px 0px 0 0 rgba($shadow_dark_color,0.6),
+    inset 11px 0px 0 0 rgba($shadow_dark_color,0.5),
+    inset 13px 0px 0 0 rgba($shadow_dark_color,0.4),
+    inset 15px 0px 0 0 rgba($shadow_dark_color,0.3),
+    inset 17px 0px 0 0 rgba($shadow_dark_color,0.2),
+    inset 19px 0px 0 0 rgba($shadow_dark_color,0.1),
+    inset 21px 0px 0 0 rgba($shadow_dark_color,0.09),
+    inset 23px 0px 0 0 rgba($shadow_dark_color,0.07),
+    inset 25px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 23px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 25px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 27px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 29px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 31px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 33px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 35px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 37px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 39px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 41px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 43px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 45px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 47px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 49px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 51px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 53px 0px 0 0 rgba($shadow_dark_color,0.05),
+    inset 39px 0px 0 0 rgba($shadow_dark_color,0.05)
+
+
+
+.shadow-r45--dark
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    3px 3px 0 0 rgba($shadow_color,0.9),
+    4px 4px 0 0 rgba($shadow_color,0.9),
+    5px 5px 0 0 rgba($shadow_color,0.8),
+    6px 6px 0 0 rgba($shadow_color,0.8),
+    7px 7px 0 0 rgba($shadow_color,0.7),
+    8px 8px 0 0 rgba($shadow_color,0.7),
+    9px 9px 0 0 rgba($shadow_dark_color,0.6),
+    11px 11px 0 0 rgba($shadow_dark_color,0.5),
+    13px 13px 0 0 rgba($shadow_dark_color,0.4),
+    15px 15px 0 0 rgba($shadow_dark_color,0.3),
+    17px 17px 0 0 rgba($shadow_dark_color,0.2),
+    19px 19px 0 0 rgba($shadow_dark_color,0.1),
+    21px 21px 0 0 rgba($shadow_dark_color,0.09),
+    23px 23px 0 0 rgba($shadow_dark_color,0.07),
+    25px 25px 0 0 rgba($shadow_dark_color,0.05),
+    23px 23px 0 0 rgba($shadow_dark_color,0.05),
+    25px 25px 0 0 rgba($shadow_dark_color,0.05),
+    27px 27px 0 0 rgba($shadow_dark_color,0.05),
+    29px 29px 0 0 rgba($shadow_dark_color,0.05),
+    31px 31px 0 0 rgba($shadow_dark_color,0.05),
+    33px 33px 0 0 rgba($shadow_dark_color,0.05),
+    35px 35px 0 0 rgba($shadow_dark_color,0.05),
+    37px 37px 0 0 rgba($shadow_dark_color,0.05),
+    39px 39px 0 0 rgba($shadow_dark_color,0.05),
+    41px 41px 0 0 rgba($shadow_dark_color,0.05),
+    43px 43px 0 0 rgba($shadow_dark_color,0.05),
+    45px 45px 0 0 rgba($shadow_dark_color,0.05),
+    47px 47px 0 0 rgba($shadow_dark_color,0.05),
+    49px 49px 0 0 rgba($shadow_dark_color,0.05),
+    51px 51px 0 0 rgba($shadow_dark_color,0.05),
+    53px 53px 0 0 rgba($shadow_dark_color,0.05),
+    39px 39px 0 0 rgba($shadow_dark_color,0.05)
+
+
+.shadow-r45-dark-small
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    3px 3px 0 0 rgba($shadow_color,0.9),
+    4px 4px 0 0 rgba($shadow_color,0.9),
+    19px 19px 0 0 rgba($shadow_dark_color,0.1),
+    21px 21px 0 0 rgba($shadow_dark_color,0.09),
+    23px 23px 0 0 rgba($shadow_dark_color,0.07),
+    25px 25px 0 0 rgba($shadow_dark_color,0.05),
+    23px 23px 0 0 rgba($shadow_dark_color,0.05),
+    25px 25px 0 0 rgba($shadow_dark_color,0.05),
+    27px 27px 0 0 rgba($shadow_dark_color,0.05),
+    29px 29px 0 0 rgba($shadow_dark_color,0.05),
+    31px 31px 0 0 rgba($shadow_dark_color,0.05),
+    33px 33px 0 0 rgba($shadow_dark_color,0.05),
+    35px 35px 0 0 rgba($shadow_dark_color,0.05),
+    37px 37px 0 0 rgba($shadow_dark_color,0.05),
+    39px 39px 0 0 rgba($shadow_dark_color,0.05),
+    41px 41px 0 0 rgba($shadow_dark_color,0.05),
+    43px 43px 0 0 rgba($shadow_dark_color,0.05),
+    45px 45px 0 0 rgba($shadow_dark_color,0.05),
+    47px 47px 0 0 rgba($shadow_dark_color,0.05),
+    49px 49px 0 0 rgba($shadow_dark_color,0.05),
+    51px 51px 0 0 rgba($shadow_dark_color,0.05),
+    53px 53px 0 0 rgba($shadow_dark_color,0.05),
+    39px 39px 0 0 rgba($shadow_dark_color,0.05)
+
+
+.shadow-r45-dark-small
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    3px 3px 0 0 rgba($shadow_color,0.9),
+    4px 4px 0 0 rgba($shadow_color,0.9),
+    19px 19px 0 0 rgba($shadow_dark_color,0.1),
+    21px 21px 0 0 rgba($shadow_dark_color,0.09),
+    23px 23px 0 0 rgba($shadow_dark_color,0.07)
+
+.shadow-r45-dark-small
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    19px 19px 0 0 rgba($shadow_dark_color,0.1),
+    23px 23px 0 0 rgba($shadow_dark_color,0.07)
+
+
+.shadow-r45-dark-small
+  $shadow_dark_color = 50,50,50
+  $shadow_color = 190,190,190
+  box-shadow 19px 19px 0 0 rgba($shadow_dark_color,0.1),
+    23px 23px 0 0 rgba($shadow_dark_color,0.07)
+
+
+
+.prev-button:hover,
+.next-button:hover
+  background-color rgba(0,0,0, .2)
+
+
+
+
+.shadow__radial-black
+  opacity .8
+  background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.9) 110%)
+
+
+
+/** To edit this background, follow this link:
+http://svgeneration.com/generate/Eave-Light Tiles?size=75&fill=39466b&edge-size=2&edge=313763&shadow=19203d&
+*/
+.bg___svg
+  background-color #39466b
+  background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnPgoJPGRlZnM+CgkJPHBhdHRlcm4gaWQ9J3RpbGUnIHBhdHRlcm5Vbml0cz0ndXNlclNwYWNlT25Vc2UnIHdpZHRoPSc3NScgaGVpZ2h0PSc3NScgdmlld0JveD0nMCAwIDUwIDUwJz4KCQkJPGxpbmUgeDE9JzEnIHkxPScwJyB4Mj0nNTEnIHkyPSc1MCcgc3Ryb2tlPScjMTkyMDNkJyBzdHJva2Utd2lkdGg9JzInLz4KCQkJPGxpbmUgeDE9JzQ5JyB5MT0nMCcgeDI9Jy0xJyB5Mj0nNTAnIHN0cm9rZT0nIzE5MjAzZCcgc3Ryb2tlLXdpZHRoPScyJy8+CgkJCTxsaW5lIHgxPSc1MCcgeTE9JzAnIHgyPScwJyB5Mj0nNTAnIHN0cm9rZT0nIzMxMzc2Mycgc3Ryb2tlLXdpZHRoPScyJy8+CgkJCTxsaW5lIHgxPScwJyB5MT0nMCcgeDI9JzUwJyB5Mj0nNTAnIHN0cm9rZT0nIzMxMzc2Mycgc3Ryb2tlLXdpZHRoPScyJy8+CgkJPC9wYXR0ZXJuPgoJCTxyYWRpYWxHcmFkaWVudCBpZD0nbCcgY3g9JzUwJScgY3k9JzIwMCUnIGZ5PScwJyByPScyMDElJz4KCQkJPHN0b3Agb2Zmc2V0PScwJScgc3R5bGU9J3N0b3AtY29sb3I6I2ZmZjsgc3RvcC1vcGFjaXR5Oi4xOycgLz4KCQkJPHN0b3Agb2Zmc2V0PScxMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiMwMDA7IHN0b3Atb3BhY2l0eTowLjE7JyAvPgoJCQk8c3RvcCBvZmZzZXQ9JzMwJScgc3R5bGU9J3N0b3AtY29sb3I6IzAwMDsgc3RvcC1vcGFjaXR5OjAuMzsnIC8+CgkJCTxzdG9wIG9mZnNldD0nOTAlJyBzdHlsZT0nc3RvcC1jb2xvcjojMDAwOyBzdG9wLW9wYWNpdHk6MC41NTsnIC8+CgkJCTxzdG9wIG9mZnNldD0nMTAwJScgc3R5bGU9J3N0b3AtY29sb3I6IzAwMDsgc3RvcC1vcGFjaXR5Oi42JyAvPgoJCTwvcmFkaWFsR3JhZGllbnQ+Cgk8L2RlZnM+Cgk8cmVjdCBmaWxsPScjMzk0NjZiJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJy8+Cgk8cmVjdCBmaWxsPSd1cmwoI3RpbGUpJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJy8+Cgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPSd1cmwoI2wpJy8+Cjwvc3ZnPg==')
+  /** To edit this background, follow this link:
+  http://svgeneration.com/generate/Eave-Light Tiles?size=1&fill=39466b&edge-size=0.2&edge=313763&shadow=19203d&
+  */
+  background-color #39466b
+  background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnPgoJPGRlZnM+CgkJPHBhdHRlcm4gaWQ9J3RpbGUnIHBhdHRlcm5Vbml0cz0ndXNlclNwYWNlT25Vc2UnIHdpZHRoPScxJyBoZWlnaHQ9JzEnIHZpZXdCb3g9JzAgMCA1MCA1MCc+CgkJCTxsaW5lIHgxPScxJyB5MT0nMCcgeDI9JzUxJyB5Mj0nNTAnIHN0cm9rZT0nIzE5MjAzZCcgc3Ryb2tlLXdpZHRoPScwLjInLz4KCQkJPGxpbmUgeDE9JzQ5JyB5MT0nMCcgeDI9Jy0xJyB5Mj0nNTAnIHN0cm9rZT0nIzE5MjAzZCcgc3Ryb2tlLXdpZHRoPScwLjInLz4KCQkJPGxpbmUgeDE9JzUwJyB5MT0nMCcgeDI9JzAnIHkyPSc1MCcgc3Ryb2tlPScjMzEzNzYzJyBzdHJva2Utd2lkdGg9JzAuMicvPgoJCQk8bGluZSB4MT0nMCcgeTE9JzAnIHgyPSc1MCcgeTI9JzUwJyBzdHJva2U9JyMzMTM3NjMnIHN0cm9rZS13aWR0aD0nMC4yJy8+CgkJPC9wYXR0ZXJuPgoJCTxyYWRpYWxHcmFkaWVudCBpZD0nbCcgY3g9JzUwJScgY3k9JzIwMCUnIGZ5PScwJyByPScyMDElJz4KCQkJPHN0b3Agb2Zmc2V0PScwJScgc3R5bGU9J3N0b3AtY29sb3I6I2ZmZjsgc3RvcC1vcGFjaXR5Oi4xOycgLz4KCQkJPHN0b3Agb2Zmc2V0PScxMCUnIHN0eWxlPSdzdG9wLWNvbG9yOiMwMDA7IHN0b3Atb3BhY2l0eTowLjE7JyAvPgoJCQk8c3RvcCBvZmZzZXQ9JzMwJScgc3R5bGU9J3N0b3AtY29sb3I6IzAwMDsgc3RvcC1vcGFjaXR5OjAuMzsnIC8+CgkJCTxzdG9wIG9mZnNldD0nOTAlJyBzdHlsZT0nc3RvcC1jb2xvcjojMDAwOyBzdG9wLW9wYWNpdHk6MC41NTsnIC8+CgkJCTxzdG9wIG9mZnNldD0nMTAwJScgc3R5bGU9J3N0b3AtY29sb3I6IzAwMDsgc3RvcC1vcGFjaXR5Oi42JyAvPgoJCTwvcmFkaWFsR3JhZGllbnQ+Cgk8L2RlZnM+Cgk8cmVjdCBmaWxsPScjMzk0NjZiJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJy8+Cgk8cmVjdCBmaWxsPSd1cmwoI3RpbGUpJyB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJy8+Cgk8cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScxMDAlJyBmaWxsPSd1cmwoI2wpJy8+Cjwvc3ZnPg==')
+  /** To edit this background, follow this link:
+  http://svgeneration.com/generate/Grate?height=3&width=3&background=111111&grate=303438&glare=666666&glare-width=5&
+  */
+  background-color #111111
+  background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczJyBoZWlnaHQ9JzMnPgoJPHJlY3QgeD0nLTEwJScgeT0nLTEwJScgd2lkdGg9JzEyMCUnIGhlaWdodD0nMTIwJScgZmlsbD0nIzMwMzQzOCcvPgoJPGVsbGlwc2UgY3g9JzUwJScgY3k9JzU1JScgcng9JzQwJScgcnk9JzQwJScgZmlsbD0nIzY2NjY2NicvPgoJPGVsbGlwc2UgY3g9JzUwJScgY3k9JzUwJScgcng9JzQwJScgcnk9JzQwJScgZmlsbD0nIzExMTExMScvPgo8L3N2Zz4=')
+  background-size .2rem
+  background-repeat repeat

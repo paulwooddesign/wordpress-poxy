@@ -1,0 +1,299 @@
+//- - get_template_part( 'mixin-header' );
+//- section(style='background-color: rgba(255,255,255,.65)').tx-c.white-shadow.bg-main
+//-	 .sw
+//-		 .cw.a12.b12.c12.mt1.mb1
+//-				 h2.mb2.title
+//-					 - the_title();
+//-				 p We are an Advertising and Production Agency that uses excellence to forge bonds with customers and propel businesses.
+
+
+
+:php
+	global $post;
+	$id = get_the_ID();
+	$description = get_post_meta($id, "_poxy_description", true);
+
+	$args = array(
+		'posts_per_page' => 8,
+		'orderby' => 'menu_order',
+		'order'	 => 'ASC',
+		'meta_key' => '_poxy_client_featured',
+		'post_type' => array('client')
+	);
+
+	$sections = new WP_Query( $args );
+
+//- div(style='background-color: rgba(255,255,255,.5)')
+section(class='___a14a_14b14b_14c13c_13d13d_13e12e_12 hole')
+	.sw
+		.cw
+			//- .poxy.a11a_18.b11b_18.poxc11.poxd11.poxe11.rel
+			//- figure.a14a_14b14b_14.br2
+			//-	 div
+			//-		 a(href!="#", rel="bookmark")
+			//-			 span.oxy.inside-bevel.br2
+			//-			 span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+			//-			 span.oxy.gold-filter.br2.fill-95
+			//-			 span.highlight-border.oxy.br2.fill-95
+			//-			 span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php //echo $background_color_white; ?>')
+			//-			 span(style!='<?php //echo $image; ?>').op___50.z3.invert.icon._oxya18a_18._oxyb16b_16._oxyc16c_16._oxyd14d_14._oxye14e_14.oxy.ofh.bg-contain.bgp-cc
+			//-	 .oxy.p100
+			//-		 button.poxy.b111b_111
+			//-			 svg-icon.oxy.b116b_116(p='chevronleft')
+			//-		 button.qoxy.b111b_111
+			//-			 svg-icon.oxy.b116b_116(p='chevronright')
+
+			.qoxy.a11a_14.b11b_14.poxc11.poxd11.poxe11.rel
+				//- .sub-title.tx-2.mb1 Sub Title
+				h2.fs___8.light.mb4.title.txt-0
+					| Work
+					//- - the_title();
+				- if($description) :
+					.b14.description.tx-2.fs___3.lh___4
+						- echo $description
+				- endif;
+			//- .qoxy.a34a_14.b14b_14.poxc11.poxd11.poxe11.rel
+			//- .qoxyb14b_14
+		.cw.thumbs
+			- while ($sections->have_posts()) : $sections->the_post();
+
+					- $link = get_the_permalink();
+					- $title = get_the_title();
+					- $image_url = get_poxy_featured('full');
+					- $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+
+					- $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+					- $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+					- $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+					- $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.6)';
+					- $background_color_white = 'background-color: rgba(242,242,242,1)';
+					//- - $background_color = 'background-color: rgba(0,0,0,.9)';
+
+					figure.outer-bevel
+						a(href!="<?php echo $link; ?>", rel="bookmark")
+							.inside-bevel.oxy
+							.outer-bevel.oxy
+							//- .bg-black.oxy.fill
+
+							span(style!='<?php echo $background_color; ?>').accent-border.oxy.fill-95
+
+							//- .shadow__radial-black.oxy.fill-95
+							//- span.oxy.gold-filter.br2.fill-95
+
+							span.highlight-border.oxy.br2.fill-95
+							//- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $background_color_white; ?>')
+							.thumb.oxy
+							span(style!='<?php echo $image; ?>').op___50.z3.invert.icon.oxy.a18a_18b16b_16c16c_16d14d_14e14e_14.oxy.bg-contain.bgp-cc
+
+			- endwhile;
+			- wp_reset_query();
+
+			//- :php
+			//- 	global $post;
+			//- 	$id = get_the_ID();
+			//- 	$description = get_post_meta($id, "_poxy_description", true);
+			//-
+			//- 	$args = array(
+			//- 		'posts_per_page' => 2,
+			//- 		'orderby' => 'menu_order',
+			//- 		'offset'		 =>	1,
+			//- 		'order'	 => 'ASC',
+			//- 		'meta_key' => '_poxy_client_featured',
+			//- 		'post_type' => array('client')
+			//- 	);
+			//-
+			//- 	$sections = new WP_Query( $args );
+			//-
+			//- - while ($sections->have_posts()) : $sections->the_post();
+			//-
+			//- 		- $link = get_the_permalink();
+			//- 		- $title = get_the_title();
+			//- 		- $image_url = get_poxy_featured('full');
+			//- 		- $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+			//-
+			//- 		- $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+			//- 		- $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+			//- 		- $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+			//- 		- $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.6)';
+			//- 		- $background_color_white = 'background-color: rgba(242,242,242,1)';
+			//- 		//- - $background_color = 'background-color: rgba(0,0,0,.9)';
+			//-
+			//- 		figure.outer-bevel
+			//- 			a(href!="<?php echo $link; ?>", rel="bookmark")
+			//- 				.inside-bevel.oxy
+			//- 				.outer-bevel.oxy
+			//- 				//- .bg-black.oxy.fill
+			//-
+			//- 				span(style!='<?php echo $background_color; ?>').accent-border.oxy.fill-95
+			//-
+			//- 				//- .shadow__radial-black.oxy.fill-95
+			//- 				//- span.oxy.gold-filter.br2.fill-95
+			//-
+			//- 				span.highlight-border.oxy.br2.fill-95
+			//- 				//- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $background_color_white; ?>')
+			//- 				.thumb.oxy
+			//- 				span(style!='<?php echo $image; ?>').op___50.z3.invert.icon.oxy.a18a_18b16b_16c16c_16d14d_14e14e_14.oxy.bg-contain.bgp-cc
+			//-
+			//- - endwhile;
+			//- - wp_reset_query();
+			//-
+			//- .poxyb12b_14
+			//-
+			//- :php
+			//- 	global $post;
+			//- 	$id = get_the_ID();
+			//- 	$description = get_post_meta($id, "_poxy_description", true);
+			//-
+			//- 	$args = array(
+			//- 		'posts_per_page' => 3,
+			//- 		'offset'		 =>	3,
+			//- 		'orderby' => 'menu_order',
+			//- 		'order'	 => 'ASC',
+			//- 		'meta_key' => '_poxy_client_featured',
+			//- 		'post_type' => array('client')
+			//- 	);
+			//-
+			//- 	$sections = new WP_Query( $args );
+			//-
+			//- - while ($sections->have_posts()) : $sections->the_post();
+			//-
+			//- 		- $link = get_the_permalink();
+			//- 		- $title = get_the_title();
+			//- 		- $image_url = get_poxy_featured('full');
+			//- 		- $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+			//-
+			//- 		- $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+			//- 		- $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+			//- 		- $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+			//- 		- $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.6)';
+			//- 		- $background_color_white = 'background-color: rgba(242,242,242,1)';
+			//- 		//- - $background_color = 'background-color: rgba(0,0,0,.9)';
+			//-
+			//- 		figure.outer-bevel
+			//- 			a(href!="<?php echo $link; ?>", rel="bookmark")
+			//- 				.inside-bevel.oxy
+			//- 				.outer-bevel.oxy
+			//- 				//- .bg-black.oxy.fill
+			//-
+			//- 				span(style!='<?php echo $background_color; ?>').accent-border.oxy.fill-95
+			//-
+			//- 				//- .shadow__radial-black.oxy.fill-95
+			//- 				//- span.oxy.gold-filter.br2.fill-95
+			//-
+			//- 				span.highlight-border.oxy.br2.fill-95
+			//- 				//- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $background_color_white; ?>')
+			//- 				.thumb.oxy
+			//- 				span(style!='<?php echo $image; ?>').op___50.z3.invert.icon.oxy.a18a_18b16b_16c16c_16d14d_14e14e_14.oxy.bg-contain.bgp-cc
+			//-
+			//- - endwhile;
+			//- - wp_reset_query();
+			//- .poxyb14b_14
+			//- :php
+			//- 	global $post;
+			//- 	$id = get_the_ID();
+			//- 	$description = get_post_meta($id, "_poxy_description", true);
+			//-
+			//- 	$args = array(
+			//- 		'posts_per_page' => 4,
+			//- 		'offset'		 =>	6,
+			//- 		'orderby' => 'menu_order',
+			//- 		'order'	 => 'ASC',
+			//- 		'meta_key' => '_poxy_client_featured',
+			//- 		'post_type' => array('client')
+			//- 	);
+			//-
+			//- 	$sections = new WP_Query( $args );
+			//-
+			//- - while ($sections->have_posts()) : $sections->the_post();
+			//-
+			//- 		- $link = get_the_permalink();
+			//- 		- $title = get_the_title();
+			//- 		- $image_url = get_poxy_featured('full');
+			//- 		- $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+			//-
+			//- 		- $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+			//- 		- $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+			//- 		- $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+			//- 		- $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.6)';
+			//- 		- $background_color_white = 'background-color: rgba(242,242,242,1)';
+			//- 		//- - $background_color = 'background-color: rgba(0,0,0,.9)';
+			//-
+			//- 		figure.outer-bevel
+			//- 			a(href!="<?php echo $link; ?>", rel="bookmark")
+			//- 				.inside-bevel.oxy
+			//- 				.outer-bevel.oxy
+			//- 				//- .bg-black.oxy.fill
+			//-
+			//- 				span(style!='<?php echo $background_color; ?>').accent-border.oxy.fill-95
+			//-
+			//- 				//- .shadow__radial-black.oxy.fill-95
+			//- 				//- span.oxy.gold-filter.br2.fill-95
+			//-
+			//- 				span.highlight-border.oxy.br2.fill-95
+			//- 				//- span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $background_color_white; ?>')
+			//- 				.thumb.oxy
+			//- 				span(style!='<?php echo $image; ?>').op___50.z3.invert.icon.oxy.a18a_18b16b_16c16c_16d14d_14e14e_14.oxy.bg-contain.bgp-cc
+			//-
+			//- - endwhile;
+			//- - wp_reset_query();
+
+
+
+//- section.tx-c.white-shadow.bg-main
+//-	 .sw
+//-		 .cw.mt2
+//- section
+//-	 .sw
+//-		 .cw.a12.b12.c12
+//-				 h2.mb2.title Archives
+//-				 p We are an Advertising and Production Agency that uses excellence to forge bonds with customers and propel businesses.
+
+
+:php
+	$args = array(
+		'orderby' => 'menu_order',
+		'order'	 => 'ASC',
+		'posts_per_page' => 99,
+		'meta_key' => '_poxy_client_featured',
+		'meta_compare' =>	 'NOT EXISTS',
+		'post_type' => array('client')
+	);
+
+	$sections = new WP_Query( $args );
+
+section(class='___a16a_16b16b_16c14c_14d14d_14e14e_14 hole')
+	.sw
+		//- .cw
+		//-	 .rel.poxy.a13.b25b_15.poxc11.poxd11.poxe11
+		//-		 ._oxya13._oxyb25
+		//-			 h2.txa-8.txb-8.bold.mb4.title Archives
+
+		.cw.thumbs
+			- while ($sections->have_posts()) : $sections->the_post();
+					- $link = get_the_permalink();
+					- $title = get_the_title();
+					- $image_url = get_poxy_featured('full');
+					- $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+					- $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+					- $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+					- $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+					//- - $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.',.9)';
+					- $background_color = 'background-color: rgba(255,255,255,.9)';
+					figure.br2
+						div
+							a(href!="<?php echo $link; ?>", rel="bookmark")
+
+								span.oxy.inside-bevel.br2
+								span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+								//- span.oxy.gold-filter.br2.fill-95
+								span.highlight-border.oxy.br2.fill-95
+								span.thumb.oxy.ofh.br2.bg-contain.bgp-cc(style!='<?php echo $background_color_white; ?>')
+								span(style!='<?php echo $image; ?>').op___50.z3.invert.icon._oxya112a_112._oxyb18b_18._oxyc16c_16._oxyd14d_14._oxye14e_14.oxy.ofh.bg-contain.bgp-cc
+									//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+									//- .gloss.oxy.z5.a13a_13.b13b_13
+								.shadow.oxy.shadow.ofh.br2
+								//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+								//- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+								//-	 - echo $title;
+			- endwhile;
+			- wp_reset_query();

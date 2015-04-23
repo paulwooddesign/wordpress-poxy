@@ -1,0 +1,153 @@
+include views/mixins/footer.jade
+include views/mixins/nav.jade
+include views/mixins/dev-bar.jade
+include views/mixins/dev.jade
+doctype html
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8">
+<![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+html(ng-app="poxy", ng-controller="MainCtrl" resize="").no-js <!--<![endif]-->
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title
+    meta(name="description", content="")
+    meta(name="viewport", content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no")
+    meta(http-equiv="cleartype", content="on")
+    meta(content="yes" name="apple-mobile-web-app-capable")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black")
+
+    // build:js scripts/pjax.js
+    script(src='bower_components/pjax-standalone/pjax-standalone.js')
+    script(src='bower_components/skel/src/skel.js')
+    // endbuild
+
+    // build:js scripts/init.js
+    script(src='poxy_components/init.js')
+    // endbuild
+
+    //- Place favicon.ico and apple-touch-icon.png in the root directory
+    link(rel='apple-touch-icon', sizes='114x114', href='/apple-touch-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/apple-touch-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/apple-touch-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='/apple-touch-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='/apple-touch-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='/apple-touch-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='/apple-touch-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='/apple-touch-icon-180x180.png')
+    link(rel='icon', type='image/png', href='/favicon-192x192.png', sizes='192x192')
+    link(rel='icon', type='image/png', href='/favicon-160x160.png', sizes='160x160')
+    link(rel='icon', type='image/png', href='/favicon-96x96.png', sizes='96x96')
+    link(rel='icon', type='image/png', href='/favicon-16x16.png', sizes='16x16')
+    link(rel='icon', type='image/png', href='/favicon-32x32.png', sizes='32x32')
+    meta(name='msapplication-TileColor', content='#da532c')
+    meta(name='msapplication-TileImage', content='/mstile-144x144.png')
+
+
+    // build:css(.tmp) styles/main.css
+    link(rel="stylesheet", href="styles/main.css")
+    // endbuild
+
+
+    //- pull in css based on angular
+    link(rel="stylesheet", ng-href="styles/grids/poxy-{{current_zone}}.css")
+    link(rel="stylesheet", ng-href="styles/skin-{{ layout }}.css")
+
+    script(type='text/javascript').
+      (function() {
+        var path = '//easy.myfonts.net/v2/js?sid=99266(font-family=Futura+PT+Light)&sid=99268(font-family=Futura+PT+Book)&sid=99270(font-family=Futura+PT+Medium)&sid=172341(font-family=Futura+PT+Bold)&key=SYzjDz0wNb',
+        protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+        trial = document.createElement('script');
+        trial.type = 'text/javascript';
+        trial.async = true;
+        trial.src = protocol + path;
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(trial);
+        })();
+
+  body#fluidDiv
+    <!--[if lt IE 7]>
+    p.browsehappy
+      | You are using an
+      strong outdated
+      |  browser. Please
+      a(href="http://browsehappy.com/") upgrade your browser
+      |  to improve your experience.
+    <![endif]-->
+
+    //- Curtain
+    +nav()
+    .container(ng-view)
+    +footer()
+
+    section.bfxy
+      .sw
+        .cw
+          select.a18.form-control.mb4(ng-model='layout', ng-options='layout.url as layout.name for layout in layouts')
+
+
+    //- +dev_bar()
+
+
+    //- Google Analytics: change UA-XXXXX-X to be your site's ID
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29832102-1');
+      ga('send', 'pageview');
+
+    <!--[if lt IE 9]>
+    script(src="bower_components/es5-shim/es5-shim.js")
+    script(src="bower_components/json3/lib/json3.min.js")
+    <![endif]-->
+
+    // build:js scripts/vendor.js
+    // bower:js
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/es5-shim/es5-shim.js')
+    script(src='bower_components/angular/angular.js')
+    script(src='bower_components/json3/lib/json3.min.js')
+    script(src='bower_components/angular-resource/angular-resource.js')
+    script(src='bower_components/angular-cookies/angular-cookies.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.js')
+    script(src='bower_components/angular-route/angular-route.js')
+    script(src='bower_components/slick-carousel/slick/slick.min.js')
+    script(src='bower_components/angular-slick/dist/slick.js')
+    script(src='bower_components/ngDialog/js/ngDialog.js')
+    script(src='bower_components/ngmap/build/scripts/ng-map.js')
+    script(src='bower_components/fitvids/jquery.fitvids.js')
+    script(src='bower_components/jquery-waypoints/waypoints.js')
+    script(src='bower_components/angular-waypoints/dist/angular-waypoints.js')
+    script(src='bower_components/classie/classie.js')
+    script(src='bower_components/velocity/velocity.js')
+    script(src='bower_components/velocity/velocity.ui.js')
+    script(src='bower_components/skel/src/skel.js')
+    // endbower
+    // endbuild
+
+    // build:js scripts/scripts.js
+    //- script(src='poxy_components/grid3d/helper.js')
+    //- script(src='poxy_components/grid3d/grid3d.js')
+    script(src='poxy_components/iscroll/iscroll.js')
+
+    //- script(src='poxy_components/parallax/poxy-parallax.js')
+    //- script(src='bower_components/ngmap/build/scripts/ng-map.min.js')
+    //- script(src='bower_components/instafeed.js/instafeed.min.js')
+    //- script(src='poxy_components/instafeed/chimera-instafeed.js')
+    //- script(src='poxy_components/soundfx/poxy-soundfx.js')
+    // endbuild
+
+    // build:js(.tmp) scripts/main.js
+    script(src="scripts/app.js")
+    script(src="scripts/controllers/main.js")
+    // endbuild

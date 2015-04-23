@@ -1,0 +1,943 @@
+///////////////////////////////////////////////
+// Import POXY
+///////////////////////////////////////////////
+poxy_dev = false
+@import '../bower_components/poxy/stylus/poxy'
+
+///////////////////////////////////////////////
+// Main Font
+///////////////////////////////////////////////
+// @font-face
+//   font-family 'montserratblack'
+//   src url('../fonts/montserrat/Montserrat-Black-webfont.eot')
+//   src url('../fonts/montserrat/Montserrat-Black-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../fonts/montserrat/Montserrat-Black-webfont.woff2') format('woff2'),
+//          url('../fonts/montserrat/Montserrat-Black-webfont.woff') format('woff'),
+//          url('../fonts/montserrat/Montserrat-Black-webfont.ttf') format('truetype'),
+//          url('../fonts/montserrat/Montserrat-Black-webfont.svg#montserratblack') format('svg')
+//   font-weight normal
+//   font-style normal
+//   font-family 'montserratbold'
+//   src url('../fonts/montserrat/Montserrat-Bold-webfont.eot')
+//   src url('../fonts/montserrat/Montserrat-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../fonts/montserrat/Montserrat-Bold-webfont.woff2') format('woff2'),
+//          url('../fonts/montserrat/Montserrat-Bold-webfont.woff') format('woff'),
+//          url('../fonts/montserrat/Montserrat-Bold-webfont.ttf') format('truetype'),
+//          url('../fonts/montserrat/Montserrat-Bold-webfont.svg#montserratbold') format('svg')
+//   font-weight normal
+//   font-style normal
+//   font-family 'montserratlight'
+//   src url('../fonts/montserrat/Montserrat-Light-webfont.eot')
+//   src url('../fonts/montserrat/Montserrat-Light-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../fonts/montserrat/Montserrat-Light-webfont.woff2') format('woff2'),
+//          url('../fonts/montserrat/Montserrat-Light-webfont.woff') format('woff'),
+//          url('../fonts/montserrat/Montserrat-Light-webfont.ttf') format('truetype'),
+//          url('../fonts/montserrat/Montserrat-Light-webfont.svg#montserratlight') format('svg')
+//   font-weight normal
+//   font-style normal
+//   font-family 'montserratregular'
+//   src url('../fonts/montserrat/Montserrat-Regular-webfont.eot')
+//   src url('../fonts/montserrat/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+//          url('../fonts/montserrat/Montserrat-Regular-webfont.woff2') format('woff2'),
+//          url('../fonts/montserrat/Montserrat-Regular-webfont.woff') format('woff'),
+//          url('../fonts/montserrat/Montserrat-Regular-webfont.ttf') format('truetype'),
+//          url('../fonts/montserrat/Montserrat-Regular-webfont.svg#montserratregular') format('svg')
+//   font-weight normal
+//   font-style normal
+
+
+///////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////
+// font-family: 'Harmonia Sans Std Light'
+// font-family: 'Harmonia Sans Std Regular'
+// font-family: 'Harmonia Sans Std SemiBold'
+// background radial-gradient( circle at 50% 0, #3C3B4D 0%, #15131A 50% )
+
+///////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////
+accent = rgba(213, 26, 69, 1)
+
+// containers1d1f21
+// #15131A
+
+footer_background_color = #1d1f21
+// footer_background_color = #111
+container_background_color = transparent
+header_background_color = transparent
+
+skin_shadow_color = #464c53;
+skin_highlight_color = #161c22;
+
+// Text
+font_color = rgba(255, 255, 255, 0.8)
+// font_color = rgba(#70869d, 0.8)
+
+
+a_color = rgba(255, 255, 255, 0.8)
+a_color_hover = rgba(255, 255, 255, 1)
+
+// p
+//   font-size 1rem
+
+// figcaption
+//   font-size .8rem
+
+.ap854
+  width 85.4076%
+.ap618
+  width 61.8%
+.ap382
+  width 38.2%
+.ap145
+  width 14.5924%
+.ap236
+  width 23.6076%
+
+.p_100
+  height 100%
+
+.p100
+  width 100% !important
+
+.ofyt
+  overflow-x hidden
+  overflow-y scroll
+  -webkit-overflow-scrolling: touch
+  -webkit-transform translateZ(0px)
+  -webkit-transform translate3d(0,0,0)
+  -webkit-perspective 1000
+
+
+///////////////////////////////////////////////
+// Color Classes
+///////////////////////////////////////////////
+.content-box
+  box-sizing content-box !important
+
+.bs0
+  box-shadow none !important
+.qaxy
+  position absolute
+  top 0
+  right 0
+
+.tx-white
+  color #fff !important
+
+.white
+  color white !important
+
+.accent
+  color accent
+
+.tx-shadow
+  text-shadow 0 1px 0  black
+
+.bg-black
+  background #000 !important
+
+.bg-white
+  background #fff !important
+
+.bg-gray
+  background #ccc !important
+
+
+.color-accent,
+.color-accent a
+  color accent !important
+
+.bg-accent
+  background-color accent !important
+
+.tx-light
+  color #ccc !important
+  a
+    color #ccc !important
+
+// Filters
+.gray-scale
+  filter: grayscale(70%)
+
+.gray-scale:hover
+  filter: grayscale(40%)
+
+.shadow-l
+  background linear-gradient(120deg,   rgba(0,0,0,.5) 40%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%)
+// Gradients
+.shadow-l
+  background linear-gradient(100deg,   rgba(0,0,0,.5) 40%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%)
+  // background linear-gradient(100deg,   rgba(0,0,0,1) 35%,rgba(0,0,0,0) 35%,rgba(0,0,0,0) 100%)
+  // background linear-gradient(105deg,   rgba(255,255,255,1) 40%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%)
+  background linear-gradient(120deg,   rgba(240,240,240,1) 30%,rgba(240,240,240,0) 30%,rgba(240,240,240,0) 100%)
+.shadow-r
+  background linear-gradient(80deg,   rgba(0,0,0,0) 80%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 90%)
+  background linear-gradient(100deg,   rgba(0,0,0,0) 80%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 90%)
+  background linear-gradient(120deg,   rgba(240,240,240,0) 80%,rgba(240,240,240,0) 90%,rgba(240,240,240,1) 90%)
+
+.shadow-white-l
+  background linear-gradient(45deg,   rgba(255,255,255,1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%)
+
+
+// Line
+.line
+  background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+  height 1px
+  width 100%
+
+.br100
+  border-radius 100%
+// border-radius
+.br2
+  border-radius 0rem
+
+
+.brp
+  border-top-left-radius 0rem
+
+.brb
+  border-bottom-left-radius 0rem
+
+.brpb
+  border-top-left-radius 0rem
+  border-bottom-left-radius 0rem
+
+.gloss
+  border-radius 50%
+  //transform scale(1.5)
+  transition 0.3s
+  box-shadow inset 17em 17em 0 -14em rgba(255,255,255,0.4)
+  // background rgba(0,0,0,.5)
+  // background linear-gradient(to bottom,  rgba(39,39,39,.5) 0%,rgba(39,39,39,.25) 100%) !important
+  background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.95) 110%)
+
+.bg-fade
+  background linear-gradient(to bottom,  rgba(39,39,39,.95) 0%,rgba(39,39,39,0) 100%) !important
+
+
+// Audio
+audio
+  opacity 0
+  z-index -99
+
+
+.op--9
+  opacity .9
+
+.op--8
+  opacity .8
+
+.op--7
+  opacity .7
+
+.op--6
+  opacity .6
+
+.op--5
+  opacity .6
+
+.op--4
+  opacity .4
+
+
+.flex-video
+  position: relative
+  overflow: hidden
+  width: 100%
+  margin: 0
+  height: 0
+  padding-bottom: 100%
+  // border-top: 4px solid #171717
+  // border-right: 6px solid #202020
+  // &:after
+  //   content: ""
+  //   display: block
+  //   position: absolute
+  //   z-index: 19
+  //   top: 0
+  //   left: 0
+  //   width: 100%
+  //   height: 100%
+    // background: rgba(black, 0.75)
+  #vid
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+
+
+
+///////////////////////////////////////////////
+// Main Settings
+///////////////////////////////////////////////
+*
+  background-size cover
+  background-repeat no-repeat
+
+// ::selection
+//   background accent
+//   color black
+
+html
+  background-color footer_background_color
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga", "kern";
+
+body
+  font-weight 500
+  overflow-x hidden
+  max-width 100%
+  color font_color
+  // font-family  Harmonia Sans Std Light', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  // font-family 'montserratlight', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  font-family 'Harmonia Sans Std Regular', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  background-color footer_background_color
+  // &.is-loading *
+  // &.is-loading *:before,
+  // &.is-loading *:after
+  //   animation none !important
+  //   transition none !important
+
+
+body.is-loading #header
+  &:after
+    opacity 1
+
+#header
+  &:after
+  	transition opacity 1s ease
+  	background-color rgba(0,0,0,.8)
+  	content ''
+  	height 100%
+  	left 0
+  	opacity 0
+  	position absolute
+  	top 0
+  	width 100%
+
+
+
+
+footer
+  background-size initial
+  // background-image url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczJyBoZWlnaHQ9JzYnIHZpZXdCb3g9JzAgMCA1IDEwJz4KCTxyZWN0IHdpZHRoPScxMTAlJyB4PSctNSUnIHk9Jy01JScgaGVpZ2h0PScxMTAlJyBmaWxsPScjMWQxZjIxJy8+Cgk8bGluZSB4MT0nLTInIHkxPScxJyB4Mj0nNycgeTI9JzEwJyBzdHJva2U9JyMxODFiMWYnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9Jy0yJyB5MT0nNicgeDI9JzcnIHkyPScxNScgc3Ryb2tlPScjMTgxYjFmJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSctMicgeTE9Jy00JyB4Mj0nNycgeTI9JzUnIHN0cm9rZT0nIzE4MWIxZicgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cgk8bGluZSB4MT0nNycgeTE9JzEnIHgyPSctMicgeTI9JzEwJyBzdHJva2U9JyMyMTJhMzMnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9JzcnIHkxPSc2JyB4Mj0nLTInIHkyPScxNScgc3Ryb2tlPScjMjEyYTMzJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSc3JyB5MT0nLTQnIHgyPSctMicgeTI9JzUnIHN0cm9rZT0nIzIxMmEzMycgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cjwvc3ZnPg==')
+  // background:#e9e3dd;
+
+
+.header
+  background header_background_color
+
+#container
+  background-color container_background_color
+
+a
+  color a_color
+  &:hover
+    color a_color_hover
+
+// nav a:hover
+//   color accent
+
+.screen
+  background-color rgba(#ee4c11, .5)
+
+.invert
+  color rgba(white, .87)
+
+
+// .light
+//   font-weight 300 !important
+
+.black
+  color rgba(0,0,0,1) !important
+
+figure
+  background-repeat no-repeat
+  background-size cover
+  background-position center center
+
+h1, h2, h3, h4, h5, h6
+  // text-transform uppercase !important
+  // font-family  'Harmonia Sans Std SemiBold', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  font-family 'Harmonia Sans Std Light', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  // font-family 'montserratblack', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+.bold
+  font-family  'Harmonia Sans Std SemiBold', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+  // font-family 'montserratblack', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+.light
+  font-family  'Harmonia Sans Std Light', 'Helvetica Neue', Helvetica, 'pragmatica-web', Arial, sans-serif
+
+//
+// // Buttons
+// button,
+// .button
+//   letter-spacing .2rem
+//   font-size .8rem
+//   text-transform uppercase
+//   position relative
+//   box-sizing border-box
+//   box-shadow inset 0 0 1px rgba(white, .5)
+//   background-color rgba(black, .1)
+//   &:hover
+//     background-color rgba(black, .08)
+
+
+// Images
+p img,
+img
+  width 100%
+  height auto
+
+
+
+
+// Reset
+input
+  margin 0
+  padding 0
+  border none
+
+
+
+/////////////////////////////////
+// Thumbs
+/////////////////////////////////
+$trans_duration = 150ms
+
+
+
+
+.thumbs
+  figure
+    transition $trans_duration ease
+    //box-shadow: inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .5), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5);
+    //box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5)
+    position relative
+    background-image linear-gradient(to bottom, #111, #333)
+
+    // box-shadow 0 .5em 2em rgba(0,0,0,.05), inset 0 .2em .4em -.2em rgba(255,255,255,.2), 0 0 .2em rgba(0,0,0,.1)
+    // box-shadow 0 .5em 2em rgba(255,255,255,.02), inset 0 .2em .4em -.2em rgba(0,0,0,.2), 0 0 .2em rgba(0,0,0,.2)
+
+    background linear-gradient( to bottom, skin_highlight_color, skin_shadow_color )
+    .thumb-title
+      color #222
+      opacity 0
+
+    .thumb
+      // width 94%
+      // height 94%
+      width 97%
+      height 97%
+      transition $trans_duration ease
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      // background-color rgba(0,0,0,.7)
+      // background-position 50% 0%
+      // filter: grayscale(70%)
+
+      // background-image linear-gradient(-45deg, rgba(#000,1) 0%,  rgba(#444,1) 100%)
+      background-image linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+
+    .icon
+      opacity .8
+
+    .shadow
+      // width 94%
+      // height 94%
+      width 97%
+      height 97%
+      transition opacity $trans_duration ease
+      box-shadow none
+      opacity .6
+      background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 110%)
+      text-align center
+
+
+    .fill-94
+      width 97%
+      height 97%
+
+
+    .gold-filter
+      transition transform $trans_duration
+      // width 95%
+      // height 95%
+      width 98%
+      height 98%
+      opacity .7
+      background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+    .accent-border
+      opacity 0
+
+    .highlight-border
+      opacity 0
+      background-image linear-gradient(0deg, rgba(#fff,.0) 0%,  rgba(#fff,.3) 100%)
+
+    .fill-95
+      transition $trans_duration ease
+      // width 95%
+      // height 95%
+      width 98%
+      height 98%
+
+    .title
+      opacity 0
+      transition $trans_duration ease
+      transform translateX(50%) translateY(100%)
+
+
+  figure:hover
+    .gloss
+      border-radius 20%
+      transition $trans_duration
+      //box-shadow inset 5em 5em 0 -16em rgba(255,255,255,0.3)
+      box-shadow inset 16em 18em 0 -13em rgba(255,255,255,0.1)
+    .thumb
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      filter: grayscale(0%)
+      width 97%
+      height 97%
+      width 94%
+      height 94%
+
+    .shadow
+      transition $trans_duration ease
+      opacity .8
+      width 97%
+      height 97%
+      width 94%
+      height 94%
+
+    .gold-filter
+      transition opacity $trans_duration
+      opacity 1
+
+    .color-filter
+      opacity .0
+      transition transform $trans_duration
+      //transform translateX(50%) translateY(-100%)
+      //background-image linear-gradient(45deg, rgba(#463c2c,.3) 0%, rgba(#fdd333,.3) 26%, rgba(#fffcaf,.5) 65%, rgba(#b67b03,.4) 55%, rgba(#341c02,.3) 80%, rgba(#160f07,.3) 100%)
+
+    .fill-94
+      width 94%
+      height 94%
+
+    .fill-95
+      transition $trans_duration ease
+      width 98%
+      height 98%
+      width 95%
+      height 95%
+
+    .accent-border,
+    .highlight-border
+      opacity 1
+
+    .title
+      opacity 1
+      transition $trans_duration ease
+      transform translateX(50%) translateY(0%)
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////
+// Thumb hover Slide
+/////////////////////////////////////////////////////////////////////
+.bg__slide
+  // background-color red
+  // background-image url("https://dl.dropboxusercontent.com/s/c8vk1vwcluzcsk8/simple-slideshow-slides.jpg?dl=0") !important
+  background-repeat no-repeat
+  background-position center left
+  // filter: grayscale(50%)
+
+
+  opacity 0
+
+
+a:hover .bg__slide
+  opacity 1
+  /* ANIMATING STUFF */
+  animation-name slide
+  animation-duration 6s
+  animation-direction normal
+  animation-timing-function ease
+  background-position center left
+  // animation-iteration-count infinite
+
+
+@keyframes slide {
+  0% {background-position:0 0;}
+  20% {background-position:0% 0;}
+  25% {background-position:25% 0;}
+  50% {background-position:25% 0;}
+  55% {background-position:50% 0;}
+  70% {background-position:50% 0;}
+  75% {background-position:75% 0;}
+  95% {background-position:75% 0;}
+  100% {background-position:100% 0;}
+}
+
+
+/////////////////////////////////
+// Figure
+/////////////////////////////////
+// figure
+//   transition background-size 0.5s
+//   position relative
+//   box-sizing border-box
+//   // box-shadow inset 0 0 1px #000
+//   box-shadow inset 0 0 1px rgba(white, .2)
+//   background-color rgba(black, .1)
+//   // border-radius .25rem
+//
+// figure:hover
+//   background-color rgba(black, .08)
+  // box-shadow inset 0 0 1px #03a9f4, 0 0 1px #03a9f4
+  // box-shadow inset 0 0 2px accent
+
+
+/////////////////////////////////
+// Header
+/////////////////////////////////
+.main-logo
+  background-image url(../images/logo.png)
+  background-image url(../images/logo.svg)
+
+.header
+
+  nav
+    text-align center
+    // text-transform capitalize
+    text-transform uppercase
+    color black
+    background-color transparent !important
+    // font-smoothing antialiased
+    // text-shadow 1px 1px 1px rgba(0,0,0,0.004)
+
+    // letter-spacing .1rem
+
+  #logo *
+    box-sizing content-box
+
+
+  .logo
+    background-image url(../images/logo.png)
+    background-image url(../images/logo.svg)
+
+
+
+.products:hover
+  .drop-down-menu
+    opacity 1
+    display block
+    transform translateX(0%) translateY(0%)
+    transition opacity 0.3s
+    // background #efefef
+
+
+
+/////////////////////////////////
+// Sections
+/////////////////////////////////
+// guide_opacity = .1
+// guide_color = #fff
+//
+// section
+//   border-top alpha(guide_color, .05) solid 1px !important
+//   border-bottom alpha(#000, .08) solid 1px !important
+//   background transparent
+//   // &:before,
+//   &:after
+//     // display none
+//     opacity .5
+//     background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+//     height 1px
+//     width 100%
+//   // &:nth-child(2n+2)
+//   //   background alpha(#000, .02)
+//   // &:before
+//   //   border-top alpha(guide_color, guide_opacity) solid 1px
+//   // &:after
+//   //   border-bottom alpha(guide_color, guide_opacity) solid 1px
+//
+// section
+//   &:before,
+//   &:after
+//     display none
+
+/////////////////////////////////
+// Featured Pages
+///////////////////////////////
+.featured-pages
+  figure
+    // transition 0.3s
+  // figure:hover
+  //   background-color #03a9f4 !important
+  .image:hover
+    background-size 110% !important
+
+
+  h2
+    &:before,
+    &:after
+      content attr(title)
+      position absolute
+      overflow hidden
+      transition 300ms ease
+      color #fff
+      top 0
+      left 0
+      right 0
+      bottom 0
+      opacity 0
+      visibility hidden
+      transition-property opacity, visibility, transform
+
+    &:before
+      transform translateY(-100%)
+    &:after
+      transform translateY(100%)
+
+
+  figure:hover h2:before,
+  figure:hover h2:after
+      opacity 1
+      visibility visible
+      transform none
+
+/////////////////////////////////
+// Slick Slider
+///////////////////////////////
+.home-slideshow
+  .copywrite
+    transition 0.5s
+    transform translateX(0%) translateY(0%)
+
+  .copywrite:hover .flag
+    transition 0.3s
+    transform translateX(-100%) translateY(0%)
+
+
+  .slick-prev
+    left 1rem
+
+  .slick-next
+    right 1rem
+
+.slick-carousel
+  section figure:last-child
+    margin-right 0 !important
+
+.new-products
+  section
+    border none !important
+
+  .slick-prev:before,
+  .slick-next:before
+    color #000 !important
+
+
+
+
+/////////////////////////////////
+// Global Classes
+///////////////////////////////
+
+.tx-u
+  text-transform uppercase
+.txt-0
+  text-transform none !important
+.b0
+  border none !important
+
+.static
+  position static !important
+
+.hide
+  display none !important
+
+.bg-fixed
+  background-attachment fixed !important
+
+.bg-contain
+  background-size contain !important
+
+
+
+
+
+
+
+///////////////////////////////////////////////
+// My Fonts Bar - Need to find what one to buy
+///////////////////////////////////////////////
+#mfPreviewBar
+  opacity 0 !important
+  display none !important
+
+
+///////////////////////////////////////////////
+// SVG Settings
+///////////////////////////////////////////////
+// svg
+//   width 4em
+//   height 4em
+//   margin 40px
+// nav
+//   svg:hover path
+//     fill rgba(accent, 1)
+//
+//   path
+//     fill font_color
+//
+//   .accent
+//     svg:hover path
+//       fill font_color
+//
+//     path
+//       fill rgba(accent, 1)
+//
+//   .white
+//     svg:hover path
+//       fill rgba(white, 1)
+//
+//     path
+//       fill rgba(accent, 1)
+//
+//
+//
+//
+//
+// .white svg
+//   fill rgba(white, 1)
+
+
+///////////////////////////////////////////////
+// SVG Settings
+///////////////////////////////////////////////
+
+// h1
+//   width 100%
+//   margin 0 auto 0 auto
+//   text-align center
+//   text-transform uppercase
+//   text-rendering optimizeLegibility
+
+.tx-3d
+  color #70869d
+  // color #e9e3dd
+  letter-spacing .1em
+  text-shadow -1px -1px 1px #efede3,
+      0px 1px 0 #2e2e2e,
+      0px 2px 0 #2c2c2c,
+      0px 3px 0 #2a2a2a,
+      0px 4px 0 #282828,
+      0px 5px 0 #262626,
+      0px 6px 0 #242424,
+      0px 7px 0 #222,
+      0px 8px 0 #202020,
+      0px 9px 0 #1e1e1e,
+      0px 10px 0 #1c1c1c,
+      0px 11px 0 #1a1a1a,
+      0px 12px 0 #181818,
+      0px 13px 0 #161616,
+      0px 14px 0 #141414,
+      0px 15px 0 #121212,
+      2px 20px 5px rgba(0, 0, 0, 0.9),
+      5px 23px 5px rgba(0, 0, 0, 0.3),
+      8px 27px 8px rgba(0, 0, 0, 0.5),
+      8px 28px 35px rgba(0, 0, 0, 0.9)
+
+  text-shadow -1px -1px 1px #efede3,
+      0px 1px 0 #2e2e2e,
+      0px 2px 0 #2c2c2c,
+      0px 3px 0 #2a2a2a,
+      0px 4px 0 #282828,
+      0px 5px 0 #262626,
+      0px 6px 0 #242424,
+      2px 7px 5px rgba(0, 0, 0, 0.9),
+      5px 8px 5px rgba(0, 0, 0, 0.3),
+      8px 9px 8px rgba(0, 0, 0, 0.5),
+      8px 10px 35px rgba(0, 0, 0, 0.9)
+
+
+  text-shadow -1px -1px 1px #efede3,
+      0px 1px 0 #2e2e2e,
+      0px 2px 0 #2c2c2c,
+      0px 3px 0 #2a2a2a,
+      2px 4px 5px rgba(0, 0, 0, 0.9),
+      5px 5px 5px rgba(0, 0, 0, 0.3),
+      8px 6px 8px rgba(0, 0, 0, 0.5),
+      8px 7px 35px rgba(0, 0, 0, 0.9)
+
+
+
+.white-shadow
+  box-shadow 1px 1px 0 0 rgba(212,206,200,1), 2px 2px 0 0 rgba(212,206,200,1), 3px 3px 0 0 rgba(212,206,200,0.9), 4px 4px 0 0 rgba(212,206,200,0.9), 5px 5px 0 0 rgba(212,206,200,0.8), 6px 6px 0 0 rgba(212,206,200,0.8), 7px 7px 0 0 rgba(212,206,200,0.7), 8px 8px 0 0 rgba(212,206,200,0.7), 9px 9px 0 0 rgba(212,206,200,0.6), 11px 11px 0 0 rgba(212,206,200,0.5), 13px 13px 0 0 rgba(212,206,200,0.4), 15px 15px 0 0 rgba(212,206,200,0.3), 17px 17px 0 0 rgba(212,206,200,0.2), 19px 19px 0 0 rgba(212,206,200,0.1), 21px 21px 0 0 rgba(212,206,200,0.09), 23px 23px 0 0 rgba(212,206,200,0.07), 25px 25px 0 0 rgba(212,206,200,0.05), 23px 23px 0 0 rgba(212,206,200,0.05), 25px 25px 0 0 rgba(212,206,200,0.05), 27px 27px 0 0 rgba(212,206,200,0.05), 29px 29px 0 0 rgba(212,206,200,0.05), 31px 31px 0 0 rgba(212,206,200,0.05), 33px 33px 0 0 rgba(212,206,200,0.05), 35px 35px 0 0 rgba(212,206,200,0.05), 37px 37px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05), 41px 41px 0 0 rgba(212,206,200,0.05), 43px 43px 0 0 rgba(212,206,200,0.05), 45px 45px 0 0 rgba(212,206,200,0.05), 47px 47px 0 0 rgba(212,206,200,0.05), 49px 49px 0 0 rgba(212,206,200,0.05), 51px 51px 0 0 rgba(212,206,200,0.05), 53px 53px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05)
+
+
+.ro--90
+  transform rotate(-90deg)
+
+
+
+
+// Cubic
+easeInCubic = cubic-bezier(0.550, 0.055, 0.675, 0.190)
+easeOutCubic = cubic-bezier(0.215, 0.610, 0.355, 1.000)
+easeInOutCubic  = cubic-bezier(0.645, 0.045, 0.355, 1.000)
+
+// Circ
+easeInCirc = cubic-bezier(0.600, 0.040, 0.980, 0.335)
+easeOutCirc = cubic-bezier(0.075, 0.820, 0.165, 1.000)
+easeInOutCirc = cubic-bezier(0.785, 0.135, 0.150, 0.860)
+
+// Expo
+easeInExpo = cubic-bezier(0.950, 0.050, 0.795, 0.035)
+easeOutExpo = cubic-bezier(0.190, 1.000, 0.220, 1.000)
+easeInOutExpo = cubic-bezier(1.000, 0.000, 0.000, 1.000)
+
+// Quad
+easeInQuad = cubic-bezier(0.550, 0.085, 0.680, 0.530)
+easeOutQuad = cubic-bezier(0.250, 0.460, 0.450, 0.940)
+easeInOutQuad = cubic-bezier(0.455, 0.030, 0.515, 0.955)
+
+// Quart
+easeInQuart = cubic-bezier(0.895, 0.030, 0.685, 0.220)
+easeOutQuart = cubic-bezier(0.165, 0.840, 0.440, 1.000)
+easeInOutQuart  = cubic-bezier(0.770, 0.000, 0.175, 1.000)
+
+// Quint
+easeInQuint = cubic-bezier(0.755, 0.050, 0.855, 0.060)
+easeOutQuint = cubic-bezier(0.230, 1.000, 0.320, 1.000)
+easeInOutQuint  = cubic-bezier(0.860, 0.000, 0.070, 1.000)
+
+// Sine
+easeInSine = cubic-bezier(0.470, 0.000, 0.745, 0.715)
+easeOutSine = cubic-bezier(0.390, 0.575, 0.565, 1.000)
+easeInOutSine = cubic-bezier(0.445, 0.050, 0.550, 0.950)
+
+// Back
+easeInBack = cubic-bezier(0.600, -0.280, 0.735, 0.045)
+easeOutBack = cubic-bezier(0.175,  0.885, 0.320, 1.275)
+easeInOutBack = cubic-bezier(0.680, -0.550, 0.265, 1.550)
+
+
+
+figure *
+  transition .3s easeOutExpo
+
+figure:hover *
+  transition .3s easeInExpo
+
+.tran___1
+  transition .3s easeInExpo

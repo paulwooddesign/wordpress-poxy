@@ -1,0 +1,273 @@
+:php
+  $author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+  $color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+  $color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+  $color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+  $background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', .4)';
+  $accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+  $accent_color = 'color: rgba(0,0,0, 1)';
+
+
+- if($author_id) :
+  :php
+    $args = array(
+      'ignore_sticky_posts' => 1,
+      'posts_per_page' => 1,
+      'author__in' => $author_id,
+      'post_type' => array('project')
+    );
+    $member_posts = new WP_Query( $args );
+
+  - if ($member_posts->have_posts()) :
+    - while ($member_posts->have_posts()) : $member_posts->the_post();
+      - global $post;
+      - $image_url = get_poxy_banner();
+      - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+      section.rel.bg-black
+        .paxy.fill(style!="<?php echo $background_color; ?>")
+        .sw
+          .cw.rel
+            figure.rel.mb0.poxya11a_12.qoxyb11b_35.poxyc11c_35.poxyd11d_58.poxye11e_58.bgp-ct.bg-100(style!='<?php echo $image; ?>')
+    - endwhile;
+    - wp_reset_query();
+  - endif;
+- endif;
+
+
+- while (have_posts()):
+  :php
+    the_post();
+    $image_url = get_poxy_featured('full');
+    $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+    $title = get_the_title();
+    $href = get_the_permalink();
+
+  section.rel.clear
+    .sw
+      .cw
+        figure.mt2.mb2.mb2.poxyb34b_112.tx-v
+          div
+            .tx-6.title.bold.mt4
+              - the_title();
+        figure.qoxyb14.mt2.mb2
+          button.fill.p3.bg-accent
+            a.white(href='#') View Project
+        - get_template_part( 'nav-project' );
+- endwhile;
+- wp_reset_query();
+
+
+//- (style!='<?php echo $background_color; ?>')
+//- (style='background-color: rgba(50,50,50, 1);')
+//- .poxy(style='background-color: rgba(25,25,25, 1);')
+//- .poxy
+//- 	.poxy.shadow-right-inset
+
+
+- if($author_id) :
+  :php
+    $args = array(
+      'ignore_sticky_posts' => 1,
+      'posts_per_page' => 1,
+      'author__in' => $author_id,
+      'post_type' => array('project')
+    );
+    $member_posts = new WP_Query( $args );
+
+  - if ($member_posts->have_posts()) :
+    - while ($member_posts->have_posts()) : $member_posts->the_post();
+      - global $post;
+      //- - $image_url = get_poxy_banner();
+      //- - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+      - $image = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0].");" : '';
+      section.hole
+        .sw
+          .cw.rel
+            .poxya14poxyb14poxyc11poxyd11
+              h2(style!='<?php echo $accent_color; ?>').accent.bold.mr4.mb4 Overview
+
+            .poxya14poxyb14poxyc13poxyd13.tx-2
+              .title.mb2
+                h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Studio
+                :php
+                  $terms = get_the_terms( $post->ID , 'project_studio' );
+                  foreach ( $terms as $term ) {
+                    $term_link = get_term_link( $term, 'project_studio' );
+                    if( is_wp_error( $term_link ) )
+                    continue;
+                    //- echo '<a href="' . $term_link . '">' . $term->name . '</a>';
+                    echo $term->name;
+                  }
+
+            .poxya14poxyb14poxyc13poxyd13.tx-2
+              .title.mb2
+                h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Technology
+                ul
+                  :php
+                    $terms = get_the_terms( $post->ID , 'project_tech' );
+                    foreach ( $terms as $term ) {
+                      $term_link = get_term_link( $term, 'project_tech' );
+                      if( is_wp_error( $term_link ) )
+                      continue;
+                      //- echo '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+                      echo '<li>' . $term->name . '</li>';
+                    }
+            .poxya14poxyb14poxyc13poxyd13.tx-2
+              .title.mb2
+                h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Code
+                :php
+                  $terms = get_the_terms( $post->ID , 'project_code' );
+                  foreach ( $terms as $term ) {
+                    $term_link = get_term_link( $term, 'project_code' );
+                    if( is_wp_error( $term_link ) )
+                    continue;
+                    //- echo '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+                    echo '<span>' . $term->name . ', </span>';
+                  }
+
+    - endwhile;
+    - wp_reset_query();
+  - endif;
+- endif;
+
+//-
+//- section.shadow-right-inset
+//-   .sw
+//-     .cw
+//-       figure
+//-         h2.accent What I did
+//-
+//- section
+//-   .sw
+//-     .cw
+//-       //- Container
+//-       ul.progress
+//-         //- Item
+//-         li(data-name='Design', data-percent='50%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='610')
+//-         //- Item
+//-         //- li(data-name='Development', data-percent='100%')
+//-         //-   svg(viewbox='-10 -10 220 220')
+//-         //-     g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-         //-       path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-         //-       path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-         //-       path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-         //-       path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-         //-       path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-         //-       path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-         //-   svg(viewbox='-10 -10 220 220')
+//-         //-     path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='364')
+//-         //- Item
+//-         li(data-name='Development', data-percent='100%')
+//-           svg(viewbox='-10 -10 220 220')
+//-             g(fill='none', stroke-width='6', transform='translate(100,100)')
+//-               path(d='M 0,-100 A 100,100 0 0,1 86.6,-50', stroke='url(#cl1)')
+//-               path(d='M 86.6,-50 A 100,100 0 0,1 86.6,50', stroke='url(#cl2)')
+//-               path(d='M 86.6,50 A 100,100 0 0,1 0,100', stroke='url(#cl3)')
+//-               path(d='M 0,100 A 100,100 0 0,1 -86.6,50', stroke='url(#cl4)')
+//-               path(d='M -86.6,50 A 100,100 0 0,1 -86.6,-50', stroke='url(#cl5)')
+//-               path(d='M -86.6,-50 A 100,100 0 0,1 0,-100', stroke='url(#cl6)')
+//-           svg(viewbox='-10 -10 220 220')
+//-             path(d='M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z', stroke-dashoffset='629')
+//-
+//-       //- Defining Angle Gradient Colors
+//-       svg(width='0', height='0')
+//-         defs
+//-           lineargradient#cl1(gradientunits='objectBoundingBox', x1='0', y1='0', x2='1', y2='1')
+//-             stop(stop-color='#618099')
+//-             stop(offset='100%', stop-color='#8e6677')
+//-           lineargradient#cl2(gradientunits='objectBoundingBox', x1='0', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#8e6677')
+//-             stop(offset='100%', stop-color='#9b5e67')
+//-           lineargradient#cl3(gradientunits='objectBoundingBox', x1='1', y1='0', x2='0', y2='1')
+//-             stop(stop-color='#9b5e67')
+//-             stop(offset='100%', stop-color='#9c787a')
+//-           lineargradient#cl4(gradientunits='objectBoundingBox', x1='1', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#9c787a')
+//-             stop(offset='100%', stop-color='#817a94')
+//-           lineargradient#cl5(gradientunits='objectBoundingBox', x1='0', y1='1', x2='0', y2='0')
+//-             stop(stop-color='#817a94')
+//-             stop(offset='100%', stop-color='#498a98')
+//-           lineargradient#cl6(gradientunits='objectBoundingBox', x1='0', y1='1', x2='1', y2='0')
+//-             stop(stop-color='#498a98')
+//-             stop(offset='100%', stop-color='#618099')
+
+//- //- (style!='<?php echo $background_color; ?>')
+//- //- (style='background-color: rgba(50,50,50, 1);')
+//- //- .poxy(style='background-color: rgba(25,25,25, 1);')
+//- //- .poxy
+//- //- 	.poxy.shadow-right-inset
+//- section
+//-   //- - get_template_part( 'nav-project' );
+//-   .sw
+//-     .cw.rel
+//-       - if($author_id) :
+//-         :php
+//-           $args = array(
+//-             'ignore_sticky_posts' => 1,
+//-             'posts_per_page' => 1,
+//-             'author__in' => $author_id,
+//-             'post_type' => array('project')
+//-           );
+//-           $member_posts = new WP_Query( $args );
+//-
+//-         - if ($member_posts->have_posts()) :
+//-             - while ($member_posts->have_posts()) : $member_posts->the_post();
+//-               - global $post;
+//-               - $image_url = get_poxy_banner();
+//-               - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url(http://placehold.it/1200x600)';
+//-               .poxya14poxyb14poxyc11.tx-2
+//-                 //- figure.poxya14a_14poxyb14b_14poxyc14c_14.rel.mb1
+//-                 //- 	.oxy.a16a_16b16b_16c16c_16.bgp-cc.bgs-contain(style!='<?php echo $image; ?>')
+//-                 .title.pox.a14b14c14.mb2
+//-                   h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Studio
+//-                   :php
+//-                     $terms = get_the_terms( $post->ID , 'project_studio' );
+//-                     foreach ( $terms as $term ) {
+//-                       $term_link = get_term_link( $term, 'project_studio' );
+//-                       if( is_wp_error( $term_link ) )
+//-                       continue;
+//-                       echo '<a href="' . $term_link . '">' . $term->name . '</a>';
+//-                     }
+//-
+//-
+//-                 .title.pox.a14b14c14.mb2
+//-                   h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Technology
+//-                   ul
+//-                     :php
+//-                       $terms = get_the_terms( $post->ID , 'project_tech' );
+//-                       foreach ( $terms as $term ) {
+//-                         $term_link = get_term_link( $term, 'project_tech' );
+//-                         if( is_wp_error( $term_link ) )
+//-                         continue;
+//-                         //- echo '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+//-                         echo '<li>' . $term->name . '</li>';
+//-                       }
+//-
+//-                 .title.pox.a14b14c14.mb2
+//-                   h5(style!='<?php echo $accent_color; ?>').bold.mr4.mb4 Code
+//-                   ul
+//-                     :php
+//-                       $terms = get_the_terms( $post->ID , 'project_code' );
+//-                       foreach ( $terms as $term ) {
+//-                         $term_link = get_term_link( $term, 'project_code' );
+//-                         if( is_wp_error( $term_link ) )
+//-                         continue;
+//-                         //- echo '<li><a href="' . $term_link . '">' . $term->name . '</a></li>';
+//-                         echo '<li>' . $term->name . '</li>';
+//-                       }
+//-               figure.mb0.qoxya34a_34.qoxyb34b_34.poxyc11c_11.poxyd11d_58.poxye11e_58.bgp-ct.bg-100(style!='<?php echo $image; ?>')
+//-
+//-             - endwhile;
+//-             - wp_reset_query();
+//-         - endif;
+//-       - endif;

@@ -1,0 +1,84 @@
+// /////////////////////////////////
+// // SVG Button
+// /////////////////////////////////
+// .btn
+//   position relative
+//   overflow hidden
+//   background none
+//   padding 1em
+//   background-color transparent
+//   transition background-color 250ms ease-in
+//   font-size 1.5rem
+//   color blue
+//   +transition(background-color, color)
+//   border none
+//
+//   &:before
+//     content ""
+//     display block
+//     position absolute
+//     top 0
+//     left 0
+//     width 100%
+//     height 100%
+//     border 1px solid orange
+//     opacity 1
+//     +transition(opacity)
+//
+//   > span
+//     position relative
+//
+//   .btn_svg
+//     position absolute
+//     top 0
+//     left 0
+//     width 100%
+//     height 100%
+//
+//   .btn_svg_shape
+//     stroke orange
+//     stroke-width 2px
+//     stroke-linecap round
+//     fill transparent
+//
+//   &:hover
+//     transition-delay 250ms
+//     background-color fade(black, 40%)
+//     color white
+//
+//     &:before
+//       opacity 0
+//
+//     .btn_svg_shape
+//       +transition(stroke-dasharray, stroke-dashoffset, 500ms)
+//       stroke-dashoffset 0 !important
+//       animation 500ms pencil ease-in forwards
+//
+//
+// /* Stroke animation. Use ems to scale :) */
+// @keyframes
+//   pencil
+//     0%
+//       stroke-width 0.5em
+//     75%
+//       stroke-width 0.25em
+//     100%
+//       stroke-width 0.1em
+//
+//
+//
+// /* Transition mixin, cause lazy */
+// transition()
+//   transition-property stroke-dasharray
+//   transition-duration 250ms
+//   transition-timing-function ease-in-out
+//   transition-delay 0
+//
+//
+//
+// /* W00t border-box */
+// *
+//   box-sizing border-box
+//   &:after
+//   &:before
+//     box-sizing border-box

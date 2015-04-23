@@ -1,0 +1,10 @@
+<section><div class="sw"><div class="cw"><?php if (have_posts()): ?><?php while (have_posts()): ?><?php the_post(); ?><?php //- $image_url = get_poxy_thumb();
+$image_url = get_poxy_thumb_650();
+if ($image_url) {
+  $image = 'background-image: url('. $image_url. ')';
+} else {
+  $image_ph = get_bloginfo('template_url') . '/images/logo-blue.svg';
+  $image = 'background-image: url('.$image_ph.')';
+}
+
+ ?><?php $title = get_the_title(); ?><?php $slug = poxy_slug(); ?><?php $description = poxy_meta('_poxy_product_description'); ?><?php $contact_name = poxy_meta('dealer_contact_name'); ?><?php $contact_title = poxy_meta('dealer_contact_title'); ?><?php $street1 = poxy_meta('dealer_street1'); ?><?php $street2 = poxy_meta('dealer_street2'); ?><?php $city = poxy_meta('dealer_city'); ?><?php $state = poxy_meta('dealer_state'); ?><?php $zip = poxy_meta('dealer_zip'); ?><?php $country = poxy_meta('dealer_country'); ?><?php $website = poxy_meta('dealer_website'); ?><?php $phone = poxy_meta('dealer_phone'); ?><?php $fax = poxy_meta('dealer_fax'); ?><?php $rental = poxy_meta('dealer_rental'); ?><?php $latitude = poxy_meta('dealer_latitude'); ?><?php $longitude = poxy_meta('dealer_longitude'); ?><?php if ($description) : ?><?php $description = $description; ?><?php else : ?><?php $description = get_the_excerpt(); ?><?php endif; ?><figure class="rel poxya14a_14 poxyb14b_14 poxyc11c_14 poxyd11d_38 poxye11e_58"><a href="<?php bloginfo("url"); ?>/dealer/<?php echo $slug; ?>" rel="bookmark"><div class="rel poxya14a_14 poxyb14b_14 poxyc12c_14 poxyd12d_38 poxye58e_58"><div class="m1-a m1-b m1-c m1-d m1-e"><h3 class="txa-6 mt2-a txb-4 mt2-b txc-4 mt2-c txd-4 mt2-d txe-3 mt2-e"><?php echo $title; ?></h3><p><?php echo "Phone: " . $phone; ?></p><p><?php echo $street1; ?></p><p><?php echo $street2; ?></p><p><?php echo $zip . " " . $city; ?></p><p><?php echo $website; ?></p></div></div></a></figure><?php endwhile; ?><?php wp_reset_query(); ?><?php endif; ?></div></div></section>

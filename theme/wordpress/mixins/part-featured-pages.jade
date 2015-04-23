@@ -1,0 +1,129 @@
+:php
+  /**
+   *
+   * Chimera template for displaying Featured Pages
+   *
+   * @package WordPress
+   * @subpackage Chimera
+   * @since Chimera 1.0
+   */
+
+section.featured-pages
+  .sw
+    .cw
+      figure.rel.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14
+        a.tx-c(href!='<?php bloginfo("url"); ?>/projects')
+          figure.rel.image.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14.bgp-lc.bgs-100(style!='background-image: url(<?php bloginfo("url"); ?>/images/home/visionaries-thumb.jpg)')
+            .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+              h2.txa-8.txb-7.txc-5.txd-6.txe-5(title='Projects')
+                | Projects
+      figure.rel.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14
+        a.tx-c(href!='<?php bloginfo("url"); ?>/about')
+          figure.rel.image.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='background-image: url(<?php bloginfo("url"); ?>/images/home/events-thumb.jpg)')
+            .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+              h2.txa-8.txb-7.txc-5.txd-6.txe-5(title='About')
+                | About
+      figure.rel.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14
+        a.tx-c(href!='<?php bloginfo("url"); ?>/resume')
+          figure.rel.image.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='background-image: url(<?php bloginfo("url"); ?>/images/home/about-thumb.jpg)')
+            .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+              h2.txa-8.txb-7.txc-5.txd-6.txe-5(title='Resume')
+                | Resume
+      figure.rel.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14
+        a.tx-c(href!='<?php bloginfo("url"); ?>/blog')
+          figure.rel.image.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='background-image: url(<?php bloginfo("url"); ?>/images/home/blog-thumb.jpg)')
+            .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+              h2.txa-8.txb-7.txc-5.txd-6.txe-5(title='Blog')
+                | Blog
+
+//-
+//- section.featured-pages.hide
+//-   .sw
+//-     .cw
+//-       :php
+//-         $args = array(
+//-           'posts_per_page' => 1,
+//-           'post_type' => array('vip')
+//-         );
+//-
+//-         $thumb = new WP_Query( $args );
+//-         while ($thumb->have_posts()) : $thumb->the_post();
+//-           $title = get_the_title();
+//-           $image = get_poxy_banner();
+//-           if ($image) {
+//-             $image = 'background-image: url('. $image. ')';
+//-           } else {
+//-             $image = 'background-image: url(http://placehold.it/400x200)';
+//-           }
+//-
+//-       figure.rel.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14
+//-         a.tx-c(href='/visionaries')
+//-           figure.rel.image.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='<?php echo $image; ?>')
+//-             .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+//-               h2.txa-8.txb-7.txc-7.txd-6.txe-5(title='Visionaries')
+//-                 | Visionaries
+//-
+//-       - endwhile;
+//-       - wp_reset_query();
+//-
+//-       :php
+//-         $args = array(
+//-           'posts_per_page' => 1,
+//-           'orderby' => 'date',
+//-           'order' => 'ASC',
+//-           'post_status' => 'future',
+//-           'post_type' => array('event')
+//-         );
+//-
+//-         $thumb = new WP_Query( $args );
+//-         while ($thumb->have_posts()) : $thumb->the_post();
+//-           $title = get_the_title();
+//-           $image = get_poxy_banner();
+//-           if ($image) {
+//-             $image = 'background-image: url('. $image. ')';
+//-           } else {
+//-             $image = 'background-image: url(http://placehold.it/400x200)';
+//-           }
+//-
+//-       figure.rel.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14
+//-         a.tx-c(href='/events')
+//-           figure.rel.image.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='<?php echo $image; ?>')
+//-             .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+//-               h2.txa-8.txb-7.txc-7.txd-6.txe-5(title='Events')
+//-                 | Events
+//-
+//-       - endwhile;
+//-       - wp_reset_query();
+//-
+//-       figure.rel.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14
+//-         a.tx-c(href='/about')
+//-           figure.rel.image.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style='background-image: url(images/home/about-thumb.jpg)')
+//-             .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+//-               h2.txa-8.txb-7.txc-7.txd-6.txe-5(title='About')
+//-                 | About
+//-
+//-       :php
+//-         $args = array(
+//-           'posts_per_page' => 1,
+//-           'post_type' => array('post')
+//-         );
+//-
+//-         $thumb = new WP_Query( $args );
+//-         while ($thumb->have_posts()) : $thumb->the_post();
+//-           $title = get_the_title();
+//-           $image = get_poxy_banner();
+//-           if ($image) {
+//-             $image = 'background-image: url('. $image. ')';
+//-           } else {
+//-             $image = 'background-image: url(http://placehold.it/400x200)';
+//-           }
+//-
+//-       figure.rel.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14
+//-         a.tx-c(href='/blog')
+//-           figure.rel.image.poxya14a_18.poxyb14b_18.poxyc12c_14.poxyd12d_14.poxye12e_14.bgp-cc.bgs-100(style!='<?php echo $image; ?>')
+//-             .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+//-               h2.txa-8.txb-7.txc-7.txd-6.txe-5(title='Blog')
+//-                 | Blog
+//-
+//-       - endwhile;
+//-       - wp_reset_query();

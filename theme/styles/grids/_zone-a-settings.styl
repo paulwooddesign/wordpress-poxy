@@ -1,0 +1,51 @@
+/////////////////////////////////
+// ZONE A GRID SETTINGS
+/////////////////////////////////
+$font-size = 16
+$em = $font-size / 1rem
+$column = 48
+
+// Gutter X/Y
+$gx = 48
+$gy = 48
+$gs = 0
+
+/////////////////////////////////
+// Zone
+/////////////////////////////////
+$zone_upper = A
+$zone_lower = a
+
+/////////////////////////////////
+// Type Scale
+/////////////////////////////////
+// $type_scale = 'golden-ratio'
+// $type_scale = 'perfect-fifth'
+$type_scale = 'augmented-fourth'
+// $type_scale = 'major-third'
+// $type_scale = 'minor-third'
+// $type_scale = 'major-second'
+// $type_scale = 'minor-second'
+
+/////////////////////////////////
+// GRID Ratio Settings (Denominator)
+// Zone Numerators array ( 1/ $ratio)
+/////////////////////////////////
+$ratio-range = 1 2 3 4 5 6 8 10 11 12 14 16 18 24
+$numerators = ($zone_upper 1) ($zone_upper 2) ($zone_upper 3) ($zone_upper 5)
+
+
+// Margin Ratios
+$gx_rem = (($gx) / $em)rem
+$gy_rem = (($gy) / $em)rem
+
+/////////////////////////////////
+// Zone Custom Styles
+/////////////////////////////////
+body
+	line-height 1.2
+
+.logo-color
+	background-color #FFC107
+
+poxy-type-scale($type_scale, $zone_lower)

@@ -1,0 +1,106 @@
+//- - get_template_part( 'mixin-header' );
+//- section(style='background-color: rgba(255,255,255,.65)').tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw.a12.b12.c12.mt1.mb1
+//-         h2.mb2.title
+//-           - the_title();
+//-         p We are an Advertising and Production Agency that uses excellence to forge bonds with customers and propel businesses.
+//- .ofyt(style='background-color: rgba(255,255,255,.5)')
+
+
+:php
+  global $post;
+  $id = get_the_ID();
+  $description = get_post_meta($id, "_poxy_description", true);
+
+  $args = array(
+    //- 'posts_per_page' => 8,
+    'orderby' => 'menu_order',
+    'order'   => 'ASC',
+    'project_cat' => 'web',
+    'meta_key' => '_poxy_featured',
+    'post_type' => 'project'
+  );
+
+  $sections = new WP_Query( $args );
+
+section(class='___a13a_12b14b_13c12c_34d12d_34e12e_34 hole')
+  .sw
+    .cw
+      - get_template_part( 'header-inside' );
+    .cw.thumbs
+      - while ($sections->have_posts()) : $sections->the_post();
+
+          - $link = get_the_permalink();
+          - $title = get_the_title();
+          //- - $image_url = get_poxy_featured('full');
+          - $image_url = get_poxy_featured('full');
+          - $image_url = get_poxy_thumb_300x400();
+          - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+          - $image = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0].");" : '';
+
+
+          - $background_color = 'background-color: rgba(255,255,255,.9)';
+
+          figure.br2
+            //- a.gray-scale(href!="<?php the_permalink(); ?>", onclick='loadProject("web")')
+            a.gray-scale(href!="<?php the_permalink(); ?>")
+              //- span.oxy.gold-filter.br2.fill-95
+              span.oxy.inside-bevel.br2
+              span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+              span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+
+              span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+                //- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+
+              //- .shadow.oxy.shadow.ofh.br2
+              //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+              //- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+              //-   - echo $title;
+      - endwhile;
+      - wp_reset_query();
+:php
+  $args = array(
+    'orderby' => 'menu_order',
+    'order'   => 'ASC',
+    'posts_per_page' => 99,
+    'meta_key' => '_poxy_featured',
+    'meta_compare' =>   'NOT EXISTS',
+    'project_cat' => 'web',
+    'post_type' => array('project')
+  );
+
+  $sections = new WP_Query( $args );
+
+section(class='___a16a_14b14b_13c14c_13d13d_12e13e_12 hole')
+  .sw
+    .cw.thumbs
+      - while ($sections->have_posts()) : $sections->the_post();
+
+          - $link = get_the_permalink();
+          - $title = get_the_title();
+          //- - $image_url = get_poxy_featured('full');
+          //- - $image_url = get_poxy_featured('full');
+          - $image_url = get_poxy_thumb_300x400();
+          - $image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+          - $image = wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0] ? "background-image: url(".wp_get_attachment_image_src(get_post_meta($post->ID, '_poxy_project_fig_1_1_image', true), 'poxy_1000x1500')[0].");" : '';
+
+          - $background_color = 'background-color: rgba(255,255,255,.9)';
+
+          figure.br2
+            //- a.gray-scale(href!="<?php the_permalink(); ?>", onclick='loadProject("web")')
+            a.gray-scale(href!="<?php the_permalink(); ?>")
+              //- span.oxy.gold-filter.br2.fill-95
+              span.oxy.inside-bevel.br2
+              span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+              span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+
+              span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+                //- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+
+              //- .shadow.oxy.shadow.ofh.br2
+              //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+              //- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+              //-   - echo $title;
+      - endwhile;
+      - wp_reset_query();

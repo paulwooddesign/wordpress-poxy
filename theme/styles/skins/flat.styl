@@ -1,0 +1,522 @@
+///////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////
+accent = #000
+
+// containers1d1f21
+// #15131A
+
+$main_background_color = #e9e3dd
+$main_background_color = #e3e3e3
+$main_background_image =  url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczJyBoZWlnaHQ9JzYnIHZpZXdCb3g9JzAgMCA1IDEwJz4KCTxyZWN0IHdpZHRoPScxMTAlJyB4PSctNSUnIHk9Jy01JScgaGVpZ2h0PScxMTAlJyBmaWxsPScjMWQxZjIxJy8+Cgk8bGluZSB4MT0nLTInIHkxPScxJyB4Mj0nNycgeTI9JzEwJyBzdHJva2U9JyMxODFiMWYnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9Jy0yJyB5MT0nNicgeDI9JzcnIHkyPScxNScgc3Ryb2tlPScjMTgxYjFmJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSctMicgeTE9Jy00JyB4Mj0nNycgeTI9JzUnIHN0cm9rZT0nIzE4MWIxZicgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cgk8bGluZSB4MT0nNycgeTE9JzEnIHgyPSctMicgeTI9JzEwJyBzdHJva2U9JyMyMTJhMzMnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9JzcnIHkxPSc2JyB4Mj0nLTInIHkyPScxNScgc3Ryb2tlPScjMjEyYTMzJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSc3JyB5MT0nLTQnIHgyPSctMicgeTI9JzUnIHN0cm9rZT0nIzIxMmEzMycgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cjwvc3ZnPg==')
+
+// footer_background_color = #111
+container_background_color = transparent
+header_background_color = transparent
+
+skin_shadow_color = #cecece
+skin_highlight_color = #fff
+
+$shadow_color = 200,200,200
+
+// Text
+font_color = rgba(0, 0, 0, 0.8)
+// font_color = rgba(#70869d, 0.8)
+
+
+a_color = rgba(0, 0, 0, 0.8)
+a_color_hover = rgba(0, 0, 0, 1)
+
+
+.bg-main
+  background-color $main_background_color
+
+.accent
+  color accent !important
+
+.title
+  text-shadow 0 1px 0 rgba(255, 255, 255, 0.2)
+  text-shadow 1px 4px 6px #def, 0 0 0 #000, 1px 4px 6px #def
+
+///////////////////////////////////////////////
+// Main Settings
+///////////////////////////////////////////////
+::selection
+  background accent
+  color black
+
+html
+  background-color $main_background_color
+
+body
+  color font_color
+  background-color $main_background_color
+
+.header
+  background header_background_color
+
+#container
+  background-color container_background_color
+
+footer
+  background-size initial
+  // background:#e9e3dd;
+
+a
+  color a_color
+  &:hover
+    color a_color_hover
+
+nav a:hover
+  color a_color_hover
+
+.tx-3d
+  color font_color
+  text-shadow 1px 1px 0 rgba(227,218,219,1),
+  3px 3px 0 rgba(227,218,219,0.9),
+  5px 5px 0 rgba(227,218,219,0.8),
+  7px 7px 0 rgba(227,218,219,0.7),
+  9px 9px 0 rgba(227,218,219,0.6),
+  11px 11px 0 rgba(227,218,219,0.5),
+  13px 13px 0 rgba(227,218,219,0.4),
+  15px 15px 0 rgba(227,218,219,0.3),
+  17px 17px 0 rgba(227,218,219,0.2),
+  19px 19px 0 rgba(227,218,219,0.1),
+  21px 21px 0 rgba(227,218,219,0.08),
+  22px 22px 0 rgba(227,218,219,0.07),
+  23px 23px 0 rgba(227,218,219,0.06),
+  25px 25px 0 rgba(227,218,219,0.04),
+  27px 27px 0 rgba(227,218,219,0.02),
+  28px 28px 0 rgba(227,218,219,0.01),
+  29px 29px 0 rgba(227,218,219,0.0)
+///////////////////////////////////////////////
+// SVG Settings
+///////////////////////////////////////////////
+nav
+  svg:hover path
+    fill rgba(accent, 1)
+
+  path
+    fill font_color
+
+  .accent
+    svg:hover path
+      fill font_color
+
+    path
+      fill rgba(accent, 1)
+
+  .white
+    svg:hover path
+      fill rgba(white, 1)
+
+    path
+      fill rgba(accent, 1)
+
+
+
+/////////////////////////////////
+// Header
+/////////////////////////////////
+.main-logo, .logo
+  background-image url(../images/logo-dark.png) !important
+  background-image url(../images/logo-dark.svg) !important
+
+
+/////////////////////////////////
+// Thumbs
+/////////////////////////////////
+$trans_duration = 150ms
+
+.thumbs
+  figure
+    //box-shadow: inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .5), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5);
+    //box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5)
+    position relative
+    background-image linear-gradient(to bottom, #111, #333)
+    background-image linear-gradient(45deg, rgba(#111,1) 0%, rgba(#333,1) 100%)
+
+
+    // box-shadow 0 .5em 2em rgba(0,0,0,.05), inset 0 .2em .4em -.2em rgba(255,255,255,.2), 0 0 .2em rgba(0,0,0,.1)
+    // box-shadow 0 .5em 2em rgba(255,255,255,.02), inset 0 .2em .4em -.2em rgba(0,0,0,.2), 0 0 .2em rgba(0,0,0,.2)
+    // box-shadow 1px 1px 0 0 rgba(212,206,200,1), 2px 2px 0 0 rgba(212,206,200,1), 3px 3px 0 0 rgba(212,206,200,0.9), 4px 4px 0 0 rgba(212,206,200,0.9), 5px 5px 0 0 rgba(212,206,200,0.8), 6px 6px 0 0 rgba(212,206,200,0.8), 7px 7px 0 0 rgba(212,206,200,0.7), 8px 8px 0 0 rgba(212,206,200,0.7), 9px 9px 0 0 rgba(212,206,200,0.6), 11px 11px 0 0 rgba(212,206,200,0.5), 13px 13px 0 0 rgba(212,206,200,0.4), 15px 15px 0 0 rgba(212,206,200,0.3), 17px 17px 0 0 rgba(212,206,200,0.2), 19px 19px 0 0 rgba(212,206,200,0.1), 21px 21px 0 0 rgba(212,206,200,0.09), 23px 23px 0 0 rgba(212,206,200,0.07), 25px 25px 0 0 rgba(212,206,200,0.05), 23px 23px 0 0 rgba(212,206,200,0.05), 25px 25px 0 0 rgba(212,206,200,0.05), 27px 27px 0 0 rgba(212,206,200,0.05), 29px 29px 0 0 rgba(212,206,200,0.05), 31px 31px 0 0 rgba(212,206,200,0.05), 33px 33px 0 0 rgba(212,206,200,0.05), 35px 35px 0 0 rgba(212,206,200,0.05), 37px 37px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05), 41px 41px 0 0 rgba(212,206,200,0.05), 43px 43px 0 0 rgba(212,206,200,0.05), 45px 45px 0 0 rgba(212,206,200,0.05), 47px 47px 0 0 rgba(212,206,200,0.05), 49px 49px 0 0 rgba(212,206,200,0.05), 51px 51px 0 0 rgba(212,206,200,0.05), 53px 53px 0 0 rgba(212,206,200,0.05), 39px 39px 0 0 rgba(212,206,200,0.05)
+
+    box-shadow 1px 1px 0 0 rgba(255,255,255,1),
+    2px 2px 0 0 rgba(255,255,255,1),
+    3px 3px 0 0 rgba(255,255,255,0.9),
+    4px 4px 0 0 rgba(255,255,255,0.9),
+    5px 5px 0 0 rgba(255,255,255,0.8),
+    6px 6px 0 0 rgba(255,255,255,0.8),
+    7px 7px 0 0 rgba(255,255,255,0.7),
+    8px 8px 0 0 rgba(255,255,255,0.7),
+    9px 9px 0 0 rgba(255,255,255,0.6),
+    11px 11px 0 0 rgba(255,255,255,0.5),
+    13px 13px 0 0 rgba(255,255,255,0.4),
+    15px 15px 0 0 rgba(255,255,255,0.3),
+    17px 17px 0 0 rgba(255,255,255,0.2),
+    19px 19px 0 0 rgba(255,255,255,0.1),
+    21px 21px 0 0 rgba(255,255,255,0.09),
+    23px 23px 0 0 rgba(255,255,255,0.07),
+    25px 25px 0 0 rgba(255,255,255,0.05),
+    23px 23px 0 0 rgba(255,255,255,0.05),
+    25px 25px 0 0 rgba(255,255,255,0.05),
+    27px 27px 0 0 rgba(255,255,255,0.05),
+    29px 29px 0 0 rgba(255,255,255,0.05),
+    31px 31px 0 0 rgba(255,255,255,0.05),
+    33px 33px 0 0 rgba(255,255,255,0.05),
+    35px 35px 0 0 rgba(255,255,255,0.05),
+    37px 37px 0 0 rgba(255,255,255,0.05),
+    39px 39px 0 0 rgba(255,255,255,0.05),
+    41px 41px 0 0 rgba(255,255,255,0.05),
+    43px 43px 0 0 rgba(255,255,255,0.05),
+    45px 45px 0 0 rgba(255,255,255,0.05),
+    47px 47px 0 0 rgba(255,255,255,0.05),
+    49px 49px 0 0 rgba(255,255,255,0.05),
+    51px 51px 0 0 rgba(255,255,255,0.05),
+    53px 53px 0 0 rgba(255,255,255,0.05),
+    39px 39px 0 0 rgba(255,255,255,0.05)
+
+    box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    2px 2px 0 0 rgba($shadow_color,1),
+    3px 3px 0 0 rgba($shadow_color,0.9),
+    4px 4px 0 0 rgba($shadow_color,0.9),
+    5px 5px 0 0 rgba($shadow_color,0.8),
+    6px 6px 0 0 rgba($shadow_color,0.8),
+    7px 7px 0 0 rgba($shadow_color,0.7),
+    8px 8px 0 0 rgba($shadow_color,0.7),
+    9px 9px 0 0 rgba($shadow_color,0.6),
+    11px 11px 0 0 rgba($shadow_color,0.5),
+    13px 13px 0 0 rgba($shadow_color,0.4),
+    15px 15px 0 0 rgba($shadow_color,0.3),
+    17px 17px 0 0 rgba($shadow_color,0.2),
+    19px 19px 0 0 rgba($shadow_color,0.1),
+    21px 21px 0 0 rgba($shadow_color,0.09),
+    23px 23px 0 0 rgba($shadow_color,0.07),
+    25px 25px 0 0 rgba($shadow_color,0.05),
+    23px 23px 0 0 rgba($shadow_color,0.05),
+    25px 25px 0 0 rgba($shadow_color,0.05),
+    27px 27px 0 0 rgba($shadow_color,0.05),
+    29px 29px 0 0 rgba($shadow_color,0.05),
+    31px 31px 0 0 rgba($shadow_color,0.05),
+    33px 33px 0 0 rgba($shadow_color,0.05),
+    35px 35px 0 0 rgba($shadow_color,0.05),
+    37px 37px 0 0 rgba($shadow_color,0.05),
+    39px 39px 0 0 rgba($shadow_color,0.05),
+    41px 41px 0 0 rgba($shadow_color,0.05),
+    43px 43px 0 0 rgba($shadow_color,0.05),
+    45px 45px 0 0 rgba($shadow_color,0.05),
+    47px 47px 0 0 rgba($shadow_color,0.05),
+    49px 49px 0 0 rgba($shadow_color,0.05),
+    51px 51px 0 0 rgba($shadow_color,0.05),
+    53px 53px 0 0 rgba($shadow_color,0.05),
+    39px 39px 0 0 rgba($shadow_color,0.05)
+
+    // background linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+    background-image linear-gradient(-45deg, rgba(skin_shadow_color,1) 0%, rgba(skin_highlight_color,1) 100%)
+    .thumb-title
+      color #222
+      opacity 0
+
+    .thumb
+      // width 94%
+      // height 94%
+      width 95%
+      height 95%
+      transition $trans_duration ease
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      background-color rgba(0,0,0,.7)
+      // background-position 50% 0%
+      // filter: grayscale(70%)
+
+      // background-image linear-gradient(-45deg, rgba(#000,1) 0%,  rgba(#444,1) 100%)
+      // background-image linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+      // background-image linear-gradient( to bottom, skin_highlight_color, skin_shadow_color)
+      background $main_background_color
+      // background #fcfbfa
+      // box-shadow: inset 0 0 2em 0.1em rgba(0, 0, 0, 0.3);
+
+    .icon
+      opacity .7
+      filter invert(100%)
+
+    .shadow
+      // width 94%
+      // height 94%
+      width 95%
+      height 95%
+      transition opacity $trans_duration ease
+      opacity 0
+      background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 110%)
+      // background-image none
+      box-shadow: inset 0 0 0em 0.0em rgba(0, 0, 0, 0.3);
+      text-align center
+
+
+    .gold-filter
+      transition transform $trans_duration
+      // width 95%
+      // height 95%
+      width 97%
+      height 97%
+      opacity .7
+      background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+    .inside-bevel
+      width 97%
+      height 97%
+      background-image linear-gradient(-45deg, rgba(skin_highlight_color,1) 0%, rgba(skin_shadow_color,.5) 100%)
+
+    .accent-border
+      transition $trans_duration ease
+      width 95%
+      height 95%
+      opacity 0
+
+    .highlight-border
+      opacity 0
+      background-image linear-gradient(-45deg, rgba(#fff,.0) 0%,  rgba(#fff,.3) 100%)
+
+    .title
+      opacity 0
+      transition $trans_duration ease
+      transform translateX(50%) translateY(100%)
+
+
+  figure:hover
+    .gloss
+      border-radius 20%
+      transition $trans_duration
+      //box-shadow inset 5em 5em 0 -16em rgba(255,255,255,0.3)
+      box-shadow inset 16em 18em 0 -13em rgba(255,255,255,0.1)
+    .thumb
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      filter: grayscale(0%)
+      width 93%
+      height 93%
+
+    .shadow
+      transition $trans_duration ease
+      box-shadow: inset 0 0 2em 0.1em rgba(0, 0, 0, 0.3);
+      opacity .8
+      width 97%
+      height 97%
+      width 93%
+      height 93%
+
+    .gold-filter
+      transition opacity $trans_duration
+      opacity 1
+
+    .color-filter
+      opacity .0
+      transition transform $trans_duration
+      //transform translateX(50%) translateY(-100%)
+      //background-image linear-gradient(45deg, rgba(#463c2c,.3) 0%, rgba(#fdd333,.3) 26%, rgba(#fffcaf,.5) 65%, rgba(#b67b03,.4) 55%, rgba(#341c02,.3) 80%, rgba(#160f07,.3) 100%)
+
+    .fill-94
+      width 96%
+      height 96%
+
+    .fill-95
+      transition $trans_duration ease
+      width 98%
+      height 98%
+      width 95%
+      height 95%
+
+    .accent-border,
+    .highlight-border
+      width 95%
+      height 95%
+      opacity 1
+
+    .title
+      opacity 1
+      transition $trans_duration ease
+      transform translateX(50%) translateY(0%)
+
+
+
+/////////////////////////////////
+// Sections
+/////////////////////////////////
+guide_opacity = .1
+guide_color = #000
+
+section
+  border-top alpha(guide_color, .05) solid 1px !important
+  border-bottom alpha(#000, .08) solid 1px !important
+  border none !important
+  background transparent
+  // &:before,
+  &:after
+    // display none
+    opacity .5
+    background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+    height 1px
+    width 100%
+  // &:nth-child(2n+2)
+  //   background alpha(#000, .02)
+  // &:before
+  //   border-top alpha(guide_color, guide_opacity) solid 1px
+  // &:after
+  //   border-bottom alpha(guide_color, guide_opacity) solid 1px
+
+section
+  &:before,
+  &:after
+    display none
+
+section.clear
+  &:before,
+  &:after
+    display none !important
+
+
+/////////////////////////////////
+// SVG Charts
+/////////////////////////////////
+.progress
+  svg
+    &:nth-child(2)
+      path
+        stroke rgba($main_background_color, 0.9)
+
+
+
+.white-shadow
+  box-shadow 0px 1px 0 0 rgba(212,206,200,1),
+  0px 2px 0 0 rgba(212,206,200,1),
+  0px 3px 0 0 rgba(212,206,200,0.9),
+  0px 4px 0 0 rgba(212,206,200,0.9),
+  0px 5px 0 0 rgba(212,206,200,0.8),
+  0px 6px 0 0 rgba(212,206,200,0.8),
+  0px 7px 0 0 rgba(212,206,200,0.7),
+  0px 8px 0 0 rgba(212,206,200,0.7),
+  0px 9px 0 0 rgba(212,206,200,0.6),
+  0px 11px 0 0 rgba(212,206,200,0.5),
+  0px 13px 0 0 rgba(212,206,200,0.4),
+  0px 15px 0 0 rgba(212,206,200,0.3),
+  0px 17px 0 0 rgba(212,206,200,0.2),
+  0px 19px 0 0 rgba(212,206,200,0.1),
+  0px 21px 0 0 rgba(212,206,200,0.09),
+  0px 23px 0 0 rgba(212,206,200,0.07),
+  0px 25px 0 0 rgba(212,206,200,0.05),
+  0px 23px 0 0 rgba(212,206,200,0.05),
+  0px 25px 0 0 rgba(212,206,200,0.05),
+  0px 27px 0 0 rgba(212,206,200,0.05),
+  0px 29px 0 0 rgba(212,206,200,0.05),
+  0px 31px 0 0 rgba(212,206,200,0.05),
+  0px 33px 0 0 rgba(212,206,200,0.05),
+  0px 35px 0 0 rgba(212,206,200,0.05),
+  0px 37px 0 0 rgba(212,206,200,0.05),
+  0px 39px 0 0 rgba(212,206,200,0.05),
+  0px 41px 0 0 rgba(212,206,200,0.05),
+  0px 43px 0 0 rgba(212,206,200,0.05),
+  0px 45px 0 0 rgba(212,206,200,0.05),
+  0px 47px 0 0 rgba(212,206,200,0.05),
+  0px 49px 0 0 rgba(212,206,200,0.05),
+  0px 51px 0 0 rgba(212,206,200,0.05),
+  0px 53px 0 0 rgba(212,206,200,0.05),
+  0px 39px 0 0 rgba(212,206,200,0.05)
+
+
+  box-shadow 0px 1px 0 0 rgba(255,255,255,1),
+  0px 2px 0 0 rgba(255,255,255,1),
+  0px 3px 0 0 rgba(255,255,255,0.9),
+  0px 4px 0 0 rgba(255,255,255,0.9),
+  0px 5px 0 0 rgba(255,255,255,0.8),
+  0px 6px 0 0 rgba(255,255,255,0.8),
+  0px 7px 0 0 rgba(255,255,255,0.7),
+  0px 8px 0 0 rgba(255,255,255,0.7),
+  0px 9px 0 0 rgba(255,255,255,0.6),
+  0px 11px 0 0 rgba(255,255,255,0.5),
+  0px 13px 0 0 rgba(255,255,255,0.4),
+  0px 15px 0 0 rgba(255,255,255,0.3),
+  0px 17px 0 0 rgba(255,255,255,0.2),
+  0px 19px 0 0 rgba(255,255,255,0.1),
+  0px 21px 0 0 rgba(255,255,255,0.09),
+  0px 23px 0 0 rgba(255,255,255,0.07),
+  0px 25px 0 0 rgba(255,255,255,0.05),
+  0px 23px 0 0 rgba(255,255,255,0.05),
+  0px 25px 0 0 rgba(255,255,255,0.05),
+  0px 27px 0 0 rgba(255,255,255,0.05),
+  0px 29px 0 0 rgba(255,255,255,0.05),
+  0px 31px 0 0 rgba(255,255,255,0.05),
+  0px 33px 0 0 rgba(255,255,255,0.05),
+  0px 35px 0 0 rgba(255,255,255,0.05),
+  0px 37px 0 0 rgba(255,255,255,0.05),
+  0px 39px 0 0 rgba(255,255,255,0.05),
+  0px 41px 0 0 rgba(255,255,255,0.05),
+  0px 43px 0 0 rgba(255,255,255,0.05),
+  0px 45px 0 0 rgba(255,255,255,0.05),
+  0px 47px 0 0 rgba(255,255,255,0.05),
+  0px 49px 0 0 rgba(255,255,255,0.05),
+  0px 51px 0 0 rgba(255,255,255,0.05),
+  0px 53px 0 0 rgba(255,255,255,0.05),
+  0px 39px 0 0 rgba(255,255,255,0.05)
+
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+  0px 2px 0 0 rgba($shadow_color,1),
+  0px 3px 0 0 rgba($shadow_color,0.9),
+  0px 4px 0 0 rgba($shadow_color,0.9),
+  0px 5px 0 0 rgba($shadow_color,0.8),
+  0px 6px 0 0 rgba($shadow_color,0.8),
+  0px 7px 0 0 rgba($shadow_color,0.7),
+  0px 8px 0 0 rgba($shadow_color,0.7),
+  0px 9px 0 0 rgba($shadow_color,0.6),
+  0px 11px 0 0 rgba($shadow_color,0.5),
+  0px 13px 0 0 rgba($shadow_color,0.4),
+  0px 15px 0 0 rgba($shadow_color,0.3),
+  0px 17px 0 0 rgba($shadow_color,0.2),
+  0px 19px 0 0 rgba($shadow_color,0.1),
+  0px 21px 0 0 rgba($shadow_color,0.09),
+  0px 23px 0 0 rgba($shadow_color,0.07),
+  0px 25px 0 0 rgba($shadow_color,0.05),
+  0px 23px 0 0 rgba($shadow_color,0.05),
+  0px 25px 0 0 rgba($shadow_color,0.05),
+  0px 27px 0 0 rgba($shadow_color,0.05),
+  0px 29px 0 0 rgba($shadow_color,0.05),
+  0px 31px 0 0 rgba($shadow_color,0.05),
+  0px 33px 0 0 rgba($shadow_color,0.05),
+  0px 35px 0 0 rgba($shadow_color,0.05),
+  0px 37px 0 0 rgba($shadow_color,0.05),
+  0px 39px 0 0 rgba($shadow_color,0.05),
+  0px 41px 0 0 rgba($shadow_color,0.05),
+  0px 43px 0 0 rgba($shadow_color,0.05),
+  0px 45px 0 0 rgba($shadow_color,0.05),
+  0px 47px 0 0 rgba($shadow_color,0.05),
+  0px 49px 0 0 rgba($shadow_color,0.05),
+  0px 51px 0 0 rgba($shadow_color,0.05),
+  0px 53px 0 0 rgba($shadow_color,0.05),
+  0px 39px 0 0 rgba($shadow_color,0.05)
+
+
+
+
+
+
+.bar-gold
+  border-top alpha(guide_color, .05) solid 1px !important
+  border-bottom alpha(#000, .08) solid 1px !important
+  width 100%
+  height 2px
+  background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+// .tx-gold
+//   text-shadow 0 1px 0 rgba(255, 255, 255, 0.2)
+//   background-image linear-gradient(45deg, rgba(#463c2c,.65) 0%, rgba(#fdd333,.65) 26%, rgba(#fffcaf,.65) 35%, rgba(#b67b03,.65) 55%, rgba(#341c02,.65) 80%, rgba(#160f07,.65) 100%)
+//   position relative
+//   background-size 200% 200%
+//   background-position 100% 100%
+//   animation square 10s linear infinite
+//   -webkit-background-clip text
+//   color transparent
+//
+// @keyframes square {
+//   0% { background-position: 0 0; }
+//   25% { background-position: 100% 0; }
+//   50% { background-position: 100% 100%; }
+//   75% { background-position: 0 100%; }
+//   100% { background-position: 0 0; }
+// }

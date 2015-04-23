@@ -1,0 +1,13 @@
+// @import '../poxy/_mixins'
+@import '../../bower_components/poxy/stylus/_mixins'
+@import '_zone-b-settings'
+
+// ZONE SIZE
+$zone-max = 10
+$zone-min = 10
+
+// OUTPUT GRID
+poxy-copy-width($zone-min, $zone-max, $gx, $gy, $gs)
+poxy-zone-width($zone_upper, $zone_lower, $zone-min, $zone-max, $numerators, $gx, $gs)
+poxy-zone-height($zone_upper, $zone_lower, $zone-min, $zone-max, $numerators, $gx, $gs)
+zone-core-max($zone_lower, $zone-min, $zone-max, $gx_rem, $gy_rem, 1)

@@ -1,0 +1,22 @@
+- $prev = get_permalink(get_adjacent_post(false,'',false));
+- $next = get_permalink(get_adjacent_post(false,'',true));
+.bfxy.rel.a15a_112.b18b_112.c16c_110.m0.z10.bg-main
+  - if ($prev != get_permalink()) :
+    a(style="opacity:1;", href!="<?php echo $prev; ?>").prev-button.paxy.a112ap_11.bp50bp_11.cp50cp_11.z9
+      .oxy.a124a_124.b118b_118.c118c_118.d112d_112.e18e_18
+        svg-icon(p='triangleleft')
+  - else :
+    a(style="opacity:1;", href!="<?php echo poxy_get_first_post_url($post_type); ?>" ).prev-button.paxy.a112ap_11.b112bp_11.c112bc_11.z9
+      .oxy.a124a_124.b118b_118.c118c_118.d112d_112.e18e_18
+        svg-icon(p='triangleleft')
+  - endif;
+
+  - if ($next != get_permalink()) :
+    a(style="opacity:1;", href!="<?php echo $next; ?>").next-button.qaxy.a112ap_11.b112bp_11.cp50cp_11.z9
+      .oxy.a124a_124.b118b_118.c118c_118.d112d_112.e18e_18
+        svg-icon(p='triangleright')
+  - else :
+    a(style="opacity:1;", href!="<?php echo poxy_get_last_post_url($post_type); ?>").next-button.qaxy.a112ap_11.b112bp_11.c112cp_11.z9
+      .oxy.a124a_124.b118b_118.c118c_118.d112d_112.e18e_18
+        svg-icon(p='triangleright')
+  - endif;

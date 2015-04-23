@@ -1,0 +1,115 @@
+mixin poxy(a, b, c, d, e)
+
+	//-----A-------
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var a_zone = 'poxy' + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else if (typeof(a[3]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' '
+		-else if (typeof(a[4]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' '
+		-else if (typeof(a[5]) == 'undefined')
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' '
+		-else
+			- var a_zone = a[2] + 'a' + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' ' + a[5] + ' '
+	- else
+		- var a_zone = 'poxy'
+
+	//-----B-------
+
+	- if (typeof(b) !== 'undefined')
+		- var zone = 'b'
+		- var b = b.split(' ')
+			-if (b[0] == 'same')
+				- var b_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+			-else if (typeof(b[2]) == 'undefined')
+				- var b_zone = 'poxy' + zone + b[0] + zone + '_' + b[1] + ' '
+			-else
+				- var b_zone = b[2] + zone + b[0] + zone + '_' + b[1] + ' '
+	- else
+		- var zone = 'b'
+		-if (typeof(a) == 'undefined')
+			- var b_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var b_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var b_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----C-------
+	- if (typeof(c) !== 'undefined')
+		- var zone = 'c'
+		- var c = c.split(' ')
+			-if (c[0] == 'same')
+				-if (b[0] == 'same')
+					- var c_zone = a[0] + zone + a[1] + zone + '_' + a[2] + ' '
+				-else
+					- var c_zone = b_zone
+			-else if (typeof(c[2]) == 'undefined')
+				- var c_zone = 'poxy' + zone + c[0] + zone + '_' + c[1] + ' '
+			-else
+				- var c_zone = c[2] + zone + c[0] + zone + '_' + c[1] + ' '
+	- else
+		- var zone = 'c'
+		-if (typeof(a) == 'undefined')
+			- var c_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var c_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var c_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	- if (typeof(d) !== 'undefined')
+		- var zone = 'd'
+		- var d = d.split(' ')
+			-if (d[0] == 'same')
+				-if (c[0] == 'same')
+					- var d_zone = b[0] + zone + b[1] + zone + '_' + b[2] + ' '
+				-else
+					- var d_zone = c_zone
+			-else if (typeof(d[2]) == 'undefined')
+				- var d_zone = 'poxy' + zone + d[0] + zone + '_' + d[1] + ' '
+			-else
+				- var d_zone = d[2] + zone + d[0] + zone + '_' + d[1] + ' '
+	- else
+		- var zone = 'd'
+		-if (typeof(a) == 'undefined')
+			- var d_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var d_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var d_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	//-----E-------
+	- if (typeof(e) !== 'undefined')
+		- var zone = 'e'
+		- var e = e.split(' ')
+			-if (e[0] == 'same')
+				-if (d[0] == 'same')
+					- var e_zone = c[0] + zone + c[1] + zone + '_' + c[2] + ' '
+				-else
+					- var e_zone = e_zone
+			-else if (typeof(e[2]) == 'undefined')
+				- var e_zone = 'poxy' + zone + e[0] + zone + '_' + e[1] + ' '
+			-else
+				- var e_zone = e[2] + zone + e[0] + zone + '_' + e[1] + ' '
+	- else
+		- var zone = 'e'
+		-if (typeof(a) == 'undefined')
+			- var e_zone = ''
+		-else if (typeof(a[1]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- var e_zone = 'poxy' + zone + a[0] + zone + '_' + a[1] + ' '
+		-else
+			- var e_zone = a[2] + zone + a[0] + zone + '_' + a[1] + ' '
+
+	div(class= 'rel ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+		block

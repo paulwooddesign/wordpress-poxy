@@ -1,0 +1,500 @@
+/////////////////////////////////
+// Base Colors
+/////////////////////////////////
+*
+  background-size cover
+
+
+html
+  background rgba(#fff, 1)
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga", "kern";
+
+
+light = 'Futura PT Light'
+book = 'Futura PT Book'
+medium = 'Futura PT Medium'
+bold = 'Futura PT Bold'
+
+
+accent = #03a9f4
+/////////////////////////////////
+// Sections
+/////////////////////////////////
+section
+  border-top 1px solid #000 !important
+
+guide_opacity = .1
+guide_color = #000
+
+section
+  border-top alpha(guide_color, .2) solid 1px !important
+  &:nth-child(2n+2)
+    background alpha(#000, .02)
+  // &:before
+  //   border-top alpha(guide_color, guide_opacity) solid 1px
+  // &:after
+  //   border-bottom alpha(guide_color, guide_opacity) solid 1px
+
+
+.bg-black
+  background #000 !important
+
+.bg-gray
+  background #ccc !important
+
+
+footer
+  background #efefef
+
+body
+  font-family 'Futura PT Book', 'Lato' sans-serif
+  color #000
+  // text-align justify
+.alpha,
+.beta,
+.gamma,
+.delta,
+.epsilon,
+h1,h2,h3,h4,h5,h6
+  font-family bold !important
+  text-transform uppercase
+
+
+.light
+  font-family light !important
+
+.bold
+  font-family bold !important
+.header
+  background #fff
+
+  button,
+  nav
+    text-align center
+    // letter-spacing .2em
+    text-transform uppercase
+    font-size .8rem
+    background-color transparent !important
+
+  button:hover
+    background #ccc
+
+.container
+  background-color #fff
+
+
+
+
+button
+  background-color #03a9f4
+  color #fff
+  letter-spacing .2rem
+  text-transform uppercase
+
+a
+  color #333
+
+
+
+.color-accent
+  color #03a9f4 !important
+
+.bg-accent
+  background-color #03a9f4 !important
+
+.logo
+  background-image url(../../images/logo.png)
+
+.american-flag
+  width 15px
+  height 20px
+  margin-left -17px
+  background-image url(../../images/american-flag.jpg)
+
+.boulder-co
+  a
+    position relative
+    letter-spacing .5em
+    font-weight bold
+  a:before
+    content ""
+    background-size contain
+    background-image url(../../images/colorado-flag.jpg)
+    position absolute
+    margin-top -1px
+    margin-left -30px
+    width 20px
+    height 10px
+
+
+
+
+.tx-light
+  color #ccc !important
+  a
+    color #ccc !important
+
+
+
+/////////////////////////////////
+// Main Nav
+/////////////////////////////////
+.drop-down-menu
+  // display none
+  opacity 0
+  transition opacity 0.3s
+  transform translateX(0%) translateY(-100%)
+
+  a:hover
+    color #03a9f4 !important
+
+
+.products:hover
+  .drop-down-menu
+    opacity 1
+    display block
+    transform translateX(0%) translateY(0%)
+    transition opacity 0.3s
+    background #efefef
+
+
+//
+// .shadow-t
+//   background linear-gradient(to bottom,   rgba(230,230,230,.8) 0%,rgba(200,200,200,.15) 100%)
+
+.shadow-l
+  background linear-gradient(100deg,   rgba(0,0,0,1) 40%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 100%)
+  // background linear-gradient(100deg,   rgba(0,0,0,1) 35%,rgba(0,0,0,0) 35%,rgba(0,0,0,0) 100%)
+  // background linear-gradient(105deg,   rgba(255,255,255,1) 40%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 100%)
+  // background linear-gradient(90deg,   rgba(240,240,240,1) 50%,rgba(240,240,240,0) 50%,rgba(240,240,240,0) 100%)
+.shadow-r
+  background linear-gradient(80deg,   rgba(0,0,0,0) 80%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 90%)
+  background linear-gradient(100deg,   rgba(0,0,0,0) 80%,rgba(0,0,0,0) 90%,rgba(0,0,0,1) 90%)
+
+
+.shadow-white-l
+  background linear-gradient(105deg,   rgba(255,255,255,1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%)
+/////////////////////////////////
+// Thumbs
+///////////////////////////////
+.featured-pages
+  // h2
+  //   letter-spacing .5rem !important
+
+  figure
+    transition 0.3s
+  // figure:hover
+  //   background-color #03a9f4 !important
+  .image:hover
+    background-size 110% !important
+
+
+  h2
+    &:before,
+    &:after
+      content attr(title)
+      position absolute
+      overflow hidden
+      transition 300ms ease
+      color #fff
+      top 0
+      left 0
+      right 0
+      bottom 0
+      opacity 0
+      visibility hidden
+      transition-property opacity, visibility, transform
+
+    &:before
+      transform translateY(-100%)
+    &:after
+      transform translateY(100%)
+
+
+  figure:hover h2:before,
+  figure:hover h2:after
+      opacity 1
+      visibility visible
+      transform none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.new-products
+  section
+    border none !important
+
+  .slick-prev:before,
+  .slick-next:before
+    color #000 !important
+/////////////////////////////////
+// Slick Slider
+///////////////////////////////
+.home-slideshow
+  .copywrite
+    transition 0.5s
+    transform translateX(0%) translateY(0%)
+
+  .copywrite:hover .flag
+    transition 0.3s
+    transform translateX(-100%) translateY(0%)
+
+
+  .slick-prev
+    left 1rem
+
+  .slick-next
+    right 1rem
+
+.slick-carousel
+  section figure:last-child
+    margin-right 0 !important
+
+
+
+/////////////////////////////////
+// Instagram Feed
+///////////////////////////////
+
+.instagram-feed
+  background #222 !important
+
+  figure:hover div
+    box-shadow inset 0 0 1px #03a9f4, 0 0 1px #03a9f4
+
+  .rainbow
+    opacity .6
+    .color
+      width 100%
+      height 2px
+      display block
+      float left
+    .red
+      background-color #f13e32
+    .yellow
+      background-color #ffd700
+    .green
+      background-color #60e37e
+    .blue
+      background-color #40bce4
+
+
+
+
+/////////////////////////////////
+// Styles
+///////////////////////////////
+// .br25
+//   border-radius .25rem !important
+
+figure
+  transition 0.5s
+  position relative
+  // box-shadow inset 0 0 1px #000
+  box-shadow inset 0 0 1px #000
+  background-color rgba(black, .03)
+  // border-radius .25rem
+
+figure:hover
+  background-color rgba(black, .08)
+  // box-shadow inset 0 0 2px accent
+
+
+figcaption
+  background-color #222
+
+
+button:hover
+  // background-image: linear-gradient(to top, #fff, #aaa);
+  //background-image linear-gradient(to top, $accent, #575757) !important;
+
+header
+  background $header-bg
+
+  .logo
+    background-size contain !important
+    background-repeat no-repeat
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////
+// DEV COLOR CLASSES
+////////////////////////////////////////////////////
+.hide
+  display none !important
+// .bg0
+//   background transparent !important
+// .bg10
+//   background-color darken(#fff, 10%) !important
+// .bg20
+//   background-color darken(#fff, 20%) !important
+// .bg30
+//   background-color darken(#fff, 30%) !important
+// .bg40
+//   background-color darken(#fff, 40%) !important
+// .bg50
+//   background-color darken(#fff, 50%) !important
+// .bg60
+//   background-color darken(#fff, 60%) !important
+// .bg70
+//   background-color darken(#fff, 70%) !important
+// .bg80
+//   background-color darken(#fff, 80%) !important
+// .bg90
+//   background-color darken(#fff, 90%) !important
+// .bg100
+//   background-color darken(#fff, 100%) !important
+
+
+/////////////////////////////////
+// Guids
+///////////////////////////////
+.vertical-guides
+  overflow visible
+
+.vertical-guides figure figure
+  &:before,
+  &:after
+    //- z-index 1
+    background rgba(255,255,255, 0.08)
+
+.horizontal-guides
+  section
+    position relative
+    background transparent !important
+  section:after
+    margin 0 !important
+    position absolute !important
+    // z-index 99
+    background rgba(255,255,255, 0.0015)
+
+  // section:first-child:after
+  //   display none
+  section:before
+    background rgba(255,255,255, 0.0015)
+    position absolute !important
+    bottom 0
+    // z-index 99
+
+
+
+
+
+guide_opacity = .1
+guide_color = #000
+.horizontal-guides
+  section
+    border-top alpha(guide_color, .1) solid 1px
+    &:nth-child(2n+2)
+      background alpha(#fff, .03)
+    &:before
+      border-top alpha(guide_color, guide_opacity) solid 1px
+    &:after
+      border-bottom alpha(guide_color, guide_opacity) solid 1px
+
+.vertical-guides
+  height: 100vh
+  overflow-x hidden
+  overflow-y auto
+  position: fixed
+  width 100%
+  top: 0
+  right: 0
+  bottom: 0
+  // margin-top -2px
+  figure
+    // padding-top 1px
+    margin-bottom 0
+    figure
+      &:before,
+      &:after
+        content ""
+        position absolute
+        width 1px
+        height 100%
+        background alpha(guide_color, guide_opacity)
+      &:before
+        left 0
+      &:after
+        right 0
+
+.h-guide
+  position relative
+  float left
+  &:nth-child(2n+2)
+    background alpha(#fff, .05)
+
+  // &:after
+  //   content ""
+  //   position absolute
+  //   width 100%
+  //   height 1px
+  //   left 0
+  //   top -2px
+  //   background alpha(#fff, .1)
+
+
+
+
+
+
+
+
+/////////////////////////////////
+// Page Animate
+///////////////////////////////
+
+.view
+  width 100%
+  padding-left 1em
+  position absolute
+  top 0
+  left 0
+
+
+.slideLeft.ng-enter,
+.slideLeft.ng-leave,
+.slideRight.ng-enter,
+.slideRight.ng-leave
+  transition all 1s
+
+.slideLeft.ng-enter
+  left 100%
+
+.slideLeft.ng-enter.ng-enter-active
+  left 0
+
+.slideLeft.ng-leave.ng-leave-active
+  left -100%
+
+.slideRight.ng-enter
+    left -100%
+
+.slideRight.ng-enter.ng-enter-active
+    left 0
+
+.slideRight.ng-leave.ng-leave-active
+    left 100%
+
+
+
+.gamma
+  font-weight

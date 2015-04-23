@@ -1,0 +1,423 @@
+#pjax-preloader
+  background-color rgba(255,255,255,.2)
+  cursor progress
+  z-index 999
+
+#container__preloader
+  background-color rgba(255,255,255,.5)
+  cursor progress
+
+
+#pjax-loader
+  position fixed
+  top 0
+  left 0
+  z-index 9999
+  width 100%
+  height 3px
+  background #000
+  transform translate3d(-100%, 0, 0)
+  pointer-events none
+  &::after
+    position absolute
+    top 0
+    right 0
+    width 100px
+    height 100%
+    background #000
+    // box-shadow 0 0 15px #000, 0 0 5px #000
+    content ''
+    opacity 0
+    transition opacity 0.2s, box-shadow 2s 4s
+    transform rotate(2deg) translateY(-2px)
+  &.pjax-loader-animate
+    z-index 100
+    opacity 0
+    transition transform 5s ease-in, opacity 1s 5s
+    transform translate3d(0%, 0, 0)
+    &::after
+      box-shadow 0 0 3px #000, 0 0 1px #000
+      opacity 1
+
+
+//
+//
+// @keyframes loader {
+// 	0%, 10%, 100% {
+//     width: 80px;
+//     height: 80px;
+//   }
+// 	65% {
+//     width: 150px;
+//     height: 150px;
+//   }
+// }
+//
+// @keyframes loader {
+// 	0%, 30% {  transform: rotate(0deg); }
+// 	55% { background-color: #F37272; }
+// 	100% { transform: rotate(90deg); }
+// }
+//
+// @keyframes loaderBlockInverse {
+// 	0%, 20% { transform: rotate(0deg); }
+// 	55% { background-color: #F37272; }
+// 	100% { transform: rotate(-90deg); }
+// }
+//
+// .loader
+//   // position: absolute
+//   // top: 50%
+//   // left: 50%
+//   width: 80px
+//   height: 80px
+//   transform translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0)
+//   animation loader 1.2s infinite ease-in-out
+//   span
+//     position: absolute
+//     display: block
+//     width: 40px
+//     height: 40px
+//     background-color: #EE4040
+//     animation loaderBlock 1.2s infinite ease-in-out both
+//     &:nth-child(1)
+//       top: 0
+//       left: 0
+//     &:nth-child(2)
+//       top: 0
+//       right: 0
+//       animation loaderBlockInverse 1.2s infinite ease-in-out both
+//     &:nth-child(3)
+//       bottom: 0
+//       left: 0
+//       animation loaderBlockInverse 1.2s infinite ease-in-out both
+//     &:nth-child(4)
+//       bottom: 0
+//       right: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// .circle-loader
+//   position: absolute
+//   top: 50%
+//   left: 50%
+//   width: 200px
+//   height: 200px
+//   transform(translate(-50%, -50%) scale(1))
+//   background-color: rgba(230, 233, 238, 1)
+//   border-radius: 50%
+//   overflow: hidden
+//   transition(all 0.3s cubic-bezier(0.74, 0.35, 0, 0.99))
+//   opacity: 1
+//   &.hidden
+//     transform(translate(-50%, -50%) scale(0))
+//     opacity: 0
+//   &:before
+//     position: absolute
+//     background-color: white
+//     width: 90%
+//     height: 90%
+//     content: ""
+//     position: absolute
+//     top: 50%
+//     left: 50%
+//     translate(-50%, -50%)
+//     border-radius: 50%
+//     z-index: 2
+//   div
+//     z-index: 1
+//     width: 50%
+//     height: 50%
+//     position: absolute
+//     left: 50%
+//     top: 0
+//     transform-origin(bottom, left)
+//     overflow: hidden
+//     &:nth-of-type(1)
+//       rotate(0deg)
+//     &:nth-of-type(2)
+//       rotate(90deg)
+//     &:nth-of-type(3)
+//       rotate(180deg)
+//     &:nth-of-type(4)
+//       rotate(270deg)
+//     i
+//       width: 142%
+//       height: 142%
+//       position: absolute
+//       transform-origin(bottom, left)
+//       background-color: rgba(255, 120, 129, 1)
+//       rotate(-90deg)
+//       bottom: 0
+//       left: 0
+
+
+
+
+
+
+
+//
+// //////////////////////////////////////////////
+// // Splash loader
+// // Codrops
+// // http://tympanus.net/codrops/2014/08/05/page-preloading-effect/
+// //////////////////////////////////////////////
+// .ip-header
+//   position fixed
+//   top 0
+//   z-index 100
+//   min-height 480px
+//   width 100%
+//   height 100%
+//   background rgba(#111, .8)
+//   .main-logo
+//     background-repeat no-repeat
+//   h1
+//     margin 0
+//   .ip-inner
+//     display block
+//     margin 0 auto
+//     background-repeat no-repeat
+//   .ip-logo
+//     svg
+//       // min-width 320px
+//       // max-width 480px
+//       // width 25%
+//       path
+//         fill #fff
+//   .ip-loader
+//     svg
+//       path
+//         fill none
+//         stroke-width 6
+//         &.ip-loader-circlebg
+//           stroke #333
+//         &.ip-loader-circle
+//           transition stroke-dashoffset 0.2s
+//           stroke #fff
+//
+// .ip-logo,
+// .ip-loader
+//   position absolute
+//   left 0
+//   width 100%
+//   opacity 0
+//   cursor default
+//   pointer-events none
+//
+// .ip-logo
+//   top 0
+//   height 100%
+//   // -webkit-transform translate3d(0,25%,0)
+//   transform translate3d(0,50%,0)
+//
+// .ip-loader
+//   bottom 40%
+//
+// .ip-main
+//   overflow hidden
+//
+//
+//
+//
+//
+//
+// /* Animations */
+//
+// /* Initial animation of header elements */
+// .loading .ip-logo,
+// .loading .ip-loader
+// 	opacity 1
+// 	animation animInitialHeader 1s cubic-bezier(0.7,0,0.3,1) both
+//
+//
+// .loading .ip-loader
+// 	animation-delay 0.2s
+//
+// @keyframes animInitialHeader {
+// 	from {
+//     opacity 0
+//     transform translate3d(0,800px,0)
+//   }
+// }
+//
+// /* Header elements when loading finishes */
+// .loaded .ip-logo,
+// .loaded .ip-loader
+// 	opacity 1
+//
+// .loaded .ip-logo
+// 	transform-origin 50% 0
+// 	animation animLoadedLogo 1s cubic-bezier(0.7,0,0.3,1) forwards
+//
+// @keyframes animLoadedLogo {
+// 	to {
+//     transform translate3d(0,100%,0) translate3d(0,50px,0) scale3d(0.65,0.65,1)
+//   }
+// }
+//
+// .loaded .ip-loader
+// 	animation animLoadedLoader 0.5s cubic-bezier(0.7,0,0.3,1) forwards
+//
+// @keyframes animLoadedLoader {
+// 	to {
+//     opacity 0
+//     transform translate3d(0,-100%,0) scale3d(0.3,0.3,1)
+//   }
+// }
+//
+// /* Change the color of the logo */
+// .loaded .ip-logo svg path
+// 	transition all 0.5s ease 0.3s
+// 	fill #fff
+//
+//
+// /* Header animation when loading finishes */
+// .loaded .ip-header
+// 	animation animLoadedHeader 1s cubic-bezier(0.7,0,0.3,1) forwards
+//
+// @keyframes animLoadedHeader {
+// 	to {
+//     transform translate3d(0,-100%,0)
+//   }
+// }
+//
+//
+// /* Content animations */
+// // .loaded .ip-main h2,
+// // .loaded .ip-main .browser,
+// // .loaded .ip-main .browser .box,
+// // .loaded .codrops-demos {
+// // 	animation: animLoadedContent 1s cubic-bezier(0.7,0,0.3,1) both;
+// // }
+// //
+// // .loaded .ip-main .browser,
+// // .loaded .ip-main .browser .box:first-child {
+// // 	animation-delay: 0.1s;
+// // }
+// //
+// // .loaded .ip-main .browser .box:nth-child(2) {
+// // 	animation-delay: 0.15s;
+// // }
+// //
+// // .loaded .ip-main .browser .box:nth-child(3) {
+// // 	animation-delay: 0.2s;
+// // }
+// //
+// // @keyframes animLoadedContent {
+// // 	from {
+// //     opacity: 0;
+// //     transform: translate3d(0,200px,0);
+// //   }
+// // }
+//
+// /* Change layout class for header */
+// .layout-switch .ip-header
+// 	position absolute
+//
+// /* No JS */
+// .no-js .ip-header
+// 	position relative
+// 	min-height 0px
+//
+// .no-js .ip-header .ip-logo
+// 	opacity 1
+// 	transform none
+//
+// .no-js .ip-header .ip-logo svg path
+// 	fill #fff
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// /*You can tweak these around*/
+// $diameter = 100
+// // size of the loader in pixels
+// $distance = 20
+// // control space between steps. 0 to 100. Try 100 ;)
+// $bg = inherit
+// // if no parents have a background defined, make it #fff.
+// $speed = 1000
+// // animation speed in ms. The larger, the slower.
+// // Set colors. Defaults to GitHub's
+// $c1 = #efeeee
+// // base color
+// $c2 = #cfcece
+// // dark
+// $c3 = #b2b1b1
+// // darker
+// $c4 = #979797
+// // darkest
+// /*No need to modify further*/
+// $radius = $diameter / 2
+// $borderSize = $diameter / 100 * ($diameter / 5 + 1 - ($diameter - 100 + $distance) / 5)
+// .loader
+//   border-radius: 100%
+//   width: ($diameter)px
+//   height: ($diameter)px
+//   position: relative
+//   overflow: hidden
+//   z-index: 1
+//   background: $bg
+// .loader hr
+//   border: 0
+//   background: $bg
+//   width: 80%
+//   height: 80%
+//   margin: 10%
+//   border-radius: 100%
+// .loader::before,
+// .loader::after,
+// .loader hr::before,
+// .loader hr::after
+//   content: ''
+//   position: absolute
+//   top: 0
+//   z-index: -1
+//   left: (floor($radius - $borderSize)px)
+//   border: ceil($borderSize)px solid transparent
+//   border-bottom: ($radius)px solid $c1
+//   border-top: ($radius)px solid $c1
+//   animation: rotateColor ($speed)ms infinite
+//
+// $calcSpeed = $speed / 8
+// .loader::after
+//   transform: rotate(45deg)
+//   animation-delay: ($calcSpeed)ms
+// .loader hr::before
+//   transform: rotate(90deg)
+//   animation-delay: ($calcSpeed * 2)ms
+// .loader hr::after
+//   transform: rotate(135deg)
+//   animation-delay: ($calcSpeed * 3)ms
+//
+// @keyframes rotateColor {
+//   0% { border-top-color: $c4; }
+//   12.5% { border-top-color: $c3; }
+//   25% { border-top-color: $c2; }
+//   37.5% { border-top-color: $c1; }
+//   50% { border-bottom-color: $c1; }
+//   50.00001% { border-bottom-color: $c4; }
+//   62.5% { border-bottom-color: $c3; }
+//   75% { border-bottom-color: $c2; }
+//   87.5% { border-bottom-color: $c1; }
+// }

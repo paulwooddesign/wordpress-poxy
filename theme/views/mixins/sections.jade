@@ -1,0 +1,104 @@
+include dev.jade
+
+mixin section_1(image_url, title)
+	+section()
+		+image(image_url, '34 38', '34 12', '12 12', '11 12', '11 12')
+		+poxy('14 14', '14 14', '12 12', 'pox 11 11', 'pox 11 11')
+			+h3('6 mb2', '4 mb2', '4 mb2', '5 mb2', '3 mb2')= title
+
+			if block
+				block
+			else
+				p No content provided.
+
+
+
+
+mixin section_1_right(image_url, title)
+	+section()
+		+image(image_url, '34 38 qoxy', '34 12', '12 12', '11 12', '11 12')
+		+poxy('14 14', '14 14', '12 12', 'pox 11 11', 'pox 11 11')
+			+h3('6 mb1', '4 mb1', '4 mb1', '5 mb2', '3 mb2')= title
+
+			if block
+				block
+			else
+				p No content provided.
+
+
+
+
+
+
+
+
+
+
+
+mixin section_tax_product(main_title, discription, href)
+	section
+		.sw
+			.cw
+				figure.poxya12a_14.bg-contain(style!=attributes.style)
+					a.paxy.fill(href=href)
+				.poxya12a_14
+					.title.text.beta= main_title
+					p.a14= discription
+					a(href=href)
+						button.mt1.zeta.pt4.pb4.pr2.pl2 Learn More
+
+
+mixin section_product_info_row(model, size, width_in, width_cm, height_in, height_cm, depth_in, depth_cm, rating)
+	section
+		.sw
+			.cw
+				.poxa11.mb0
+					.wrap
+						.poxya112a_118
+							.gamma= model
+						.poxya12a_118
+							p
+								if block
+									block
+								else
+									p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.
+
+						.poxya112a_118
+							p= size
+						.poxya112a_118
+							p= width_in + '/' + width_cm
+						.poxya112a_118
+							p= height_in + '/' + height_cm
+						.poxya112a_118
+							p= depth_in + '/' + depth_cm
+						.poxya112a_118
+							p= rating
+
+//-
+//- mixin section_product_info_row(model, size, width_in, width_cm, height_in, height_cm, depth_in, depth_cm, rating)
+//- 	section
+//- 		.sw
+//- 			.cw
+//- 				.poxa12.mb0
+//- 					.wrap
+//- 						.poxya12a_118
+//- 							p
+//- 								if block
+//- 									block
+//- 								else
+//- 									p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.
+//-
+//- 				.poxa12.mb0.tx-c
+//- 					.wrap
+//- 						.poxya112a_118
+//- 							.beta= model
+//- 						.poxya112a_118
+//- 							p= size
+//- 						.poxya112a_118
+//- 							p= width_in + '/' + width_cm
+//- 						.poxya112a_118
+//- 							p= height_in + '/' + height_cm
+//- 						.poxya112a_118
+//- 							p= depth_in + '/' + depth_cm
+//- 						.poxya112a_118
+//- 							p= rating

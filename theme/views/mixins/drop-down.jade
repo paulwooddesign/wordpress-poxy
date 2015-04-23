@@ -1,0 +1,64 @@
+include dev.jade
+
+mixin drop_down()
+	.drop-down-menu.paxyap11paxybp11paxycp11paxydp11paxyep11.pr2.bg10.tx-l
+		.poxyap11a_112poxybp11b_112poxycp11c_112
+		.cw
+			.poxya14a_12poxyb14b_12poxyc14c_34.rel
+				.qaxya11a_12qaxyb11b_12qaxyc11c_34.pb1.bg-gray
+					.qoxya14a_12qoxyb14b_12qoxyc14c_34.rel
+						.qoxya14a_14qoxyb14b_14qoxyc14c_14.bg-contain.bgpcb(style='background-image: url(images/dropdown/{{msg}}.png);')
+						.qoxya14a_14qoxyb14b_14qoxyc14c_14.mt1
+							.gamma {{msg}}
+							p.mr1 {{description}}
+			.poxya14a_12poxyb14b_12poxyc14c_34
+				.beta.mt1 Lightbanks
+
+				//- Film & Video
+				.gamma.color-accent.mt2 Film &amp; Video
+				.zeta(ng-repeat='film_and_video_product in film_and_video_products')
+					a(href='{{film_and_video_product.url}}', ng-click='clickThing(film_and_video_product)', ng-mouseover='mouseOverProduct(film_and_video_product)') {{film_and_video_product.name}}
+
+				//- Strobe
+				.gamma.color-accent.mt2 Strobe
+				.zeta(ng-repeat='strobe_product in strobe_products')
+					a(href='{{strobe_product.url}}', ng-click='clickThing(strobe_product)', ng-mouseover='mouseOverProduct(strobe_product)') {{strobe_product.name}}
+
+				//- Overhead
+				.gamma.color-accent.mt2 Overhead
+				.zeta(ng-repeat='overhead_product in overhead_products')
+					a(href='{{overhead_product.url}}', ng-click='clickThing(overhead_product)', ng-mouseover='mouseOverProduct(overhead_product)') {{overhead_product.name}}
+
+			.poxya14a_12poxyb14b_12poxyc14c_34
+				.beta.mt1 Other
+
+				//- Speed Rings
+				.gamma.color-accent.mt2 Speed Rings
+				.zeta(ng-repeat='speed_ring_product in speed_ring_products')
+					a(href='{{speed_ring_product.url}}', ng-click='clickThing(speed_ring_product)', ng-mouseover='mouseOverProduct(speed_ring_product)') {{speed_ring_product.name}}
+
+				//- Kits
+				.gamma.color-accent.mt2 Kits
+				.zeta(ng-repeat='kit_product in kit_products')
+					a(href='{{kit_product.url}}', ng-click='clickThing(kit_product)', ng-mouseover='mouseOverProduct(kit_product)') {{kit_product.name}}
+
+				//- Lights
+				.gamma.color-accent.mt2 Lights
+				.zeta(ng-repeat='light_product in light_products')
+					a(href='{{light_product.url}}', ng-click='clickThing(light_product)', ng-mouseover='mouseOverProduct(light_product)') {{light_product.name}}
+
+			.poxya14a_12poxyb14b_12poxyc14c_34
+				.beta.mt1 Accessories
+				.gamma.color-accent.mt2 Light Modifiers
+				.zeta(ng-repeat='light_modifier_product in light_modifier_products')
+					a(href='{{light_modifier_product.url}}', ng-click='clickThing(light_modifier_product)', ng-mouseover='mouseOverProduct(light_modifier_product)') {{light_modifier_product.name}}
+
+				//- Grip
+				.gamma.color-accent.mt2 Grip
+				.zeta(ng-repeat='grip_product in grip_products')
+					a(href='{{grip_product.url}}', ng-click='clickThing(grip_product)', ng-mouseover='mouseOverProduct(grip_product)') {{grip_product.name}}
+
+				//- Parts
+				.gamma.color-accent.mt2 Parts
+				.zeta(ng-repeat='part_product in part_products')
+					a(href='{{part_product.url}}', ng-click='clickThing(part_product)', ng-mouseover='mouseOverProduct(part_product)') {{part_product.name}}

@@ -1,0 +1,294 @@
+- get_template_part( 'mixin-header' );
+
+
+
+
+
+
+
+
+
+section
+  .sw
+    .cw
+      select.a18.form-control.mb4(ng-model='clientgrid', ng-options='clientgrid.size as clientgrid.name for clientgrid in clientgrids')
+      //- form(name='myForm')
+      //-   input#optionAny(type='radio', ng-model='notifyOption', ng-change='optionChanged()', value='notifyAny')
+      //-   label(for='optionAny') Any
+      //-   p
+      //-     input#optionNone(type='radio', ng-model='notifyOption', ng-change='optionChanged()', value='notifyNone')
+      //-     label(for='optionNone') None
+      //-   p
+      //-     input#optionAll(type='radio', ng-model='notifyOption', ng-change='optionChanged()', value='notifyAll')
+      //-     label(for='optionAll') All
+      //-   pre#echo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+- $taxonomy = 'project_client';
+- $queried_term = get_query_var($taxonomy);
+- $args = array( 'orderby' => 'term_order', 'hide_empty' => true, 'parent' => 0 );
+- $cats = get_terms($taxonomy, $args);
+
+
+
+
+//- __a16a_16b16b_16c14c_14d14d_14e12e_12
+section(class='{{clientgrid}}')
+  .sw
+    #thumbs.cw.thumbs.waterfall
+      - foreach ($cats as $cat) :
+
+        - $term_id = $cat->term_id;
+        - $tax_meta = get_option( "taxonomy_term_$term_id" );
+
+        - if(isset($tax_meta['cat_color_red']) && isset($tax_meta['cat_color_green']) && isset($tax_meta['cat_color_blue'])) :
+          - $red = $tax_meta['cat_color_red'];
+          - $green = $tax_meta['cat_color_green'];
+          - $blue = $tax_meta['cat_color_blue'];
+          - $background_color = 'background-color: rgba('.$red.','.$green.','.$blue.', .6)';
+          //- - $background_color = 'background-color: rgba(150,150,150, .5)';
+        - else :
+          - $background_color = 'background-color: rgba(150,150,150, .9)';
+        - endif;
+
+        - $link = get_term_link( $cat->slug, 'project_client' );
+        - $id = $cat->term_id;
+        - $title = $cat->name;
+        - $description = $cat->description;
+        - $slug = $cat->slug;
+        - $term_id = $cat->slug;
+
+        - $image_url = poxy_tax_image($term_id);
+        - if ($image_url) :
+          - $image = 'background-image: url('. $image_url. ')';
+        - else :
+          - $image_ph = get_bloginfo('template_url') . '/images/placeholder-logo-white.svg';
+          - $image = 'background-image: url('.$image_ph.')';
+        - endif;
+
+        //- Hover Image
+
+        - $slide_image_url = get_bloginfo("url") . '/images/thumb-slide-test.png';
+        - $slide_image = 'background-image: url('.$slide_image_url.')';
+
+        figure(ng-class!='{ fadeIn : waypoint<?php echo $id; ?>s.flags.off }').op0.br2
+          div(zum-waypoint!='waypoint<?php echo $id; ?>s',  down='flags.off', offset="80%")
+            a(href!="<?php echo $link; ?>", rel="bookmark")
+              //- span.oxy.gold-filter.br2.fill-95
+              span.oxy.inside-bevel.br2
+              span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+              span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+              span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+                span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+                //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+                //- .gloss.oxy.z5.a13a_13.b13b_13
+              .shadow.oxy.shadow.ofh.br2
+              //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+              .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+                - echo $title;
+                //- span.oxy.a13a_13b13b_13.gloss
+      - endforeach;
+
+
+
+
+
+
+
+
+//-
+//- - $taxonomy = 'project_cat';
+//- - $queried_term = get_query_var($taxonomy);
+//- - $args = array( 'orderby'       =>  'term_order', 'hide_empty'    => false, 'parent'        => 0 );
+//- - $cats = get_terms($taxonomy, $args);
+//-
+//- section
+//-   .sw
+//-     .cw
+//-       - foreach ($cats as $cat) :
+//-
+//-         - $link = get_term_link( $cat->slug, 'project_cat' );
+//-         - $title = $cat->name;
+//-         - $description = $cat->description;
+//-         - $slug = $cat->slug;
+//-         - $term_id = $cat->slug;
+//-         - $image = poxy_tax_image($term_id);
+//-         - $image = 'background-image: url('. $image. ')';
+//-
+//-         figure.rel.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14
+//-           a.tx-c(href!="<?php echo $link; ?>", rel="bookmark")
+//-             figure.rel.image.poxya14a_18.poxyb14b_18.poxyc14c_18.poxyd12d_14.poxye12e_14.bgp-lc.bgs-100(style!='<?php echo $image; ?>')
+//-               .rel._oxap11a_p11.white.bold._oxbp11b_p11._oxcp11c_p11._oxdp11d_p11._oxep11e_p11
+//-                 h2.txa-8.txb-7.txc-5.txd-6.txe-5(title!='<?php echo $title; ?>')
+//-                   - echo $title;
+//-                   //- - echo $description;
+//-
+//-       - endforeach;
+//-
+//-   .oxy
+//-     .poxy.rel
+//-       ._oxya21._oxyb21.white-shadow
+//-
+//-
+//-
+//-
+//-
+//- - $taxonomy = 'project_client';
+//- - $queried_term = get_query_var($taxonomy);
+//- - $args = array( 'orderby' => 'term_order', 'hide_empty' => false, 'parent' => 0 );
+//- - $cats = get_terms($taxonomy, $args);
+//-
+//- section.tx-c.white-shadow2
+//-   .sw
+//-     .cw.b_18
+//-       .oxy.txa-8.txb-6.z10 Featured Case Studies
+//-
+//- section
+//-   .sw
+//-     .cw.static.thumbs
+//-       .bs-cb.m0._oxya11a_14._oxyb11b_14c14c_14d14d_14e12e_12.br2
+//-         .rel.a_14.b_14
+//-           .bs-cb.pl1._oxa11a_14._oxb11b_14c14c_14d14d_14e12e_12.br2
+//-             .rel.a_14.b_14.rel
+//-               .bs-cb.p1._oxya34a_13._oxyb34b_13c14c_14d14d_14e12e_12.br2.hole
+//-               .bs-cb.p1._oxya34a_13._oxyb11b_13c14c_14d14d_14e12e_12.br2.hole-mask
+//-       //- .rel.poxya12a_pox.poxyb12b_pox.poxyc12c_pox.poxyd11d_pox.poxye11e_pox
+//-
+//-       .paxy.mr1.pr1.a14a_14b14b_14c14c_14d14d_14e12e_12.br2
+//-         //- .poxy.rel.a14a_14b14b_14c14c_14d14d_14e12e_12.br2.tx-c
+//-         //-   h1.daxy.mr1.pr1.a14a_14b14b_14.z10.tx-3d.txa-8.txb-8.txc-12.txd-12.ro--90 Featered
+//-       - foreach ($cats as $cat) :
+//-         - $term_id = $cat->term_id;
+//-         - $tax_meta = get_option( "taxonomy_term_$term_id" );
+//-
+//-         - if(isset($tax_meta['featured_cat']) && $tax_meta['featured_cat'] == 'true' ) :
+//-
+//-           - if(isset($tax_meta['cat_color_red']) && isset($tax_meta['cat_color_green']) && isset($tax_meta['cat_color_blue'])) :
+//-             - $red = $tax_meta['cat_color_red'];
+//-             - $green = $tax_meta['cat_color_green'];
+//-             - $blue = $tax_meta['cat_color_blue'];
+//-             - $background_color = 'background-color: rgba('.$red.','.$green.','.$blue.', 1)';
+//-           - else :
+//-             - $background_color = 'background-color: rgba(0,0,0,1)';
+//-           - endif;
+//-
+//-           - $link = get_term_link( $cat->slug, 'project_client' );
+//-           - $title = $cat->name;
+//-           - $description = $cat->description;
+//-           - $slug = $cat->slug;
+//-           - $term_id = $cat->slug;
+//-
+//-           - $image_url = poxy_tax_image($term_id);
+//-           - if ($image_url) :
+//-             - $image = 'background-image: url('. $image_url. ')';
+//-           - else :
+//-             - $image_ph = get_bloginfo('template_url') . '/images/placeholder-logo-white.svg';
+//-             - $image = 'background-image: url('.$image_ph.')';
+//-           - endif;
+//-
+//-           figure(ng-class!='{ fadeIn : waypoint<?php echo $id; ?>s.flags.off }').op0.a14a_14b14b_14c14c_14d14d_14e12e_12.br2
+//-             div(zum-waypoint!='waypoint<?php echo $id; ?>s',  down='flags.off', offset="80%")
+//-               a(href!="<?php echo $link; ?>", rel="bookmark")
+//-                 span.oxy.gold-filter.br2
+//-                 span.oxy.inside-bevel.br2
+//-                 span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2
+//-                 span.accent-border.highlight-border.oxy.br2
+//-
+//-                 span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+//-
+//-                   span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb18b_18.oxy.ofh.bg-contain.bgp-cc
+//-                   //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+//-                   //- .gloss.oxy.z5.a13a_13.b13b_13
+//-
+//-                 .shadow.oxy.shadow.ofh.br2
+//-                 span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//-                 .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//-                   - echo $title;
+//-                   //- span.oxy.a13a_13b13b_13.gloss
+//-
+//-         - endif;
+//-       - endforeach;
+
+
+
+
+//-
+//-
+//- section.tx-c.white-shadow.bg-main
+//-   .sw
+//-     .cw
+//-       .txa-6.txb-6 Best of the Rest
+//-
+//- - $taxonomy = 'project_client';
+//- - $queried_term = get_query_var($taxonomy);
+//- - $args = array( 'orderby' => 'term_order', 'hide_empty' => false, 'parent' => 0 );
+//- - $cats = get_terms($taxonomy, $args);
+//-
+//- section
+//-   .sw
+//-     .cw.thumbs.rel.a_14.b_14
+//-       .paxy.mr1.pr1.a14a_14b14b_14c14c_14d14d_14e12e_12.br2
+//-         //- .poxy.rel.a14a_14b14b_14c14c_14d14d_14e12e_12.br2.tx-c
+//-         //-   h1.daxy.mr1.pr1.a14a_14b14b_14.z10.txa-8.txb-8.txc-12.txd-12.ro--90 Featered
+//-       - foreach ($cats as $cat) :
+//-         - $term_id = $cat->term_id;
+//-         - $tax_meta = get_option( "taxonomy_term_$term_id" );
+//-
+//-         - if(isset($tax_meta['featured_cat']) && $tax_meta['featured_cat'] == 'true' ) :
+//-
+//-           - if(isset($tax_meta['cat_color_red']) && isset($tax_meta['cat_color_green']) && isset($tax_meta['cat_color_blue'])) :
+//-             - $red = $tax_meta['cat_color_red'];
+//-             - $green = $tax_meta['cat_color_green'];
+//-             - $blue = $tax_meta['cat_color_blue'];
+//-             - $background_color = 'background-color: rgba('.$red.','.$green.','.$blue.', 1)';
+//-           - else :
+//-             - $background_color = 'background-color: rgba(0,0,0,1)';
+//-           - endif;
+//-
+//-           - $link = get_term_link( $cat->slug, 'project_client' );
+//-           - $title = $cat->name;
+//-           - $description = $cat->description;
+//-           - $slug = $cat->slug;
+//-           - $term_id = $cat->slug;
+//-
+//-           - $image_url = poxy_tax_image($term_id);
+//-           - if ($image_url) :
+//-             - $image = 'background-image: url('. $image_url. ')';
+//-           - else :
+//-             - $image_ph = get_bloginfo('template_url') . '/images/placeholder-logo-white.svg';
+//-             - $image = 'background-image: url('.$image_ph.')';
+//-           - endif;
+//-
+//-           figure(ng-class!='{ fadeIn : waypoint<?php echo $id; ?>s.flags.off }').op0.a15a_15b15b_15c14c_14d14d_14e12e_12.br2
+//-             div(zum-waypoint!='waypoint<?php echo $id; ?>s',  down='flags.off', offset="80%")
+//-               a(href!="<?php echo $link; ?>", rel="bookmark")
+//-                 //- span.oxy.gold-filter.br2
+//-                 span.oxy.inside-bevel.br2
+//-                 span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+//-                 span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+//-
+//-                 span.thumb.oxy.ofh.br2.bg-contain.bgp-cc
+//-
+//-                   span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb18b_18.oxy.ofh.bg-contain.bgp-cc
+//-                   //- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill
+//-                   //- .gloss.oxy.z5.a13a_13.b13b_13
+//-
+//-                 .shadow.oxy.shadow.ofh.br2
+//-                 span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//-                 .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//-                   - echo $title;
+//-                   //- span.oxy.a13a_13b13b_13.gloss
+//-
+//-         - endif;
+//-       - endforeach;

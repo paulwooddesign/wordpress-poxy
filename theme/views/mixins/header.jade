@@ -1,0 +1,216 @@
+include dev.jade
+
+
+
+mixin header_right_3(image_url, main_title, sub_title, button_title, href, copywrite)
+	section.bg-black.white.clear.ofh
+		figcaption.copywrite.zeta.daxy.p4.z6= copywrite
+		.sw
+			+cw('12', '12', '58', '58', 'p11')
+				.paxy.fill.shadow-l.z2.hd.he
+
+				+poxy_mb0_2('18 12 qoxy', '14 12 qoxy', '14 58 qoxy', '11 12', '11 12')
+					+image(image_url, '34 p100 qaxy', '34 p100 qaxy', '34 p100 qaxy', '54 p100 _oxy', '54 p100 _oxy')
+						.paxy.fill.shadow-r.z2.hd.he
+
+				+poxy('18 12 pox mb0', '14 12 pox', '14 58 pox', '14 58 pox', '11 34 pox')
+					.wrap
+						+poxy('12 12 paxy', '12 12 paxy', '12 58 paxy', '12 58 pox', '11 12 pox')
+							+poxy('p11 p11 _ox z6', 'p11 p11 _ox', 'p11 p11 _ox', 'p11 p11 pox', 'p11 p11 pox')
+								+poxy('12 pox', '12 pox', '12 pox', '11 pox', '11 pox')
+									+h2('11', '9', '8', '8 mt1', '7 mt1')= main_title
+								+poxy('38 pox', '38 pox', '38 pox', '38 pox', '11 pox')
+									+h3('3 mt2 accent light', '3 mt2', '3 mt2', '2 mt2', '3 mt2')= sub_title
+
+								if block
+									+poxy('14 14 pox', '14 pox', '14 pox', '11 pox', '11 pox')
+										block
+
+
+
+
+
+
+
+
+
+
+
+//- Banner Settings
+//- a[0] = x Size
+//- a[1] = y Size
+
+//- Text
+//- b[0] = Main Title
+//- b[1] = content
+
+//- Image
+//- c[0] = URL
+//- c[1] = Size
+//- c[2] = Position
+
+mixin header(a, b, c)
+
+	- if (typeof(a) !== 'undefined')
+		- var a = a.split(',')
+		- var a__size_cw = a[0]
+		//- - var a__size_wrap = '14 12'
+
+		- if (typeof(a[1]) !== 'undefined')
+			- var a__size_wrap = a[1]
+	- else
+		- var a__size_cw = '11 12'
+		- var a__size_wrap = '14 12'
+
+
+	- if (typeof(b) !== 'undefined')
+		- var b = b.split(',')
+		- var b__title_main = b[0]
+		- if (typeof(b[1]) !== 'undefined')
+			- var b__title_sub = b[1]
+	- else
+		- var b__title_main = "Main Title"
+		- var b__title_sub = "Sub Title"
+
+
+	- if (typeof(c) !== 'undefined')
+		- var c = c.split(',')
+		- var c__image_settings = c[0]
+		- if (typeof(c[1]) !== 'undefined')
+			- var c__image_size = c[1]
+	- else
+		- var c__image_settings = 'ph.png cc cover'
+		- var c__image_size = 'p11 p11'
+
+
+	section(style!=attributes.style)
+
+		+image(c__image_settings, c__image_size)
+
+		.paxy.fill.shadow-l
+		.paxy.fill.shadow-r
+		figcaption.copywrite.zeta.daxya.p4.tx-light.z6= copywrite
+
+		.sw
+			.cw
+				+poxy(a__size_cw)
+					.wrap
+						+poxy(a__size_wrap)
+							if block
+								block
+							else
+								p No content provided.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mixin header_left(main_title, sub_title, button_title, href, copywrite)
+	div
+		section(style!=attributes.style).bgpcc.ap11a_12b_12c_12d_12e_12.rel
+			.paxy.fill.shadow-l
+			.paxy.fill.shadow-r
+			figcaption.copywrite.zeta.daxy.p4.tx-light.z6= copywrite
+			.sw
+				.cw.a_12
+					.poxya11a_18
+					.poxy.a14a_38.tx-light
+						+h2('8 m1', '8')= main_title
+						.a12.beta.mb2.color-accent.light= sub_title
+
+						if block
+							block
+						else
+							p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.
+
+
+
+mixin header_right(main_title, sub_title, button_title, href, copywrite)
+	section(style!=attributes.style).bgpct.ap11a_12bp11b_12cp11c_34d_12e_12.rel
+		.paxy.fill.shadow-r
+		figcaption.copywrite.zeta.daxy.p4.tx-light.z6= copywrite
+		.sw
+			.cw.a_12b_12c_34
+				.poxya11a_18poxyb11b_18poxyc11c_18
+				.qoxy.a12a_38b12b_38c12c_38.tx-light
+					+h2('11 mb1', '8')= main_title
+					.poxya12poxyb12poxyc34
+						.beta.mb2.color-accent.light= sub_title
+						//- p
+						//- 	if block
+						//- 		block
+						//- 	else
+
+
+mixin header_center(main_title, sub_title, button_title, href, copywrite)
+	div
+		section(style!=attributes.style).bgpct.ap11a_12b_12c_12d_12e_12.rel
+			.paxy.fill.shadow-l
+			figcaption.copywrite.zeta.daxya.p4.tx-light.z6= copywrite
+			.sw
+				.cw.a_12
+					.poxya11a_18
+					.poxya14a_38
+					.poxy.a12a_38.tx-light
+						.a12.title.text.alpha.mb2= main_title
+						.poxya14
+							.gamma.mb2.color-accent= sub_title
+							p
+								if block
+									block
+								else
+									p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.
+
+
+
+
+mixin header_tax_left(main_title, sub_title, button_title, href, copywrite)
+	div
+		section.bgpcc.ap11a_12b_12c_12d_12e_12.rel
+			.paxy.fill.shadow-l
+			.paxy.fill.shadow-r
+			figcaption.copywrite.zeta.daxya.p4.tx-light.z6= copywrite
+			.sw
+				.cw.a_12
+					.qaxya34ap_11.bg-contain.bgprb(style!=attributes.style)
+					.poxya11a_18
+					.poxy.a14a_38.tx-light
+						+poxy('12 12 pox')
+							+h2('11 mb1', '8')= main_title
+						.a12.beta.mb2.color-accent.light= sub_title
+						p
+							if block
+								block
+							else
+								p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.
+
+
+mixin header_tax_left_2(main_title, sub_title, button_title, href, copywrite)
+	section.bgpcc.ap11a_12b_12c_12d_12e_12.rel.bg-black.clear
+		.paxy.fill.shadow-l.z2
+		.paxy.fill.shadow-r.z2
+		figcaption.copywrite.zeta.daxya.p4.tx-light.z6= copywrite
+		.sw
+			.cw.a_12
+				.qaxya34ap_11.bg-cover.bgprb(style!=attributes.style)
+				.poxya11a_18
+				.poxy.a14a_38.tx-light.rel
+					.paxya14.z3
+						+poxy('12 12 pox')
+							+h2('11 mb1', '8')= main_title
+						.beta.mb2.color-accent.light= sub_title
+						p
+							if block
+								block
+							else
+								p No content provided. This is what the slide is about. I would limit this to around 20 words. No content provided. This is what the slide is about.

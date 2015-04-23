@@ -1,0 +1,118 @@
+include dev.jade
+
+
+mixin thumb_12_14(image_url, href, title, sub_title)
+	+figure('12 14', '12 14', '11 14', '11 38', '11 58')
+		a(href=href)
+			+image(image_url, '14 14', '14 14', '12 14', '12 38', '38 58')
+			+poxy('14 14', '14 14', '12 14', '12 38', '58 58')
+				.m1-a.m1-b.m1-c.m1-d.m1-e
+					+p('1', '1', '1', '1', '1')= sub_title
+					+h3('6 mt2', '4 mt2', '4 mt2', '4 mt2', '3 mt2')= title
+
+					if block
+						block
+					else
+						p No content provided. This is the description of the blog post. This is the description of the blog post. This is the description of the blog post.
+
+
+
+
+
+
+mixin thumb_1(image_url, href, title)
+	+figure('14 18', '14 18', '12 14', '12 14', '12 14')
+		a(href=href).tx-c
+			+image(image_url, '14 18', '14 18', '12 14', '12 14', '12 14')
+				+poxy('p11 p11 _ox white bold')
+					+h2('8', '7', '7', '6', '5', title)= title
+
+
+
+//- mixin thumb_blog(href, title, sub_title, about)
+//- 	+figure('12 14','12 14')
+//- 		a(href=href)
+//- 			.poxya12a_14.rel
+//- 				.paxy.fill.shadow-l
+//- 			.paxya14a_14.tx-light.tx-v.rel
+//- 				div
+//- 					.paxy.zeta.m1 DECEMBER 18, 2014
+//- 					.oxy9.ml1
+//- 						.gamma= title
+//- 						.delta.mt1.light.color-accent= sub_title
+
+//- Finalized Blog Thumbs
+mixin thumb_blog(href, image_url, title, sub_title)
+	+figure('34 14', '34 38', '11 38', '11 38', '11 11')
+		a(href=href)
+			+image(image_url, '12 14 qoxy', '12 38 qoxy', '58 38 qoxy', '12 38 qoxy', '11 12')
+			+poxy('14 14', '14 38', '38 38', '12 38', '11 12')
+				.m1-a.m1-b.m1-c.m1-d.m2-e
+					+p('1', '1', '1', '1', '1')= sub_title
+					+h3('6 mt2', '4 mt2', '4 mt2', '4 mt2', '3 mt2')= title
+
+					if block
+						block
+					else
+						p No content provided. This is the description of the blog post. This is the description of the blog post. This is the description of the blog post.
+
+
+
+
+
+
+
+//- Finalized Visionary Thumbs
+mixin thumb_2(href, image_url, title, sub_title)
+	+figure('14 38', '14 38', '12 14', '12 34', '12 34')
+		a(href=href).gray-scale
+			+image(image_url, '14 14', '14 14', '14 14', '12 12', '12 12')
+			+poxy('14 18', '14 18', '14 14', '12 14', '12 14')
+				.m1-a.m1-b.m1-c.m1-d.m2-e
+					+h3('5', '4', '3', '4', '1')= title
+					+p('1 mt1', '1 mt1', '1 mt1', '1 mt1', '1 mt2')= sub_title
+
+
+
+mixin thumb_3(href, title)
+	figure.a12a_18b14b_14c14c_14d14d_14e12e_12.mr1.bg90
+		a(href=href)
+			.poxya14a_18.bg-contain(style!=attributes.style)
+			.poxya14a_18.ml2.rel
+				strong.tx-light.tx-c.oxy= title
+
+mixin thumb_3_m0(href, title)
+	figure.a12a_18b14b_14c14c_14d14d_14e12e_12.bg90
+		a(href=href)
+			.poxya14a_18.bg-contain(style!=attributes.style)
+			.poxya14a_18.ml2.rel
+				strong.tx-light.tx-c.oxy= title
+
+
+mixin thumb_4(href, title)
+	figure.a34a_18b14b_14c14c_14d14d_14e12e_12.mr1.bg0.tx-light
+		a(href=href)
+			.poxya14a_18
+				.poxya18a_18.bg-contain(style!=attributes.style)
+			.poxya12a_18.ml2.rel
+				strong.oxy9= title
+
+
+
+mixin thumb_18(href, title)
+	figure.a18a_18b14b_14c14c_14d14d_14e12e_12.br2
+		a(href=href)
+			span.oxy.gold-filter.br2
+			span(style!=attributes.style).thumb.oxy.bgct.ofh.br2
+				//- span.oxy.a13a_13b13b_13.gloss
+			span.oxy.shadow.ofh.br2
+				//- span.oxy.a13a_13b13b_13.gloss
+
+mixin thumb_118(href, title)
+	figure.a116a_116b14b_14c14c_14d14d_14e12e_12.br2
+		a(href=href)
+			span.oxy.gold-filter.br2
+			span(style!=attributes.style).thumb.oxy.bgct.ofh.br2
+				//- span.oxy.a13a_13b13b_13.gloss
+			span.oxy.shadow.ofh.br2
+				//- span.oxy.a13a_13b13b_13.gloss

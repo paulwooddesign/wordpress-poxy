@@ -1,0 +1,22 @@
+mixin dev_bar()
+	section.invert.clear.full.bfxy.bg90.z10
+		.sw
+			.cw
+
+				+poxy('14 11 pox')
+					.delta Zone: {{current_zone}}
+					.delta Browser Width: {{fluidWidth}}
+
+				+poxy('12 11 pox')
+					.poxy.p2.zeta
+						label Grid
+						select(ng-model='zone', ng-options='zone.letter as zone.name for zone in zones')
+					.poxy.p2.zeta
+						select(ng-model='gutter_x_size', ng-options='gutter_x_size.size as gutter_x_size.name for gutter_x_size in gutter_x_sizes')
+					.poxy.p2.zeta
+						select(ng-model='gutter_y_size', ng-options='gutter_y_size.size as gutter_y_size.name for gutter_y_size in gutter_y_sizes')
+					.poxy.p2.zeta
+						label Skin
+						select(ng-model='layout', ng-options='layout.url as layout.name for layout in layouts')
+
+				button.poxy.p2.mb0(ng-click="guides=!guides") Guides

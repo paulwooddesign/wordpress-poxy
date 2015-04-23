@@ -1,0 +1,421 @@
+///////////////////////////////////////////////
+// Variables
+///////////////////////////////////////////////
+accent = #fff
+
+
+.invert
+  filter invert(10%)
+
+
+
+.mainNav--highlight
+  border-left 2px solid rgba(255,255,255,.08)
+.vScroller--highlight
+  border-right 2px solid rgba(255,255,255,.08)
+
+
+
+
+
+
+
+
+
+
+// Buttons
+button,
+.button
+  color rgba(255,255,255, 0.5)
+  letter-spacing .2rem
+  font-size .8rem
+  text-transform uppercase
+  position relative
+  box-sizing border-box
+  box-shadow inset 0 0 1px rgba(black, .5)
+  background-color rgba(black, .1)
+  &:hover
+    color rgba(255,255,255, 0.9)
+    background-color rgba(black, .08)
+
+
+
+
+
+
+// containers1d1f21
+// #15131A
+
+$main_background_color = #1d1f21
+$main_background_image =  url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczJyBoZWlnaHQ9JzYnIHZpZXdCb3g9JzAgMCA1IDEwJz4KCTxyZWN0IHdpZHRoPScxMTAlJyB4PSctNSUnIHk9Jy01JScgaGVpZ2h0PScxMTAlJyBmaWxsPScjMWQxZjIxJy8+Cgk8bGluZSB4MT0nLTInIHkxPScxJyB4Mj0nNycgeTI9JzEwJyBzdHJva2U9JyMxODFiMWYnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9Jy0yJyB5MT0nNicgeDI9JzcnIHkyPScxNScgc3Ryb2tlPScjMTgxYjFmJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSctMicgeTE9Jy00JyB4Mj0nNycgeTI9JzUnIHN0cm9rZT0nIzE4MWIxZicgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cgk8bGluZSB4MT0nNycgeTE9JzEnIHgyPSctMicgeTI9JzEwJyBzdHJva2U9JyMyMTJhMzMnIHN0cm9rZS13aWR0aD0nMC43NScvPgoJPGxpbmUgeDE9JzcnIHkxPSc2JyB4Mj0nLTInIHkyPScxNScgc3Ryb2tlPScjMjEyYTMzJyBzdHJva2Utd2lkdGg9JzAuNzUnLz4KCTxsaW5lIHgxPSc3JyB5MT0nLTQnIHgyPSctMicgeTI9JzUnIHN0cm9rZT0nIzIxMmEzMycgc3Ryb2tlLXdpZHRoPScwLjc1Jy8+Cjwvc3ZnPg==')
+
+// footer_background_color = #111
+container_background_color = transparent
+header_background_color = transparent
+
+skin_shadow_color = #464c53
+skin_highlight_color = #161c22
+$shadow_color = 31,31,31
+
+// Text
+font_color = rgba(255, 255, 255, 0.8)
+// font_color = rgba(#70869d, 0.8)
+
+
+a_color = rgba(255, 255, 255, 0.8)
+a_color_hover = rgba(255, 255, 255, 1)
+
+///////////////////////////////////////////////
+// Main Settings
+///////////////////////////////////////////////
+::selection
+  background accent
+  color black
+
+html
+  background-color $main_background_color
+
+body
+  color font_color
+  background-color $main_background_color
+
+
+
+footer
+  background-size initial
+  // background:#e9e3dd;
+
+
+.header
+  background header_background_color
+
+#container
+  background-color container_background_color
+
+
+
+.bg-main
+  background-color $main_background_color
+
+
+
+/////////////////////////////////
+// Thumbs
+/////////////////////////////////
+$trans_duration = 150ms
+
+
+
+
+.thumbs
+  figure
+    //box-shadow: inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .5), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5);
+    //box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2), 0 1.5em 3em -1em rgba(0, 0, 0, 0.5)
+    position relative
+    background-image linear-gradient(to bottom, #111, #333)
+
+    box-shadow 0 .5em 2em rgba(0,0,0,.05), inset 0 .2em .4em -.2em rgba(255,255,255,.2), 0 0 .2em rgba(0,0,0,.1)
+    box-shadow 0 .5em 2em rgba(255,255,255,.02), inset 0 .2em .4em -.2em rgba(0,0,0,.2), 0 0 .2em rgba(0,0,0,.2)
+    // box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+    // 2px 2px 0 0 rgba($shadow_color,1),
+    // 3px 3px 0 0 rgba($shadow_color,0.9),
+    // 4px 4px 0 0 rgba($shadow_color,0.9),
+    // 5px 5px 0 0 rgba($shadow_color,0.8),
+    // 6px 6px 0 0 rgba($shadow_color,0.8),
+    // 7px 7px 0 0 rgba($shadow_color,0.7),
+    // 8px 8px 0 0 rgba($shadow_color,0.7),
+    // 9px 9px 0 0 rgba($shadow_color,0.6),
+    // 11px 11px 0 0 rgba($shadow_color,0.5),
+    // 13px 13px 0 0 rgba($shadow_color,0.4),
+    // 15px 15px 0 0 rgba($shadow_color,0.3),
+    // 17px 17px 0 0 rgba($shadow_color,0.2),
+    // 19px 19px 0 0 rgba($shadow_color,0.1),
+    // 21px 21px 0 0 rgba($shadow_color,0.09),
+    // 23px 23px 0 0 rgba($shadow_color,0.07),
+    // 25px 25px 0 0 rgba($shadow_color,0.05),
+    // 23px 23px 0 0 rgba($shadow_color,0.05),
+    // 25px 25px 0 0 rgba($shadow_color,0.05),
+    // 27px 27px 0 0 rgba($shadow_color,0.05),
+    // 29px 29px 0 0 rgba($shadow_color,0.05),
+    // 31px 31px 0 0 rgba($shadow_color,0.05),
+    // 33px 33px 0 0 rgba($shadow_color,0.05),
+    // 35px 35px 0 0 rgba($shadow_color,0.05),
+    // 37px 37px 0 0 rgba($shadow_color,0.05),
+    // 39px 39px 0 0 rgba($shadow_color,0.05),
+    // 41px 41px 0 0 rgba($shadow_color,0.05),
+    // 43px 43px 0 0 rgba($shadow_color,0.05),
+    // 45px 45px 0 0 rgba($shadow_color,0.05),
+    // 47px 47px 0 0 rgba($shadow_color,0.05),
+    // 49px 49px 0 0 rgba($shadow_color,0.05),
+    // 51px 51px 0 0 rgba($shadow_color,0.05),
+    // 53px 53px 0 0 rgba($shadow_color,0.05),
+    // 39px 39px 0 0 rgba($shadow_color,0.05)
+
+    background linear-gradient( to bottom, skin_highlight_color, skin_shadow_color )
+    .thumb-title
+      color #222
+      opacity 0
+
+    .thumb
+      // width 94%
+      // height 94%
+      width 97%
+      height 97%
+      transition $trans_duration ease
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      background-color rgba(0,0,0,.7)
+      // background-position 50% 0%
+      // filter: grayscale(70%)
+
+      // background-image linear-gradient(-45deg, rgba(#000,1) 0%,  rgba(#444,1) 100%)
+      background-image linear-gradient( to bottom, skin_shadow_color, skin_highlight_color)
+
+    .icon
+      opacity .8
+
+    .shadow
+      // width 94%
+      // height 94%
+      width 97%
+      height 97%
+      transition opacity $trans_duration ease
+      box-shadow none
+      opacity .6
+      background-image radial-gradient(ellipse at center, rgba(0,0,0, .1), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.95) 110%)
+      text-align center
+
+
+    .fill-94
+      width 97%
+      height 97%
+
+
+    .gold-filter
+      transition transform $trans_duration
+      // width 95%
+      // height 95%
+      width 98%
+      height 98%
+      opacity .7
+      background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+
+    .accent-border
+      opacity 0
+
+    .highlight-border
+      opacity 0
+      background-image linear-gradient(0deg, rgba(#fff,.0) 0%,  rgba(#fff,.3) 100%)
+
+    .fill-95
+      transition $trans_duration ease
+      // width 95%
+      // height 95%
+      width 98%
+      height 98%
+
+    .title
+      opacity 0
+      transition $trans_duration ease
+      transform translateX(50%) translateY(100%)
+
+
+  figure:hover
+    .gloss
+      border-radius 20%
+      transition $trans_duration
+      //box-shadow inset 5em 5em 0 -16em rgba(255,255,255,0.3)
+      box-shadow inset 16em 18em 0 -13em rgba(255,255,255,0.1)
+    .thumb
+      // box-shadow inset 0 .2em .5em 0 #FFF, inset 0 -0.3em .4em 0px rgba(0, 0, 0, .2)
+      filter: grayscale(0%)
+      width 97%
+      height 97%
+      width 94%
+      height 94%
+
+    .shadow
+      transition $trans_duration ease
+      opacity .8
+      width 97%
+      height 97%
+      width 94%
+      height 94%
+
+    .gold-filter
+      transition opacity $trans_duration
+      opacity 1
+
+    .color-filter
+      opacity .0
+      transition transform $trans_duration
+      //transform translateX(50%) translateY(-100%)
+      //background-image linear-gradient(45deg, rgba(#463c2c,.3) 0%, rgba(#fdd333,.3) 26%, rgba(#fffcaf,.5) 65%, rgba(#b67b03,.4) 55%, rgba(#341c02,.3) 80%, rgba(#160f07,.3) 100%)
+
+    .fill-94
+      width 94%
+      height 94%
+
+    .fill-95
+      transition $trans_duration ease
+      width 98%
+      height 98%
+      width 95%
+      height 95%
+
+    .accent-border,
+    .highlight-border
+      opacity 1
+
+    .title
+      opacity 1
+      transition $trans_duration ease
+      transform translateX(50%) translateY(0%)
+
+
+
+
+.white-shadow
+  box-shadow 1px 1px 0 0 rgba($shadow_color,1),
+  2px 2px 0 0 rgba($shadow_color,1),
+  3px 3px 0 0 rgba($shadow_color,0.9),
+  4px 4px 0 0 rgba($shadow_color,0.9),
+  5px 5px 0 0 rgba($shadow_color,0.8),
+  6px 6px 0 0 rgba($shadow_color,0.8),
+  7px 7px 0 0 rgba($shadow_color,0.7),
+  8px 8px 0 0 rgba($shadow_color,0.7),
+  9px 9px 0 0 rgba($shadow_color,0.6),
+  11px 11px 0 0 rgba($shadow_color,0.5),
+  13px 13px 0 0 rgba($shadow_color,0.4),
+  15px 15px 0 0 rgba($shadow_color,0.3),
+  17px 17px 0 0 rgba($shadow_color,0.2),
+  19px 19px 0 0 rgba($shadow_color,0.1),
+  21px 21px 0 0 rgba($shadow_color,0.09),
+  23px 23px 0 0 rgba($shadow_color,0.07),
+  25px 25px 0 0 rgba($shadow_color,0.05),
+  23px 23px 0 0 rgba($shadow_color,0.05),
+  25px 25px 0 0 rgba($shadow_color,0.05),
+  27px 27px 0 0 rgba($shadow_color,0.05),
+  29px 29px 0 0 rgba($shadow_color,0.05),
+  31px 31px 0 0 rgba($shadow_color,0.05),
+  33px 33px 0 0 rgba($shadow_color,0.05),
+  35px 35px 0 0 rgba($shadow_color,0.05),
+  37px 37px 0 0 rgba($shadow_color,0.05),
+  39px 39px 0 0 rgba($shadow_color,0.05),
+  41px 41px 0 0 rgba($shadow_color,0.05),
+  43px 43px 0 0 rgba($shadow_color,0.05),
+  45px 45px 0 0 rgba($shadow_color,0.05),
+  47px 47px 0 0 rgba($shadow_color,0.05),
+  49px 49px 0 0 rgba($shadow_color,0.05),
+  51px 51px 0 0 rgba($shadow_color,0.05),
+  53px 53px 0 0 rgba($shadow_color,0.05),
+  39px 39px 0 0 rgba($shadow_color,0.05)
+
+
+
+
+// .hole,
+.shadow-right-inset
+  box-shadow inset 1px 1px 0 0 rgba($shadow_color,1),
+  inset 2px 2px 0 0 rgba($shadow_color,1),
+  inset 3px 3px 0 0 rgba($shadow_color,0.9),
+  inset 4px 4px 0 0 rgba($shadow_color,0.9),
+  inset 5px 5px 0 0 rgba($shadow_color,0.8),
+  inset 6px 6px 0 0 rgba($shadow_color,0.8),
+  inset 7px 7px 0 0 rgba($shadow_color,0.7),
+  inset 8px 8px 0 0 rgba($shadow_color,0.7),
+  inset 9px 9px 0 0 rgba($shadow_color,0.6),
+  inset 11px 11px 0 0 rgba($shadow_color,0.5),
+  inset 13px 13px 0 0 rgba($shadow_color,0.4),
+  inset 15px 15px 0 0 rgba($shadow_color,0.3),
+  inset 17px 17px 0 0 rgba($shadow_color,0.2),
+  inset 19px 19px 0 0 rgba($shadow_color,0.1),
+  inset 21px 21px 0 0 rgba($shadow_color,0.09),
+  inset 23px 23px 0 0 rgba($shadow_color,0.07),
+  inset 25px 25px 0 0 rgba($shadow_color,0.05),
+  inset 23px 23px 0 0 rgba($shadow_color,0.05),
+  inset 25px 25px 0 0 rgba($shadow_color,0.05),
+  inset 27px 27px 0 0 rgba($shadow_color,0.05),
+  inset 29px 29px 0 0 rgba($shadow_color,0.05),
+  inset 31px 31px 0 0 rgba($shadow_color,0.05),
+  inset 33px 33px 0 0 rgba($shadow_color,0.05),
+  inset 35px 35px 0 0 rgba($shadow_color,0.05),
+  inset 37px 37px 0 0 rgba($shadow_color,0.05),
+  inset 39px 39px 0 0 rgba($shadow_color,0.05),
+  inset 41px 41px 0 0 rgba($shadow_color,0.05),
+  inset 43px 43px 0 0 rgba($shadow_color,0.05),
+  inset 45px 45px 0 0 rgba($shadow_color,0.05),
+  inset 47px 47px 0 0 rgba($shadow_color,0.05),
+  inset 49px 49px 0 0 rgba($shadow_color,0.05),
+  inset 51px 51px 0 0 rgba($shadow_color,0.05),
+  inset 53px 53px 0 0 rgba($shadow_color,0.05),
+  inset 39px 39px 0 0 rgba($shadow_color,0.05)
+
+
+
+.shadow-right-inset
+  box-shadow inset 1px 0px 0 0 rgba($shadow_color,1),
+  inset 2px 0px 0 0 rgba($shadow_color,1),
+  inset 3px 0px 0 0 rgba($shadow_color,0.9),
+  inset 4px 0px 0 0 rgba($shadow_color,0.9),
+  inset 5px 0px 0 0 rgba($shadow_color,0.8),
+  inset 6px 0px 0 0 rgba($shadow_color,0.8),
+  inset 7px 0px 0 0 rgba($shadow_color,0.7),
+  inset 8px 0px 0 0 rgba($shadow_color,0.7),
+  inset 9px 0px 0 0 rgba($shadow_color,0.6),
+  inset 11px 0px 0 0 rgba($shadow_color,0.5),
+  inset 13px 0px 0 0 rgba($shadow_color,0.4),
+  inset 15px 0px 0 0 rgba($shadow_color,0.3),
+  inset 17px 0px 0 0 rgba($shadow_color,0.2),
+  inset 19px 0px 0 0 rgba($shadow_color,0.1),
+  inset 21px 0px 0 0 rgba($shadow_color,0.09),
+  inset 23px 0px 0 0 rgba($shadow_color,0.07),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 23px 0px 0 0 rgba($shadow_color,0.05),
+  inset 25px 0px 0 0 rgba($shadow_color,0.05),
+  inset 27px 0px 0 0 rgba($shadow_color,0.05),
+  inset 29px 0px 0 0 rgba($shadow_color,0.05),
+  inset 31px 0px 0 0 rgba($shadow_color,0.05),
+  inset 33px 0px 0 0 rgba($shadow_color,0.05),
+  inset 35px 0px 0 0 rgba($shadow_color,0.05),
+  inset 37px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05),
+  inset 41px 0px 0 0 rgba($shadow_color,0.05),
+  inset 43px 0px 0 0 rgba($shadow_color,0.05),
+  inset 45px 0px 0 0 rgba($shadow_color,0.05),
+  inset 47px 0px 0 0 rgba($shadow_color,0.05),
+  inset 49px 0px 0 0 rgba($shadow_color,0.05),
+  inset 51px 0px 0 0 rgba($shadow_color,0.05),
+  inset 53px 0px 0 0 rgba($shadow_color,0.05),
+  inset 39px 0px 0 0 rgba($shadow_color,0.05)
+
+
+
+
+/////////////////////////////////
+// Sections
+/////////////////////////////////
+guide_opacity = .1
+guide_color = #fff
+
+section
+  border-top alpha(guide_color, .05) solid 1px !important
+  border-bottom alpha(#000, .08) solid 1px !important
+  background transparent
+  // &:before,
+  &:after
+    // display none
+    opacity .5
+    background-image linear-gradient(45deg, rgba(#463c2c,1) 0%, rgba(#fdd333,1) 26%, rgba(#fffcaf,1) 35%, rgba(#b67b03,1) 55%, rgba(#341c02,1) 80%, rgba(#160f07,1) 100%)
+    height 1px
+    width 100%
+  // &:nth-child(2n+2)
+  //   background alpha(#000, .02)
+  // &:before
+  //   border-top alpha(guide_color, guide_opacity) solid 1px
+  // &:after
+  //   border-bottom alpha(guide_color, guide_opacity) solid 1px
+
+// section
+//   &:before,
+//   &:after
+//     display none

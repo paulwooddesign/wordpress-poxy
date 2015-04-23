@@ -1,0 +1,44 @@
+.iScrollHorizontalScrollbar
+  position absolute
+  z-index 9999
+  height 16px
+  left 2px
+  right 2px
+  bottom 2px
+  overflow hidden
+  &.iScrollBothScrollbars
+    right 18px
+  .iScrollIndicator
+    height 100%
+    background -moz-linear-gradient(left,  #cc3f6e 0%, #93004e 100%)
+    background -webkit-linear-gradient(left,  #cc3f6e 0%,#93004e 100%)
+    background -o-linear-gradient(left,  #cc3f6e 0%,#93004e 100%)
+    background -ms-linear-gradient(left,  #cc3f6e 0%,#93004e 100%)
+    background linear-gradient(to right,  #cc3f6e 0%,#93004e 100%)
+
+.iScrollVerticalScrollbar
+  position absolute
+  z-index 9999
+  width 2px
+  bottom 2px
+  top 2px
+  // left -2px
+  right 0px
+  overflow hidden
+  &.iScrollBothScrollbars
+    bottom 18px
+  .iScrollIndicator
+    width 100%
+    background -moz-linear-gradient(top, #cc3f6e 0%, #93004e 100%)
+    background -webkit-linear-gradient(top,  #cc3f6e 0%,#93004e 100%)
+    background -o-linear-gradient(top, #cc3f6e 0%,#93004e 100%)
+    background -ms-linear-gradient(top, #cc3f6e 0%,#93004e 100%)
+    background linear-gradient(to bottom,  #cc3f6e 0%,#93004e 100%)
+
+.iScrollIndicator
+  position absolute
+  background #cc3f6e
+  // border-width 1px
+  // border-style solid
+  // border-color #EB97B4 #7C2845 #7C2845 #EB97B4
+  // border-radius 8px

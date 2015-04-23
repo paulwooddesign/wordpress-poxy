@@ -1,0 +1,352 @@
+:php
+	$author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+	$color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+	$color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+	$color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+
+	$background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+
+	$accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+//- .poxy.fill.bg-black
+.pfxy.a15a_15.b16b_16.c15c_15.d18d_18.e18e_18.z5(style!="<?php echo $background_color; ?>")
+
+
+- get_template_part( 'nav-project' );
+- get_template_part( 'project-home-wide' );
+- get_template_part( 'project-overview' );
+- get_template_part( 'project-title' );
+
+- get_template_part( 'project-home-full' );
+
+
+
+
+
+
+
+- if($author_id) :
+	:php
+		$args = array(
+			//- 'ignore_sticky_posts' => 1,
+			'posts_per_page' => 1,
+			'author__in' => $author_id,
+			'post_type' => array('project'),
+			'project_cat' => 'web'
+		);
+		$member_posts = new WP_Query( $args );
+
+	- if ($member_posts->have_posts()) :
+			- while ($member_posts->have_posts()) : $member_posts->the_post();
+				- poxy_section(1);
+			- endwhile;
+			- wp_reset_query();
+	- endif;
+- endif;
+
+
+- get_template_part( 'project-what-i-did' );
+
+
+
+
+
+
+
+
+
+:php
+	$author_id = get_post_meta($post->ID, "_poxy_client_name", true);
+	$color_red = get_post_meta($post->ID, "_poxy_client_color_red", true) ? get_post_meta($post->ID, "_poxy_client_color_red", true) : '0';
+	$color_green = get_post_meta($post->ID, "_poxy_client_color_green", true) ? get_post_meta($post->ID, "_poxy_client_color_green", true) : '0';
+	$color_blue = get_post_meta($post->ID, "_poxy_client_color_blue", true) ? get_post_meta($post->ID, "_poxy_client_color_blue", true) : '0';
+	$background_color = 'background-color: rgba('.$color_red.','.$color_green.','.$color_blue.', .4)';
+	$accent_color = 'color: rgba('.$color_red.','.$color_green.','.$color_blue.', 1)';
+
+- if($author_id) :
+	:php
+		$args = array(
+			//- 'ignore_sticky_posts' => 1,
+			'posts_per_page' => 1,
+			'author__in' => $author_id,
+			'post_type' => array('project'),
+			'project_cat' => 'web'
+		);
+		$member_posts = new WP_Query( $args );
+
+	- if ($member_posts->have_posts()) :
+			- while ($member_posts->have_posts()) : $member_posts->the_post();
+				//- - poxy_section(1);
+				- poxy_section(2);
+				- poxy_section(3);
+				- poxy_section(4);
+			- endwhile;
+			- wp_reset_query();
+	- endif;
+- endif;
+
+
+
+
+//-
+//-
+//- - if($author_id) :
+//- 	:php
+//- 		$args = array(
+//- 			'ignore_sticky_posts' => 1,
+//- 			//- 'posts_per_page' => 20,
+//- 			'author__in' => $author_id,
+//- 			'project_cat' => 'web',
+//- 			'post_type' => array('project')
+//-
+//- 		);
+//- 		$member_posts = new WP_Query( $args );
+//-
+//- 	- if ($member_posts->have_posts()) :
+//- 		section(class='___a13a_12b14b_13c12c_35d12d_35e12e_35 shadow-right-inset')
+//- 			.sw
+//- 				.cw
+//- 					.poxy.a14a_14.b14.poxc11.poxd11.poxe11.rel
+//- 						._oxya14._oxyb14
+//- 							h2.txa-6.txb-6.txc-10.txd-10.txe-10.bold.mb4.title
+//- 								| Web
+//- 				.cw.thumbs
+//- 					- while ($member_posts->have_posts()) : $member_posts->the_post();
+//- 						:php
+//- 							global $post;
+//- 							$id = get_the_ID();
+//-
+//- 							$title = get_the_title();
+//- 							$sub_title = get_post_meta($id, "_poxy_sub_head", true);
+//- 							$description = get_post_meta($id, "_poxy_description", true);
+//- 							$header_layout = get_post_meta($id, "_poxy_header_layout", true);
+//-
+//- 							$image_url = get_poxy_thumb_300x400();
+//- 							$image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+//- 							$background_color = 'background-color: rgba(255,255,255,.9)';
+//-
+//-
+//- 						figure.br2
+//- 							a(href!="<?php the_permalink(); ?>")
+//- 								//- span.oxy.gold-filter.br2.fill-95
+//- 								span.oxy.inside-bevel.br2
+//- 								span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+//- 								span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+//-
+//- 								span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+//- 									//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+//-
+//- 								//- .shadow.oxy.shadow.ofh.br2
+//- 								//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//- 								//- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//- 								//-   - echo $title;
+//-
+//-
+//- 					- endwhile;
+//- 					- wp_reset_query();
+//- 	- endif;
+//- - endif;
+//-
+//-
+//-
+//-
+//- - if($author_id) :
+//- 	:php
+//- 		$args = array(
+//- 			'ignore_sticky_posts' => 1,
+//- 			//- 'posts_per_page' => 20,
+//- 			'author__in' => $author_id,
+//- 			'project_cat' => 'static',
+//- 			'post_type' => array('project')
+//-
+//- 		);
+//- 		$member_posts = new WP_Query( $args );
+//-
+//- 	- if ($member_posts->have_posts()) :
+//- 		section(class='___a13a_12b14b_13c12c_35d12d_35e12e_35 shadow-right-inset')
+//- 			.sw
+//- 				.cw
+//- 					.poxy.a14a_14.b14.poxc11.poxd11.poxe11.rel
+//- 						._oxya14._oxyb14
+//- 							h2.txa-6.txb-6.txc-10.txd-10.txe-10.bold.mb4.title
+//- 								| Static
+//- 				.cw.thumbs
+//- 					- while ($member_posts->have_posts()) : $member_posts->the_post();
+//- 						:php
+//- 							global $post;
+//- 							$id = get_the_ID();
+//-
+//- 							$title = get_the_title();
+//- 							$sub_title = get_post_meta($id, "_poxy_sub_head", true);
+//- 							$description = get_post_meta($id, "_poxy_description", true);
+//- 							$header_layout = get_post_meta($id, "_poxy_header_layout", true);
+//-
+//- 							$image_url = get_poxy_thumb_300x400();
+//- 							$image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+//- 							$background_color = 'background-color: rgba(255,255,255,.9)';
+//-
+//-
+//- 						figure.br2
+//- 							a(href!="<?php the_permalink(); ?>")
+//- 								//- span.oxy.gold-filter.br2.fill-95
+//- 								span.oxy.inside-bevel.br2
+//- 								span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+//- 								span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+//-
+//- 								span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+//- 									//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+//-
+//- 								//- .shadow.oxy.shadow.ofh.br2
+//- 								//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//- 								//- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//- 								//-   - echo $title;
+//-
+//-
+//- 					- endwhile;
+//- 					- wp_reset_query();
+//- 	- endif;
+//- - endif;
+//-
+//-
+//- - if($author_id) :
+//- 	:php
+//- 		$args = array(
+//- 			'ignore_sticky_posts' => 1,
+//- 			//- 'posts_per_page' => 20,
+//- 			'author__in' => $author_id,
+//- 			'project_cat' => 'motion',
+//- 			'post_type' => array('project')
+//-
+//- 		);
+//- 		$member_posts = new WP_Query( $args );
+//-
+//- 	- if ($member_posts->have_posts()) :
+//- 		section(class='___a13a_12b14b_13c12c_35d12d_35e12e_35 shadow-right-inset')
+//- 			.sw
+//- 				.cw
+//- 					.poxy.a14a_14.b14.poxc11.poxd11.poxe11.rel
+//- 						._oxya14._oxyb14
+//- 							h2.txa-6.txb-6.txc-10.txd-10.txe-10.bold.mb4.title
+//- 								| Motion
+//- 				.cw.thumbs
+//- 					- while ($member_posts->have_posts()) : $member_posts->the_post();
+//- 						:php
+//- 							global $post;
+//- 							$id = get_the_ID();
+//-
+//- 							$title = get_the_title();
+//- 							$sub_title = get_post_meta($id, "_poxy_sub_head", true);
+//- 							$description = get_post_meta($id, "_poxy_description", true);
+//- 							$header_layout = get_post_meta($id, "_poxy_header_layout", true);
+//-
+//- 							$image_url = get_poxy_thumb_300x400();
+//- 							$image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+//- 							$background_color = 'background-color: rgba(255,255,255,.9)';
+//-
+//-
+//- 						figure.br2
+//- 							a(href!="<?php the_permalink(); ?>")
+//- 								//- span.oxy.gold-filter.br2.fill-95
+//- 								span.oxy.inside-bevel.br2
+//- 								span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+//- 								span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+//-
+//- 								span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+//- 									//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+//-
+//- 								//- .shadow.oxy.shadow.ofh.br2
+//- 								//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//- 								//- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//- 								//-   - echo $title;
+//-
+//-
+//- 					- endwhile;
+//- 					- wp_reset_query();
+//- 	- endif;
+//- - endif;
+//-
+//-
+//-
+//- - if($author_id) :
+//- 	:php
+//- 		$args = array(
+//- 			'ignore_sticky_posts' => 1,
+//- 			//- 'posts_per_page' => 20,
+//- 			'author__in' => $author_id,
+//- 			'project_cat' => 'video',
+//- 			'post_type' => array('project')
+//-
+//- 		);
+//- 		$member_posts = new WP_Query( $args );
+//-
+//- 	- if ($member_posts->have_posts()) :
+//- 		section(class='___a13a_12b14b_13c12c_35d12d_35e12e_35 shadow-right-inset')
+//- 			.sw
+//- 				.cw
+//- 					.poxy.a14a_14.b14.poxc11.poxd11.poxe11.rel
+//- 						._oxya14._oxyb14
+//- 							h2.txa-6.txb-6.txc-10.txd-10.txe-10.bold.mb4.title
+//- 								| Video
+//- 				.cw.thumbs
+//- 					- while ($member_posts->have_posts()) : $member_posts->the_post();
+//- 						:php
+//- 							global $post;
+//- 							$id = get_the_ID();
+//-
+//- 							$title = get_the_title();
+//- 							$sub_title = get_post_meta($id, "_poxy_sub_head", true);
+//- 							$description = get_post_meta($id, "_poxy_description", true);
+//- 							$header_layout = get_post_meta($id, "_poxy_header_layout", true);
+//-
+//- 							$image_url = get_poxy_thumb_300x400();
+//- 							$image = $image_url ? 'background-image: url('. $image_url. ')' : 'background-image: url('.get_bloginfo('template_url').'/images/placeholder-logo-white.svg)';
+//- 							$background_color = 'background-color: rgba(255,255,255,.9)';
+//-
+//-
+//- 						figure.br2
+//- 							a(href!="<?php the_permalink(); ?>")
+//- 								//- span.oxy.gold-filter.br2.fill-95
+//- 								span.oxy.inside-bevel.br2
+//- 								span(style!='<?php echo $background_color; ?>').accent-border.oxy.br2.fill-95
+//- 								span(style!='<?php echo $background_color; ?>').highlight-border.oxy.br2.fill-95
+//-
+//- 								span.thumb.oxy.ofh.br2.bgs-cover.bgp-ct(style!='<?php echo $image; ?>')
+//- 									//- span(style!='<?php echo $image; ?>').icon._oxya18a_18._oxyb110b_110.oxy.ofh.bg-contain.bgp-cc
+//-
+//- 								//- .shadow.oxy.shadow.ofh.br2
+//- 								//- span(style!='<?php echo $slide_image; ?>').oxy.br2.bg__slide.bg-cover.bgp-cl.fill-94
+//- 								//- .title.txa-2.txb-2.tx-c.oxy6.ap100.bp100.cp100.dp100.cp100.z4.mb1
+//- 								//-   - echo $title;
+//-
+//-
+//- 					- endwhile;
+//- 					- wp_reset_query();
+//- 	- endif;
+//- - endif;
+
+
+
+
+
+
+
+		//- - if($author_id) :
+		//- 	:php
+		//- 		$args = array(
+		//- 			'ignore_sticky_posts' => 1,
+		//- 			'posts_per_page' => 1,
+		//- 			'author__in' => $author_id,
+		//-
+		//- 			'post_type' => array('project')
+		//- 		);
+		//- 		$member_posts = new WP_Query( $args );
+		//-
+		//- 	- if ($member_posts->have_posts()) :
+		//- 			- while ($member_posts->have_posts()) : $member_posts->the_post();
+		//- 				- poxy_section(1);
+		//- 				- poxy_section(2);
+		//- 				- poxy_section(3);
+		//- 				- poxy_section(4);
+		//- 			- endwhile;
+		//- 			- wp_reset_query();
+		//- 	- endif;
+		//- - endif;

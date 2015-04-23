@@ -1,0 +1,44 @@
+section.bg-black.white.clear.ofh
+  - if ($copywrite_name) :
+      figcaption.copywrite.zeta.daxy.p4.z6
+        - if ($copywrite_url) :
+          a(href!="<?php echo $copywrite_url; ?>")
+            - echo $copywrite_name;
+        - else :
+          - echo $copywrite_name;
+        - endif;
+  - endif;
+  .sw
+    .cw.rela_12.b_12.c_58.d_58.e_p11
+      .paxy.fill.shadow-l.z2.hd.he
+      .rel.mb0.qoxya18a_12.qoxyb14b_12.qoxyc14c_58.poxyd11d_12.poxye11e_12
+        figure.rel.image.qaxya34a_p100.qaxyb11b_p100.qaxyc11c_p100._oxyd54d_p100._oxye54e_p100.bgp-rc(style!='<?php echo $image; ?>')
+          .paxy.fill.shadow-r.z2.hd.he
+      .rel.poxa18a_12.mb0.poxb14b_12.poxc14c_58.poxd14d_58.poxe11e_34
+        .wrap
+          .rel.paxya12a_12.paxyb12b_12.paxyc12c_58.poxd12d_58.poxe11e_12
+            .rel._oxap11a_p11.z6._oxbp11b_p11._oxcp11c_p11.poxdp11d_p11.poxep11e_p11
+              .rel.poxya12a_pox.poxyb12b_pox.poxyc12c_pox.poxyd11d_pox.poxye11e_pox
+                h2.txa-11.txb-9.txc-8.txd-8.mt1-d.txe-7.mt1-e(title='')
+                  - echo $title;
+
+              - if ($sub_title) :
+                  .rel.poxya38a_pox.poxyb38b_pox.poxyc38c_pox.poxyd38d_pox.poxye11e_pox
+                    h3.txa-3.mt2-a.accent.light.txb-3.mt2-b.txc-3.mt2-c.txd-2.mt2-d.txe-3.mt2-e
+                      - echo $sub_title;
+              - endif;
+
+              - if ($description) :
+                .rel.poxa14a_14.poxyb14b_pox.poxyc14c_pox.poxyd11d_pox.poxye11e_pox
+                  p
+                    - echo $description;
+              - endif;
+
+              - if($button_url) :
+                  .rel.poxap11a_14.poxbp11b_14.poxcp11c_14.poxdp11d_14.poxep11e_14
+                    a(href!='<?php echo $button_url; ?>')
+                    button.btn.btn-svg(type='button')
+                      svg.btn_svg(version='1.1', viewbox='0 0 30 20', preserveaspectratio='none')
+                        rect.btn_svg_shape(width='30', height='40')
+                      span Learn More
+              - endif;

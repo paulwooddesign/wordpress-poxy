@@ -1,0 +1,33 @@
+function poxy_zone_array(zone, array)
+	- var array = a
+	- var zone = z
+	-if (typeof(a) !== 'undefined')
+		- var a = a.split(' ')
+		-if (typeof(a[1]) == 'undefined')
+			- return 'poxy' + z + a[0] + z + '_' + a[0] + ' '
+		-else if (typeof(a[2]) == 'undefined')
+			- return 'poxy' + z + a[0] + z + '_' + a[1] + ' '
+		-else if (typeof(a[3]) == 'undefined')
+			- return a[2] + z + a[0] + z + '_' + a[1] + ' '
+		-else if (typeof(a[4]) == 'undefined')
+			- return a[2] + z + a[0] + z + '_' + a[1] + ' ' + a[3] + ' '
+		-else if (typeof(a[5]) == 'undefined')
+			- return a[2] + z + a[0] + 'a' + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' '
+		-else
+			- return a[2] + z + a[0] + z + '_' + a[1] + ' ' + a[3] + ' ' + a[4] + ' ' + a[5] + ' '
+	- else
+		- return 'poxy'
+
+
+
+//- POXY MASTER MIXIN
+mixin poxy_array_test(a, b, c, d, e)
+
+	- var a_zone = poxy_zone_array('a', a)
+	- var b_zone = poxy_zone_array('b', b)
+	- var c_zone = poxy_zone_array('c', c)
+	- var d_zone = poxy_zone_array('d', d)
+	- var e_zone = poxy_zone_array('e', e)
+
+	div(class= 'rel ' + a_zone + b_zone + c_zone + d_zone + e_zone )
+		block

@@ -1,0 +1,91 @@
+:php
+
+  // Image
+  $image_url = get_poxy_banner();
+  if ($image_url) {
+    $image = 'background-image: url('. $image_url. ')';
+  }
+  else {
+    //- $image = 'background-image: url(http://placehold.it/1900x800)';
+    $image = false;
+  }
+
+
+  //- // Background Image
+  //- $slide_background_img = wp_get_attachment_image_src(get_post_meta($post->ID, "_poxy_slide_background_image", true), 'full');
+  //- $slide_background_img = $slide_background_img[0];
+  //- if ($slide_background_img) {
+  //-   $slide_background_img = "background-image: url(".$slide_background_img.");";
+  //- }
+
+  // Sub Title
+  $sub_title = get_post_meta($post->ID, "_poxy_slide_sub_head", true);
+
+  // Copywrite
+  //- $copywrite_name = get_post_meta($post->ID, "_poxy_slide_image_copywrite_name", true);
+  //- $copywrite_link = get_post_meta($post->ID, "_poxy_slide_image_copywrite_link", true);
+
+  $copywrite_name = get_post_meta($post->ID, "_poxy_image_copywrite_name", true);
+  $copywrite_link = get_post_meta($post->ID, "_poxy_image_copywrite_link", true);
+
+  $sub_title = get_post_meta($id, "_poxy_sub_head", true);
+  $description = get_post_meta($id, "_poxy_description", true);
+  $bgp = get_post_meta($id, "_poxy_image_bgp", true);
+  $bgs = get_post_meta($id, "_poxy_image_bgs", true);
+
+
+  // BGS
+  $bgs = get_post_meta($id, "_poxy_image_bgs", true);
+  $bgs = $bgs ? $bgs : 'cover';
+
+  // BGP
+  $bgp = get_post_meta($id, "_poxy_image_bgp", true);
+  $bgp = $bgp ? $bgp : 'cc';
+
+  // Button
+  $button_url = get_post_meta($id, "_poxy_button_url", true);
+  $button_text = get_post_meta($id, "_poxy_button_text", true);
+  $button_text = $button_text ? $button_text : 'Read More';
+
+
+- if($image) :
+  div
+    section(class!='bg-black2 white clear ofh bgs-<?php echo $bgs; ?> bgp-<?php echo $bgp; ?>', style!='<?php echo $image; ?>')
+      //- .paxy.fill.shadow-l.z2.hd.he
+      //- .paxy.fill.shadow-r.z2.hd.he
+      - if ($copywrite_name) :
+          figcaption.copywrite.zeta.daxy.p4.z6
+            - echo $copywrite_name;
+      - endif;
+      //- div(class!='sw bgs-<?php echo $bgs; ?> bgp-<?php echo $bgp; ?>', style!='<?php echo $image; ?>')
+      div
+
+        .cw.rel.a_11.b_11.c_11.d_11.e_p11
+          //- .paxy.fill.shadow-l.z2.hd.he
+          //- .rel.mb0.qoxya18a_11.qoxyb14b_11.qoxyc14c_11.poxyd11d_12.poxye11e_12
+          //-   figure(class!='rel image _oxya11a_p100 qaxyb34b_p100 qaxyc11c_p100 _oxyd54d_p100 _oxye54e_p100 bgs-<?php echo $bgs; ?> bgp-<?php echo $bgp; ?>', style!='<?php echo $image; ?>')
+              //-
+          .rel.poxa18a_12.mb0.poxb14b_12.poxc14c_58.poxd14d_58.poxe11e_34.mlc-0
+            .wrap
+              .rel.paxya12a_12.paxyb12b_12.paxyc12c_58.poxd12d_58.poxe11e_12.ml0-a.ml0-b
+                .rel._oxap11a_p11.z6._oxbp11b_p11._oxcp11c_p11.poxdp11d_p11.poxep11e_p11.hide
+                  .rel.poxya12a_pox.poxyb12b_pox.poxyc12c_pox.poxyd11d_pox.poxye11e_pox
+                    h2.black.txa-11.txb-9.txc-8.txd-8.mt1-d.txe-7.mt1-e
+                      - the_title();
+                  - if ($sub_title) :
+                      .rel.poxya38a_pox.poxyb38b_pox.poxyc38c_pox.poxyd38d_pox.poxye11e_pox
+                        .txa-6.mt2-a.accent.txb-3.mt2-b.txc-3.mt2-c.txd-2.mt2-d.txe-3.mt2-e
+                          - echo $sub_title;
+                  - endif;
+
+                  - if ($description) :
+                    .rel.poxa14a_14.poxyb14b_pox.poxyc14c_pox.poxyd11d_pox.poxye11e_pox
+                      - echo $description;
+                  - endif;
+
+                  - if($button_url) :
+                      .rel.poxap11a_14.poxbp11b_14.poxcp11c_14.poxdp11d_14.poxep11e_14
+                        a.poxy.mt1(href!="<?php echo $button_url; ?>", rel="bookmark")
+                          button.p2 Read More
+                  - endif;
+- endif;
