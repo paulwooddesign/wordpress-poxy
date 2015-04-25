@@ -121,6 +121,30 @@
   background-image: linear-gradient(-45deg,#fff 0%,rgba(210,210,210,0.5) 100%) !important;
 }
 
+.divider {
+  height: 1px;
+}
+
+.bgc__dark__10 {
+  background-color: rgba(0,0,0,0.1);
+}
+
+.bgc__dark__20 {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.bgc__dark__30 {
+  background-color: rgba(0,0,0,0.3);
+}
+
+.bgc__dark__40 {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.bgc__dark__50 {
+  background-color: rgba(0,0,0,0.5);
+}
+
 button,
 .button {
   letter-spacing: .1rem;
@@ -147,10 +171,6 @@ button:hover,
 
 .bg-main {
   background-color: #f0f0f0;
-}
-
-.accent {
-  color: #000 !important;
 }
 
 .bs-cb {
@@ -435,6 +455,10 @@ section:after {
 section.clear:before,
 section.clear:after {
   display: none !important;
+}
+
+section:nth-child(2n+2) {
+  background: rgba(0,0,0,0.03);
 }
 
 .progress svg:nth-child(2) path {

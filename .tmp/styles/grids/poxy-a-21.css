@@ -6,6 +6,51 @@ body {
   background-color: #ffc107;
 }
 
+.bgc__accent__0 {
+  background-color: rgba(255,193,7,0);
+}
+
+.bgc__accent__10 {
+  background-color: rgba(255,193,7,0.1);
+}
+
+.bgc__accent__20 {
+  background-color: rgba(255,193,7,0.2);
+}
+
+.bgc__accent__30 {
+  background-color: rgba(255,193,7,0.3);
+}
+
+.bgc__accent__40 {
+  background-color: rgba(255,193,7,0.4);
+}
+
+.bgc__accent__50 {
+  background-color: rgba(255,193,7,0.5);
+}
+
+.bgc__accent__60 {
+  background-color: rgba(255,193,7,0.6);
+}
+
+.bgc__accent__70 {
+  background-color: rgba(255,193,7,0.7);
+}
+
+.bgc__accent__80 {
+  background-color: rgba(255,193,7,0.8);
+}
+
+.bgc__accent__90 {
+  background-color: rgba(255,193,7,0.9);
+}
+
+.bgc__accent,
+.bgc__accent__100 {
+  background-color: #ffc107;
+}
+
 .fs___1 {
   font-size: .354rem;
 }
@@ -2018,6 +2063,14 @@ body {
 .m4,
 .m4-a {
   margin: .75rem .75rem !important;
+}
+
+article p {
+  margin-top: .75rem;
+}
+
+article p:first-child {
+  margin-top: 0;
 }
 
 .taa__c {

@@ -40,11 +40,6 @@ require_once('admin/_CORE/images.php'); // Images
 ////////////////////////////////////////////
 // Load Theme Core
 ////////////////////////////////////////////
-// if (of_get_option('poxy_menu_type')) {
-// require_once('admin/_CORE/walkers/walker-'.of_get_option('poxy_menu_type').'.php');
-// } else {
-// require_once('admin/_CORE/walkers/walker.php');
-// }
 require_once('admin/short-codes.php');
 //require_once('admin/custom-post-types.php');
 require_once('admin/pagination.php');
@@ -57,28 +52,18 @@ require_once('admin/pagination.php');
 // Load Custom Post Type Custom Meta Classes
 require_once('admin/Tax-meta-class/Tax-meta-class.php');
 
-
+require_once('admin/post-types/post-type-settings.php');
+require_once('admin/post-types/post-type-classes.php');
 require_once('admin/post-types/post-type-projects.php');
 require_once('admin/post-types/post-type-links.php');
-require_once('admin/plugins/post-type-slideshow.php');
-require_once('admin/post-types/post-type-client.php');
+// require_once('admin/plugins/post-type-slideshow.php');
 
-// require_once('admin/plugins/projects.php');
-// require_once('admin/plugins/post-type-vehicles.php');
-// require_once('admin/plugins/post-type-author.php');
-// require_once('admin/plugins/post-type-vip.php');
 // require_once('admin/plugins/post-type-faq.php');
-// require_once('admin/plugins/post-type-events.php');
-// require_once('admin/plugins/post-type-staff.php');
-require_once('admin/plugins/post-type-testimonials.php');
-// require_once('admin/plugins/post-type-locations.php');
-// require_once('admin/plugins/post-type-dealers.php');
 
 
 // Common Meta Boxes
 require_once('admin/plugins/repeatable_fields.php');
-require_once('admin/plugins/page_meta.php');
-// require_once('admin/plugins/page_photo_gallery.php');
+require_once('admin/post-types/page_meta.php');
 
 
 // Widgets
@@ -103,7 +88,7 @@ function poxy_load_scripts() {
 }
 
 // Speed Ring Finder
-require_once('project-loader.php');
+// require_once('project-loader.php');
 
 
 ////////////////////////////////////////////

@@ -1,0 +1,33 @@
+:php
+- function grid($count, $x, $y) {
+- for ($i = 1; $i <= $count; $i++) {
+- echo '<figure class="a'.$x.'a_'.$y.'b'.$x.'b_'.$y.'c'.$x.'c_'.$y.'d'.$x.'d_'.$y.'e'.$x.'e_'.$y.' poxy bgc__accent__50"></figure>';
+- }
+- }
+
+- get_template_part( 'part-header' );
+section.fs___2.hole
+	.sw
+		.cw
+			figure.rel.poxy.a11a_18b11b_112c11c_112d11d_112e11e_112.bgc__accent__50
+				.oxy.hb.hc.hd.he a11a_18
+				.oxy.ha.hc.hd.he b11b_18
+				.oxy.ha.hb.hd.he c11c_18
+				.oxy.ha.hb.hc.he d11d_18
+				.oxy.ha.hb.hc.hd e11e_18
+
+
+			- grid(2,12,112);
+			- grid(3,13,112);
+			- grid(4,14,112);
+			- grid(5,15,112);
+			- grid(6,16,112);
+			//- - grid(7,17,112);
+			- grid(8,18,112);
+			//- - grid(9,19,112);
+			- grid(10,110,112);
+			- grid(11,111,112);
+			- grid(12,112,112);
+			- grid(14,114,112);
+			- grid(16,116,112);
+			- grid(18,118,112);

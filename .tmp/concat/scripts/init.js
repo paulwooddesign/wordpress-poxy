@@ -1,25 +1,4 @@
 (function ($) {
-  // skel.init({
-  // 	reset: 'full',
-  // 	breakpoints: {
-  // 		global: { href: '/content/themes/paulwood/styles/main.css' },
-  // 		// xlarge: { media: '(max-width: 1680px)', href: '/content/themes/paulwood/styles/poxy-a.css' },
-  // 		xlarge: { media: '(min-width: 1680px)', href: '/content/themes/paulwood/styles/poxy-a.css' },
-  // 		// large: { media: '(max-width: 1140px)', href: '/content/themes/paulwood/styles/poxy-b.css' },
-  // 		large: { media: '(max-width: 1680px)', href: '/content/themes/paulwood/styles/poxy-b.css' },
-  // 		// medium: { media: '(max-width: 980px)', href: '/content/themes/paulwood/styles/poxy-c.css' },
-  //
-  // 		zoneA17: { media: '(max-width: 1308px)', href: '/content/themes/paulwood/styles/poxy-a-17.css' },
-  // 		zoneA16: { media: '(max-width: 1392px)', href: '/content/themes/paulwood/styles/poxy-a-16.css' },
-  // 		// small: { media: '(max-width: 736px)', href: '/content/themes/paulwood/styles/poxy-d.css' },
-  //
-  // 		medium: { media: '(max-width: 1024px)', href: '/content/themes/paulwood/styles/poxy-c.css' },
-  // 		// small: { media: '(max-width: 736px)', href: '/content/themes/paulwood/styles/poxy-d.css' },
-  // 		small: { media: '(max-width: 696px)', href: '/content/themes/paulwood/styles/poxy-d.css' },
-  // 		xsmall: { media: '(max-width: 480px)', href: '/content/themes/paulwood/styles/poxy-e.css' }
-  // 		// xxsmall: { media: '(max-width: 320px)', href: 'css/style-xxsmall.css' }
-  // 	}
-  // });
   var gridPath = '/content/themes/poxy/styles/';
   // var gridPath = '/grids/'
   skel.init({
@@ -136,49 +115,22 @@
     compile($('#container').contents())(scope);
     scope.$apply();
   };
-  // var pauseVideo = function() {
-  // 	if (!document.getElementById("vid")) {
-  // 		var vid = document.getElementById("vid");
-  // 		vid.pause();
-  // 		alert('pause video');
-  // 	}
-  // }
-  //
-  // var setVideo = function() {
-  // 	if (!document.getElementById("vid")) {
-  // 		var vid = document.getElementById("vid");
-  // 		// vid.pause();
-  // 		// alert('video');
-  // 	}
-  // }
   pjax.connect({
     'container': 'container',
     'beforeSend': function (e) {
-      // document.getElementById('container').className = 'qoxyap80qoxybp80 static shadow-right-inset fade-out';
       $('body').removeClass('loaded');
       $('body').addClass('loading');
       document.getElementById('container').className = 'fade-out';
       document.getElementById('pjax-preloader').className = 'pfxy z10 fill';
-      // document.getElementById('pjax-loader').className = 'pjax-loader pjax-loader-animate';
-      // document.getElementById('container__preloader').className = 'paxy z10 fill fade-in';
-      // setTimeout(function () { document.getElementById('container__preloader').className = 'paxy z10 fill fade-in'; }, 300);
-      jQuery('#pjax-preloader').fadeIn();  // pauseVideo();
-                                           // alert("beforeSend");
+      jQuery('#pjax-preloader').fadeIn();  // alert("beforeSend");
     },
     'complete': function (e) {
       $('body').removeClass('loading');
       $('body').addClass('loaded');
-      // document.getElementById('container').className = 'qoxyap80qoxybp80 static shadow-right-inset fade-in';
       document.getElementById('container').className = 'fade-in';
       document.getElementById('pjax-preloader').className = 'pfxy z10 fill hide';
-      // document.getElementById('container__preloader').className = 'paxy z10 fill fade-out hide';
-      // document.getElementById('pjax-loader').className = 'pjax-loader';
-      // jQuery(".video-container").fitVids();
-      // jQuery( "#pjax-preloader" ).fadeOut();
-      // setTimeout(function () { containerScroller.refresh(); }, 0);
       //- This is a Hack to get the waypoints to refreash with pjax. NEED BETTER WAY. NO TIME
-      ngRefresh();  // setTimeout( function () { ngRefresh(); }, 10 );
-                    //- alert("Pjax Complete 2!");
+      ngRefresh();  //- alert("Pjax Complete 2!");
     }  //- 'complete': function(e){ console.log("done!"); },
   });
 }(jQuery));

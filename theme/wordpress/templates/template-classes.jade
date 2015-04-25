@@ -1,0 +1,158 @@
+:php
+  get_template_part( 'part-header' );
+
+
+  $taxonomy = 'class_cat';
+  $queried_term = get_query_var($taxonomy);
+
+  $args = array(
+    'orderby'       =>  'term_order',
+    'hide_empty'    => false,
+    'parent'        => 0
+  );
+
+  $cats = get_terms($taxonomy, $args);
+
+- foreach ($cats as $cat) :
+
+  - $link = get_term_link( $cat->slug, 'class_cat' );
+  - $title = $cat->name;
+  - $description = $cat->description;
+  - $slug = $cat->slug;
+  - $term_id = $cat->slug;
+  - $image = poxy_tax_image($term_id);
+  - $image = 'background-image: url('. $image. ')';
+
+  section
+    .sw
+      .cw
+        .poxy.a14b14
+          h1.bold.fs___6
+            - echo $cat->name;
+          p.fs___2.poxy.a15b15
+            - echo $cat->description;
+
+        .poxy.a34b34
+          .wrap
+            :php
+              $taxonomy = 'class_cat';
+              $queried_term = get_query_var($taxonomy);
+
+              $args = array(
+                'hide_empty'    => false,
+                'parent'        => $cat->term_id
+              );
+
+              $cats = get_terms($taxonomy, $args);
+
+            - foreach ($cats as $cat) :
+              - switch ($cat->name) : case "Fixed" :
+                .poxy.a14b14
+                  h2.poxy.p100.fs___5.bold.mb2
+                    - echo $cat->name;
+
+                  - $args = array( 'post_type' => 'class',  'posts_per_page' => 99, 'class_cat' => $cat->slug );
+                  - $loop = new WP_Query( $args );
+                  - while ( $loop->have_posts() ) : $loop->the_post();
+                    - global $post;
+                    - $id = $post->ID;
+                    - $example = get_post_meta($id, 'poxy_example', true);
+                    - $example = $example ? $example : false;
+                    - if ($example) :
+                      .poxy.p100.fs___4
+                        - echo $example;
+                    - endif;
+                  - endwhile;
+                  - wp_reset_query();
+
+                .poxy.rel.a12a_14b12b_14.bgc__dark__10
+                  .oxy
+                    | Hover to show
+
+              - break;
+              - default;
+                .poxy.a14b14
+                  h2.poxy.p100.fs___5.bold
+                    - echo $cat->name;
+                  p.fs___3.poxy.mb2
+                    - echo $cat->description;
+
+
+                  - $args = array( 'post_type' => 'class',  'posts_per_page' => 99, 'class_cat' => $cat->slug );
+                  - $loop = new WP_Query( $args );
+                  - while ( $loop->have_posts() ) : $loop->the_post();
+                    - global $post;
+                    - $id = $post->ID;
+                    - $example = get_post_meta($id, 'poxy_example', true);
+                    - $example = $example ? $example : false;
+
+                    - $important = get_post_meta($id, 'poxy_important', true);
+                    - $important = $important ? $important : false;
+
+                    - $options = get_post_meta($id, 'poxy_options', true);
+                    - $options = $options ? $options : false;
+
+                    - $var_type = get_post_meta($id, 'poxy_var_type', true);
+                    - $var_type = $var_type ? $var_type : false;
+
+                    - $default_val = get_post_meta($id, 'poxy_default_val', true);
+                    - $default_val = $default_val ? $default_val : false;
+
+                    //- h3.poxy.p100.fs___4.bold
+                    //-   span
+                    //-     |.
+                    //-   - the_title();
+
+                    - if ($example) :
+                      .poxy.p100.fs___4
+                        span
+                          |.
+                        - echo $example;
+                    - endif;
+
+                  - endwhile;
+                  - wp_reset_query();
+
+                //- Demo
+                .poxy.rel.a13a_14b12b_14.bgc__dark__10
+                  - $args = array( 'post_type' => 'class',  'posts_per_page' => 99, 'class_cat' => $cat->slug );
+                  - $loop = new WP_Query( $args );
+                  - while ( $loop->have_posts() ) : $loop->the_post();
+                    - global $post;
+                    - $id = $post->ID;
+                    - $example = get_post_meta($id, 'poxy_example', true);
+                    - $example = $example ? $example : false;
+
+                    - $important = get_post_meta($id, 'poxy_important', true);
+                    - $important = $important ? $important : false;
+
+                    - $options = get_post_meta($id, 'poxy_options', true);
+                    - $options = $options ? $options : false;
+
+                    - $var_type = get_post_meta($id, 'poxy_var_type', true);
+                    - $var_type = $var_type ? $var_type : false;
+
+                    - $default_val = get_post_meta($id, 'poxy_default_val', true);
+                    - $default_val = $default_val ? $default_val : false;
+
+                    - $title = get_the_title();
+
+                    div(class!='<?php echo $title; ?> a18a_18b18b_18 bgc__accent z10')
+                      .rel.a18a_18b18b_18
+                        .oxy
+                          span
+                            |.
+                          - the_title();
+
+                  - endwhile;
+                  - wp_reset_query();
+
+              - break;
+              - endswitch;
+
+              .poxy.p100.mb1
+                .divider.bgc__dark__10.poxy.a34b34
+
+            - endforeach;
+
+- endforeach;

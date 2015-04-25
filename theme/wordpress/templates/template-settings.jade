@@ -1,0 +1,89 @@
+- get_template_part( 'part-header' );
+
+- $taxonomy = 'setting_cat';
+- $queried_term = get_query_var($taxonomy);
+- $terms = get_the_terms($post->ID, $taxonomy);
+- $terms = get_terms($taxonomy, 'slug='.$queried_term  );
+
+- foreach ($terms as $term) :
+  section
+    .sw
+      .cw
+        .poxy.a14b14
+          h1.bold.fs___6
+            - echo $term->name;
+          p.fs___2.poxy.a15b15
+            - echo $term->description;
+
+        .poxy.a34b34
+          - $args = array( 'post_type' => 'setting',  'posts_per_page' => 99, 'setting_cat' => $term->slug );
+          - $loop = new WP_Query( $args );
+          - while ( $loop->have_posts() ) : $loop->the_post();
+            - global $post;
+            - $id = $post->ID;
+            - $example = get_post_meta($id, 'poxy_example', true);
+            - $example = $example ? $example : false;
+
+            - $important = get_post_meta($id, 'poxy_important', true);
+            - $important = $important ? $important : false;
+
+            - $options = get_post_meta($id, 'poxy_options', true);
+            - $options = $options ? $options : false;
+
+            - $var_type = get_post_meta($id, 'poxy_var_type', true);
+            - $var_type = $var_type ? $var_type : false;
+
+            - $default_val = get_post_meta($id, 'poxy_default_val', true);
+            - $default_val = $default_val ? $default_val : false;
+
+            h2.poxy.p100.fs___5.bold
+              - the_title();
+
+            article.wrap
+
+              .poxy.a13b13.mt4
+                .a14b14
+                  - the_content();
+
+                  - if ($example) :
+                    .poxy.bold.mt2.mb2.p100.fs___4
+                      //- span.bold.mt2.mr4 Effects:
+                      - echo $example;
+                  - endif;
+
+                  - if ($var_type) :
+                    .poxy.p100
+                      span.bold.mt4.mr4 Datatype:
+                      - echo $var_type;
+                  - endif;
+
+                  - if ($options) :
+                    .poxy.p100
+                      span.bold.mt4.mr4 Options:
+                      - echo $options;
+                  - endif;
+
+                  //- - if ($default_val) :
+                  //-   .poxy.p100
+                  //-     span.bold.mt4.mr4 Default Value:
+                  //-     - echo $default_val;
+                  //- - endif;
+
+
+
+
+
+              .poxy.a13b13.mt4
+                - if ($important) :
+                  p.fs___2.poxy
+                    span.accent *
+                    - echo $important;
+                - endif;
+
+            .poxy.p100.mb1
+              .divider.bgc__dark__10.poxy.a14b14
+
+          - endwhile;
+          - wp_reset_query();
+
+- endforeach;

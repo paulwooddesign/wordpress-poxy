@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * Registering meta boxes
  *
@@ -40,7 +40,7 @@ function poxy_register_meta_boxes( $meta_boxes )
     'title' => __( 'Standard Fields', 'rwmb' ),
 
     // Post types, accept custom post types as well - DEFAULT is array('post'). Optional.
-    'pages' => array( 'post', 'page' ),
+    'pages' => array( 'post', 'page', 'setting', 'class' ),
 
     // Where the meta box appear: normal (default), advanced, side. Optional.
     'context' => 'normal',
@@ -53,92 +53,159 @@ function poxy_register_meta_boxes( $meta_boxes )
 
     // List of meta fields
     'fields' => array(
-      // TEXT
-      array(
-        // Field name - Will be used as label
-        'name'  => __( 'Text', 'rwmb' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}text",
-        // Field description (optional)
-        'desc'  => __( 'Text description', 'rwmb' ),
-        'type'  => 'text',
-        // Default value (optional)
-        'std'   => __( 'Default text value', 'rwmb' ),
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => true,
-      ),
-      // CHECKBOX
-      array(
-        'name' => __( 'Checkbox', 'rwmb' ),
-        'id'   => "{$prefix}checkbox",
-        'type' => 'checkbox',
-        // Value can be 0 or 1
-        'std'  => 1,
-      ),
       // RADIO BUTTONS
       array(
-        'name'    => __( 'Radio', 'rwmb' ),
-        'id'      => "{$prefix}radio",
+        'name'    => __( 'Var Type', 'rwmb' ),
+        'id'      => "{$prefix}var_type",
         'type'    => 'radio',
         // Array of 'value' => 'Label' pairs for radio options.
         // Note: the 'value' is stored in meta field, not the 'Label'
         'options' => array(
-          'value1' => __( 'Label1', 'rwmb' ),
-          'value2' => __( 'Label2', 'rwmb' ),
+          'Array' => __( 'Array', 'rwmb' ),
+          'String' => __( 'String', 'rwmb' ),
+          'Integer' => __( 'Integer', 'rwmb' ),
+          'Boolean' => __( 'Boolean', 'rwmb' ),
         ),
       ),
-      // SELECT BOX
+      // TEXT
       array(
-        'name'     => __( 'Select', 'rwmb' ),
-        'id'       => "{$prefix}select",
-        'type'     => 'select',
-        // Array of 'value' => 'Label' pairs for select box
-        'options'  => array(
-          'value1' => __( 'Label1', 'rwmb' ),
-          'value2' => __( 'Label2', 'rwmb' ),
-        ),
-        // Select multiple values, optional. Default is false.
-        'multiple'    => false,
-        'std'         => 'value2',
-        'placeholder' => __( 'Select an Item', 'rwmb' ),
+        // Field name - Will be used as label
+        'name'  => __( 'Important Note', 'rwmb' ),
+        // Field ID, i.e. the meta key
+        'id'    => "{$prefix}important",
+        // Field description (optional)
+        'desc'  => __( '*important', 'rwmb' ),
+        'type'  => 'text',
+        // Default value (optional)
+        'std'   => __( '', 'rwmb' ),
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => false,
       ),
-      // HIDDEN
+      // TEXT
       array(
-        'id'   => "{$prefix}hidden",
-        'type' => 'hidden',
-        // Hidden field must have predefined value
-        'std'  => __( 'Hidden value', 'rwmb' ),
+        'name'  => __( 'Options', 'rwmb' ),
+        'id'    => "{$prefix}options",
+        'desc'  => __( 'setting options', 'rwmb' ),
+        'type'  => 'text',
+        'std'   => __( '', 'rwmb' ),
+        'clone' => false,
       ),
-      // PASSWORD
+      // TEXT
       array(
-        'name' => __( 'Password', 'rwmb' ),
-        'id'   => "{$prefix}password",
-        'type' => 'password',
+        'name'  => __( 'Default', 'rwmb' ),
+        'id'    => "{$prefix}default_val",
+        'desc'  => __( 'Default Value', 'rwmb' ),
+        'type'  => 'text',
+        'std'   => __( '', 'rwmb' ),
+        'clone' => false,
       ),
       // TEXTAREA
       array(
         'name' => __( 'Textarea', 'rwmb' ),
-        'desc' => __( 'Textarea description', 'rwmb' ),
-        'id'   => "{$prefix}textarea",
+        'desc' => __( 'Code Example', 'rwmb' ),
+        'id'   => "{$prefix}example",
         'type' => 'textarea',
         'cols' => 20,
         'rows' => 3,
       ),
-    ),
-    'validation' => array(
-      'rules' => array(
-        "{$prefix}password" => array(
-          'required'  => true,
-          'minlength' => 7,
-        ),
-      ),
-      // optional override of default jquery.validate messages
-      'messages' => array(
-        "{$prefix}password" => array(
-          'required'  => __( 'Password is required', 'rwmb' ),
-          'minlength' => __( 'Password must be at least 7 characters', 'rwmb' ),
-        ),
+      // TEXTAREA
+      array(
+        'name' => __( 'Textarea', 'rwmb' ),
+        'desc' => __( 'Demo', 'rwmb' ),
+        'id'   => "{$prefix}demo",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
       )
+      // // WYSIWYG/RICH TEXT EDITOR
+      // array(
+      //   'name' => __( 'Example', 'rwmb' ),
+      //   'id'   => "{$prefix}example",
+      //   'type' => 'wysiwyg',
+      //   // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+      //   'raw'  => false,
+      //   'std'  => __( '', 'rwmb' ),
+      //
+      //   // Editor settings, see wp_editor() function: look4wp.com/wp_editor
+      //   'options' => array(
+      //     'textarea_rows' => 4,
+      //     'teeny'         => true,
+      //     'media_buttons' => false,
+      //   ),
+      // )
+
+    //   // CHECKBOX
+    //   array(
+    //     'name' => __( 'Checkbox', 'rwmb' ),
+    //     'id'   => "{$prefix}checkbox",
+    //     'type' => 'checkbox',
+    //     // Value can be 0 or 1
+    //     'std'  => 1,
+    //   ),
+    //   // RADIO BUTTONS
+    //   array(
+    //     'name'    => __( 'Radio', 'rwmb' ),
+    //     'id'      => "{$prefix}radio",
+    //     'type'    => 'radio',
+    //     // Array of 'value' => 'Label' pairs for radio options.
+    //     // Note: the 'value' is stored in meta field, not the 'Label'
+    //     'options' => array(
+    //       'value1' => __( 'Label1', 'rwmb' ),
+    //       'value2' => __( 'Label2', 'rwmb' ),
+    //     ),
+    //   ),
+    //   // SELECT BOX
+    //   array(
+    //     'name'     => __( 'Select', 'rwmb' ),
+    //     'id'       => "{$prefix}select",
+    //     'type'     => 'select',
+    //     // Array of 'value' => 'Label' pairs for select box
+    //     'options'  => array(
+    //       'value1' => __( 'Label1', 'rwmb' ),
+    //       'value2' => __( 'Label2', 'rwmb' ),
+    //     ),
+    //     // Select multiple values, optional. Default is false.
+    //     'multiple'    => false,
+    //     'std'         => 'value2',
+    //     'placeholder' => __( 'Select an Item', 'rwmb' ),
+    //   ),
+    //   // HIDDEN
+    //   array(
+    //     'id'   => "{$prefix}hidden",
+    //     'type' => 'hidden',
+    //     // Hidden field must have predefined value
+    //     'std'  => __( 'Hidden value', 'rwmb' ),
+    //   ),
+    //   // PASSWORD
+    //   array(
+    //     'name' => __( 'Password', 'rwmb' ),
+    //     'id'   => "{$prefix}password",
+    //     'type' => 'password',
+    //   ),
+    //   // TEXTAREA
+    //   array(
+    //     'name' => __( 'Textarea', 'rwmb' ),
+    //     'desc' => __( 'Textarea description', 'rwmb' ),
+    //     'id'   => "{$prefix}textarea",
+    //     'type' => 'textarea',
+    //     'cols' => 20,
+    //     'rows' => 3,
+    //   ),
+    // ),
+    // 'validation' => array(
+    //   'rules' => array(
+    //     "{$prefix}password" => array(
+    //       'required'  => true,
+    //       'minlength' => 7,
+    //     ),
+    //   ),
+    //   // optional override of default jquery.validate messages
+    //   'messages' => array(
+    //     "{$prefix}password" => array(
+    //       'required'  => __( 'Password is required', 'rwmb' ),
+    //       'minlength' => __( 'Password must be at least 7 characters', 'rwmb' ),
+    //     ),
+    //   )
     )
   );
 
@@ -404,10 +471,10 @@ function poxy_register_meta_boxes( $meta_boxes )
 // $prefix = "_poxy_";
 
 // $section_layout = array(
-//   "1" => "one", 
-//   "2" => "Two", 
-//   "3" => "Three", 
-//   "4" => "Four", 
+//   "1" => "one",
+//   "2" => "Two",
+//   "3" => "Three",
+//   "4" => "Four",
 //   "5" => "Five",
 //   "6" => "Six",
 //   "7" => "Seven",
@@ -417,54 +484,54 @@ function poxy_register_meta_boxes( $meta_boxes )
 // );
 
 // $config = array(
-//     'id' => 'page_options', 
+//     'id' => 'page_options',
 //     'title' => 'Page Options',
 //     'prefix' => $prefix."page_",
 //     'postType' => array('page'),
-//     'context' => 'side', 
-//     'priority' => 'default', 
-//     'usage' => 'theme', 
-//     'showInColumns' => false 
+//     'context' => 'side',
+//     'priority' => 'default',
+//     'usage' => 'theme',
+//     'showInColumns' => false
 // );
 
 // $page_options_meta_box = new mrMetaBox($config);
 
 
 // $page_options_meta_box->addField(array(
-//   'type' => 'Select', 
-//   'id' => "section_layout", 
+//   'type' => 'Select',
+//   'id' => "section_layout",
 //   'label' => __('Section Layout: ','poxy'),
-//   'default' => '', 
+//   'default' => '',
 //   'options' => $section_layout
 // ));
 
 // $page_options_meta_box->addField(array(
 //   'type' => 'Textarea',
-//   'id' => 'sub_head', 
+//   'id' => 'sub_head',
 //   'label' => __('Sub Heading: ','poxy')
 // ));
 
 // $page_options_meta_box->addField(array(
 //   'type' => 'Textarea',
-//   'id' => 'description', 
+//   'id' => 'description',
 //   'label' => __('Description: ','poxy')
 // ));
 
 // $page_options_meta_box->addField(array(
-//   'type' => 'Checkbox', 
-//   'id' => 'featured', 
+//   'type' => 'Checkbox',
+//   'id' => 'featured',
 //   'label' => __('Featured: ','poxy')
 // ));
 
 // $page_options_meta_box->addField(array(
 //   'type' => 'Text',
-//   'id' => 'background_color', 
+//   'id' => 'background_color',
 //   'label' => __('Background Color(#hex): ','poxy')
 // ));
 
 // $page_options_meta_box->addField(array(
 //   'type' => 'Text',
-//   'id' => 'font_color', 
+//   'id' => 'font_color',
 //   'label' => __('Font Color(#hex): ','poxy')
 // ));
 

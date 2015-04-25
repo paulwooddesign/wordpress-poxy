@@ -42,9 +42,40 @@ $gy_rem = (($gy) / $em)rem
 /////////////////////////////////
 // Zone Custom Styles
 /////////////////////////////////
+accent = #E91E63
+
 body
 	line-height 1.2
+
 .logo-color
-	background-color #E91E63
+	background-color accent
+
+.accent,
+.c__accent
+	color color_accent !important
+
+.bgc__accent__0
+	background-color rgba(accent, 0)
+.bgc__accent__10
+	background-color rgba(accent, .10)
+.bgc__accent__20
+	background-color rgba(accent, .20)
+.bgc__accent__30
+	background-color rgba(accent, .30)
+.bgc__accent__40
+	background-color rgba(accent, .40)
+.bgc__accent__50
+	background-color rgba(accent, .50)
+.bgc__accent__60
+	background-color rgba(accent, .60)
+.bgc__accent__70
+	background-color rgba(accent, .70)
+.bgc__accent__80
+	background-color rgba(accent, .80)
+.bgc__accent__90
+	background-color rgba(accent, .90)
+.bgc__accent,
+.bgc__accent__100
+	background-color rgba(accent, 1)
 
 poxy-type-scale($type_scale, $zone_lower)
